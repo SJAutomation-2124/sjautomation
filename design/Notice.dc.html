@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" />
+  <style>
+    body { margin: 0; font-family: 'IBM Plex Sans KR', 'Malgun Gothic', system-ui, sans-serif; color: #0E1319; background: #F7F8F9; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #10428E; text-decoration: none; }
+    a:hover { color: #0A2E68; }
+    .mono { font-family: 'IBM Plex Mono', Consolas, monospace; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; background: #F7F8F9; background-image: linear-gradient(#EDF0F3 1px, transparent 1px), linear-gradient(90deg, #EDF0F3 1px, transparent 1px); background-size: 48px 48px;">
+
+  <!-- HEADER -->
+  <header style="background: #161D25;">
+    <div style="display: flex; justify-content: space-between; align-items: center; height: 36px; padding: 0 48px; border-bottom: 1px solid #2E3843;">
+      <div class="mono" style="font-size: 11px; color: #8A939C; letter-spacing: 0.04em;">경기 광명 · 로보틱스/임베디드/PLC 솔루션 팀　　경기 화성 · 자동화 기계 제작/가공 솔루션 팀</div>
+      <div class="mono" style="font-size: 11px; color: #AAB4BE; letter-spacing: 0.04em;">T. [전화번호]　·　[이메일 주소]</div>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: center; height: 78px; padding: 0 48px;">
+      <div data-goto="main" style="display: flex; align-items: baseline; gap: 16px;">
+        <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #FFFFFF;">SJ AUTOMATION</span>
+        <span class="mono" style="font-size: 11px; color: #AAB4BE; letter-spacing: 0.1em;">산업자동화 설계 · 제작</span>
+      </div>
+      <nav style="display: flex; gap: 8px; align-items: center;">
+        <a href="#" data-goto="about" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13); color: #CBD3DB;">회사소개</a>
+        <a href="#" data-goto="business" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13); color: #CBD3DB;">사업분야</a>
+        <a href="#" data-goto="works" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13); color: #CBD3DB;">실적사례</a>
+        <a href="#" data-goto="archive" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13); color: #CBD3DB;">자료실</a>
+        <a href="#" data-goto="notice" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; background: #3B82F6; border: 1px solid #3B82F6; color: #FFFFFF; box-shadow: 0 4px 18px rgba(59, 130, 246, 0.45);">공지사항</a>
+        <a href="#" data-goto="request" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; background: #FFFFFF; border: 1px solid #FFFFFF; color: #0E1319;">견적 문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 타이틀 -->
+  <section style="padding: 64px 48px 40px; background: #FFFFFF; border-bottom: 1px solid #DCE1E6;">
+    <div class="mono" style="display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.1em; color: #A9B2BA; margin-bottom: 26px;">
+      <span data-goto="main">HOME</span><span>/</span><span style="color: #10428E;">NOTICE</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+      <div>
+        <h1 style="margin: 0 0 16px; font-size: 44px; font-weight: 600; letter-spacing: -0.025em;">공지사항</h1>
+        <p style="margin: 0; font-size: 16px; line-height: 1.85; color: #5A646E; max-width: 640px; text-wrap: pretty;">
+          휴무 안내, 설비 도입, 인증 취득처럼 거래처가 알아야 할 소식을 올립니다.
+        </p>
+      </div>
+      <div class="mono" style="font-size: 12px; color: #8A939C; letter-spacing: 0.06em; padding-bottom: 6px;">TOTAL [00]</div>
+    </div>
+  </section>
+
+  <!-- 목록 -->
+  <section style="padding: 40px 48px 96px;">
+    <div style="background: #FFFFFF; border: 1px solid #DCE1E6; padding: 36px 36px 40px;">
+
+      <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 26px;">
+        <div style="display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 16px; border: 1px solid #DCE1E6; width: 300px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A939C" stroke-width="1.6" stroke-linecap="square"><circle cx="11" cy="11" r="6" /><path d="M16 16l4 4" /></svg>
+          <span style="font-size: 14px; color: #B4BCC4;">제목 · 내용 검색</span>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 90px 1fr 140px 100px; border-top: 1.5px solid #0E1319;">
+
+        <div class="mono" style="padding: 15px 8px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; border-bottom: 1px solid #DCE1E6;">NO</div>
+        <div class="mono" style="padding: 15px 8px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; border-bottom: 1px solid #DCE1E6;">제목</div>
+        <div class="mono" style="padding: 15px 8px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; border-bottom: 1px solid #DCE1E6;">작성일</div>
+        <div class="mono" style="padding: 15px 8px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; border-bottom: 1px solid #DCE1E6;">조회</div>
+
+        <div style="padding: 18px 8px; border-bottom: 1px solid #EBEEF1;">
+          <span class="mono" style="display: inline-flex; align-items: center; height: 24px; padding: 0 9px; background: #10428E; color: #FFFFFF; font-size: 10px; letter-spacing: 0.08em;">공지</span>
+        </div>
+        <div data-goto="noticepost" style="padding: 18px 8px; font-size: 15px; font-weight: 500; border-bottom: 1px solid #EBEEF1;">[상단 고정 공지 제목이 들어갑니다]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">[000]</div>
+
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">6</div>
+        <div data-goto="noticepost" style="padding: 18px 8px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">[공지 제목이 들어갑니다]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">[000]</div>
+
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">5</div>
+        <div data-goto="noticepost" style="padding: 18px 8px; font-size: 15px; border-bottom: 1px solid #EBEEF1; display: flex; align-items: center; gap: 10px;">
+          <span>[공지 제목이 들어갑니다]</span>
+          <span class="mono" style="display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border: 1px solid #DCE1E6; color: #8A939C; font-size: 10px;">첨부 1</span>
+        </div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">[000]</div>
+
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">4</div>
+        <div data-goto="noticepost" style="padding: 18px 8px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">[공지 제목이 들어갑니다]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">[000]</div>
+
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">3</div>
+        <div data-goto="noticepost" style="padding: 18px 8px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">[공지 제목이 들어갑니다]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">[000]</div>
+
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">2</div>
+        <div data-goto="noticepost" style="padding: 18px 8px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">[공지 제목이 들어갑니다]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">[000]</div>
+
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">1</div>
+        <div data-goto="noticepost" style="padding: 18px 8px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">[공지 제목이 들어갑니다]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+        <div class="mono" style="padding: 18px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">[000]</div>
+
+      </div>
+
+      <div style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 40px;">
+        <a href="#" class="mono" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #0E1319; color: #FFFFFF; font-size: 13px;">1</a>
+        <a href="#" class="mono" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid #DCE1E6; background: #FFFFFF; color: #0E1319; font-size: 13px;">›</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding: 60px 48px 44px; background: #FFFFFF; border-top: 1px solid #DCE1E6;">
+    <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; padding-bottom: 40px; border-bottom: 1px solid #EBEEF1;">
+      <div style="grid-column: span 4;">
+        <div style="font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 12px;">SJ AUTOMATION</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.85; color: #8A939C;">산업 자동화 기계 설계 · 제작<br />모션 제어 · 스마트팩토리 고도화</p>
+      </div>
+      <div style="grid-column: span 4;">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.12em; color: #10428E; margin-bottom: 14px;">GWANGMYEONG</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.85; color: #5A646E;">경기도 광명시 원광명로 [상세 주소]<br />로보틱스 · 임베디드 · PLC 솔루션 팀</p>
+      </div>
+      <div style="grid-column: span 4;">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.12em; color: #10428E; margin-bottom: 14px;">HWASEONG</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.85; color: #5A646E;">경기도 화성시 팔탄면 [상세 주소]<br />자동화 기계 제작 · 가공 솔루션 팀</p>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 26px;">
+      <div class="mono" style="font-size: 11px; color: #A9B2BA; letter-spacing: 0.04em;">
+        사업자등록번호 [000-00-00000]　·　대표 [대표자명]　·　T. [전화번호]　·　[이메일 주소]
+      </div>
+      <div style="display: flex; gap: 24px;">
+        <a href="#" style="font-size: 12px; color: #8A939C;">이용약관</a>
+        <a href="#" style="font-size: 12px; color: #8A939C;">개인정보처리방침</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

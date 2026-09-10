@@ -1,0 +1,115 @@
+# SJ AUTOMATION 홈페이지 — 인수인계 문서
+
+이 폴더(`sj-automation`) 전체를 그대로 새 PC로 옮기면, 대화 내용 없이도
+이 문서 하나만 읽으면 이어서 작업할 수 있게 정리했습니다.
+
+작성일: 2026-09-10
+
+---
+
+## 1. 확정된 것 (다시 논의할 필요 없음)
+
+| 항목 | 내용 |
+|---|---|
+| 도메인 | **sjautosolution.com** (가비아에서 구매 완료, 등록 2026-09-10 / 만료 2027-09-10) |
+| 회사명 | SJ AUTOMATION 그대로 사용 (도메인만 다른 이름으로 우회) |
+| 디자인 방향 | "정밀 도면" 스타일 — 흰 바탕, 얇은 그리드, 딥블루(#10428E) 포인트 |
+| 헤더 스타일 | 어두운 바(#161D25) + 밝은 파랑(#3B82F6) 버튼형 메뉴 |
+| 서체 | IBM Plex Sans KR (본문) / IBM Plex Mono (라벨·숫자) |
+| 스택 | Next.js 15 + Vercel(무료 배포) + Supabase(무료 DB) |
+| 구성 | 메인 / 회사소개 / 사업분야 / 실적사례(목록·상세) / 자료실 / 공지사항(목록·상세) / 문의(비공개 폼 + 공개 게시판) |
+| 예상 비용 | 도메인만 연 1.3~1.8만원, 서버비 0원 |
+
+**도메인이 왜 sjautosolution.com인지**: sjautomation.com/.net/.co.kr/.kr, sj-automation.com,
+sjrobotics.com이 전부 타사(경기 화성의 "삼정오토메이션" 등)가 이미 소유하고 있어서,
+회사명은 그대로 두고 도메인만 다르게 잡았습니다.
+
+## 2. 지금까지 만든 것
+
+`web/` 폴더 — 실제 Next.js 프로젝트 (배포할 코드)
+
+- 메인 페이지 (`app/page.tsx`)
+- 회사소개 페이지 (`app/about/page.tsx`) — **대표 인사말은 Claude가 직접 작성**해서
+  넣었습니다. 톤이 마음에 안 들면 이 파일 안의 문단만 고치면 됩니다.
+- 공통 헤더/푸터 (`components/SiteHeader.tsx`, `components/SiteFooter.tsx`)
+- 디자인 시스템 CSS (`app/globals.css`)
+- Git 저장소로 초기화 + 첫 커밋 완료 (커밋 로그에 상세 내용 있음)
+- 빌드 확인: 타입 에러 0개, 보안 취약점 0개, 로컬 서버(`localhost:3000`)로
+  실제 렌더링까지 확인 완료
+
+`design/` 폴더 — 시안 원본 (참고용, 배포 대상 아님)
+
+- `*.dc.html` 열 개 — 승인된 화면별 정적 시안 원본
+- `*.jpg` — 시안/실사이트에 쓴 실적 사진 (아임웹 원본 사이트에서 가져온 것)
+- 시안 아티팩트: https://claude.ai/code/artifact/259227a6-420d-4fdf-98d2-3887cbb3fcf6
+- 실사이트 미리보기: https://claude.ai/code/artifact/2fafa574-7b26-40e7-8b35-cedb1efc3133
+
+## 3. 아직 안 만든 것
+
+- 페이지: 사업분야, 실적사례(목록·상세), 자료실, 공지사항(목록·상세), 문의
+- Supabase 연동: 게시판 CRUD, 비공개 견적문의 폼 저장, 관리자 로그인, 메일 알림
+- 아래 4번의 대괄호 정보 채우기
+
+## 4. 아직 못 받은 정보 (대괄호 `[ ]`로 남긴 것)
+
+전화번호·이메일은 딱 두 파일 위쪽 상수만 고치면 사이트 전체에 반영됩니다:
+`components/SiteHeader.tsx`, `components/SiteFooter.tsx`
+
+- 전화번호, 이메일 주소
+- 광명·화성 사업장 상세 주소
+- 사업자등록번호, 대표자명, 설립일, 임직원 수
+- 연혁 (설립 이후 주요 사건 — 지금은 실적으로 확인된 것만 2026년 항목에 넣어둠)
+- 실적 상세 페이지용 프로젝트별 설명 (배경/진행/결과) — 아직 페이지 자체를 안 만들어서 보류 중
+
+## 5. 새 PC에서 이어서 하는 절차
+
+### 5-1. 폴더 옮기기
+
+이 `sj-automation` 폴더 전체를 그대로 복사하면 됩니다. `web/node_modules`와
+`web/.next`는 있으면 지우고 옮기세요 (용량만 크고, 새 PC에서 다시 만들어짐).
+전부 빼면 폴더 전체가 1MB 남짓이라 USB든 클라우드든 압축이든 뭐든 괜찮습니다.
+
+```
+sj-automation/
+├── HANDOFF.md          ← 이 문서
+├── design/             ← 시안 원본 (참고용)
+└── web/                ← 실제 배포할 프로젝트 (git 저장소로 이미 초기화됨)
+```
+
+### 5-2. 새 PC에서 준비
+
+1. [nodejs.org](https://nodejs.org)에서 LTS 버전 설치
+2. `web` 폴더에서 터미널 열고:
+   ```
+   npm install
+   npm run dev
+   ```
+3. 브라우저에서 `http://localhost:3000` 열어서 지금까지 만든 화면 확인
+
+### 5-3. GitHub에 올리기
+
+`web` 폴더는 이미 `git init` + 첫 커밋까지 되어 있습니다. GitHub에 새 저장소를
+만든 뒤:
+
+```
+cd web
+git remote add origin <새로 만든 저장소 주소>
+git branch -M main
+git push -u origin main
+```
+
+### 5-4. Vercel 연결
+
+1. [vercel.com](https://vercel.com) 가입 (GitHub 계정으로 로그인하면 편함)
+2. "New Project" → 방금 올린 저장소 선택 → Deploy
+3. 몇 분 안에 임시 주소(`*.vercel.app`)가 나오면 배포 성공
+4. Vercel 프로젝트 설정 → Domains → `sjautosolution.com` 추가
+5. 가비아 도메인 관리 화면에서 Vercel이 알려주는 값대로 네임서버/DNS 레코드 설정
+   (보통 10분~수 시간 내 반영)
+
+### 5-5. 이후 Claude와 이어서 작업하기
+
+새 PC에서 Claude Code를 켜고 이 `web` 폴더(또는 `sj-automation` 폴더)를 열어서,
+"이 프로젝트 HANDOFF.md 읽고 이어서 작업해줘"라고 하면 이 문서를 읽고 맥락을
+파악해서 이어갈 수 있습니다. 이전 대화 내용 자체는 다른 PC로 넘어가지 않지만,
+이 문서 + git 커밋 로그 + 코드 자체가 필요한 맥락을 대부분 담고 있습니다.

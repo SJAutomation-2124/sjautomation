@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" />
+  <style>
+    body { margin: 0; font-family: 'IBM Plex Sans KR', 'Malgun Gothic', system-ui, sans-serif; color: #0E1319; background: #F7F8F9; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #10428E; text-decoration: none; }
+    a:hover { color: #0A2E68; }
+    .mono { font-family: 'IBM Plex Mono', Consolas, monospace; }
+    .tick { position: relative; }
+    .tick::before, .tick::after { content: ''; position: absolute; width: 16px; height: 16px; }
+    .tick::before { top: -1px; left: -1px; border-top: 1px solid #10428E; border-left: 1px solid #10428E; }
+    .tick::after { bottom: -1px; right: -1px; border-bottom: 1px solid #10428E; border-right: 1px solid #10428E; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; background: #F7F8F9; background-image: linear-gradient(#EDF0F3 1px, transparent 1px), linear-gradient(90deg, #EDF0F3 1px, transparent 1px); background-size: 48px 48px;">
+
+  <!-- HEADER -->
+  <header style="background: #161D25;">
+    <div style="display: flex; justify-content: space-between; align-items: center; height: 36px; padding: 0 48px; border-bottom: 1px solid #2E3843;">
+      <div class="mono" style="font-size: 11px; color: #8A939C; letter-spacing: 0.04em;">경기 광명 · 로보틱스/임베디드/PLC 솔루션 팀　　경기 화성 · 자동화 기계 제작/가공 솔루션 팀</div>
+      <div class="mono" style="font-size: 11px; color: #AAB4BE; letter-spacing: 0.04em;">T. [전화번호]　·　[이메일 주소]</div>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: center; height: 78px; padding: 0 48px;">
+      <div data-goto="main" style="display: flex; align-items: baseline; gap: 16px;">
+        <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #FFFFFF;">SJ AUTOMATION</span>
+        <span class="mono" style="font-size: 11px; color: #AAB4BE; letter-spacing: 0.1em;">산업자동화 설계 · 제작</span>
+      </div>
+      <nav style="display: flex; gap: 8px; align-items: center;">
+        <a href="#" data-goto="about" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; background: #3B82F6; border: 1px solid #3B82F6; color: #FFFFFF; box-shadow: 0 4px 18px rgba(59, 130, 246, 0.45);">회사소개</a>
+        <a href="#" data-goto="business" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13); color: #CBD3DB;">사업분야</a>
+        <a href="#" data-goto="works" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13); color: #CBD3DB;">실적사례</a>
+        <a href="#" data-goto="archive" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13); color: #CBD3DB;">자료실</a>
+        <a href="#" data-goto="notice" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13); color: #CBD3DB;">공지사항</a>
+        <a href="#" data-goto="request" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; background: #FFFFFF; border: 1px solid #FFFFFF; color: #0E1319;">견적 문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 타이틀 -->
+  <section style="padding: 64px 48px 40px; background: #FFFFFF; border-bottom: 1px solid #DCE1E6;">
+    <div class="mono" style="display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.1em; color: #A9B2BA; margin-bottom: 26px;">
+      <span data-goto="main">HOME</span><span>/</span><span style="color: #10428E;">ABOUT</span>
+    </div>
+    <h1 style="margin: 0 0 16px; font-size: 44px; font-weight: 600; letter-spacing: -0.025em;">회사소개</h1>
+    <p style="margin: 0; font-size: 16px; line-height: 1.85; color: #5A646E; max-width: 680px; text-wrap: pretty;">
+      설계실과 공장을 함께 가지고 있습니다. 도면을 그리는 사람과 쇳가루를 만지는 사람이 같은 회사 안에 있어,
+      설계 변경이 생겨도 다음 날 바로 반영됩니다.
+    </p>
+  </section>
+
+  <!-- 인사말 -->
+  <section style="padding: 72px 48px 80px;">
+    <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: start;">
+      <div style="grid-column: span 7;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+          <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; color: #10428E;">01</span>
+          <span style="width: 28px; height: 1px; background: #C6CFD8;"></span>
+          <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; color: #8A939C;">GREETINGS</span>
+        </div>
+        <h2 style="margin: 0 0 28px; font-size: 34px; font-weight: 600; letter-spacing: -0.025em; line-height: 1.45; text-wrap: pretty;">
+          쪼개서 맡기면<br />책임질 사람이 없어집니다
+        </h2>
+        <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.95; color: #3C444D; max-width: 620px; text-wrap: pretty;">
+          장비 하나를 만들려면 설계, 가공, 조립, 전장, 제어, 시운전이 다 필요합니다.
+          이걸 업체 다섯 곳에 나눠 맡기면 문제가 생겼을 때 서로 책임을 미룹니다.
+          SJ AUTOMATION은 그 과정을 한 곳에서 끝내려고 만든 회사입니다.
+        </p>
+        <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.95; color: #3C444D; max-width: 620px; text-wrap: pretty;">
+          현장에서 오래 일하다 보면, 정말 잘 만든 장비는 설계자와 만든 사람이
+          같다는 걸 알게 됩니다. 도면을 그린 사람이 가공까지 지켜보고, 가공을 한 사람이
+          제어까지 손대야 어긋남 없이 돌아갑니다. SJ AUTOMATION은 그 원칙 하나로
+          시작한 회사입니다.
+        </p>
+        <p style="margin: 0 0 36px; font-size: 16px; line-height: 1.95; color: #3C444D; max-width: 620px; text-wrap: pretty;">
+          규모가 크지 않은 만큼, 문의 주신 내용은 저희 팀이 직접 검토하고 답을
+          드립니다. 할 수 있는 일과 시간이 걸리는 일을 정직하게 말씀드리는 것부터
+          시작하겠습니다.
+        </p>
+        <div style="display: flex; align-items: center; gap: 14px; padding-top: 24px; border-top: 1px solid #DCE1E6;">
+          <span class="mono" style="font-size: 11px; letter-spacing: 0.12em; color: #8A939C;">대표이사</span>
+          <span style="font-size: 17px; font-weight: 600; letter-spacing: -0.01em;">[대표자명]</span>
+        </div>
+      </div>
+
+      <div style="grid-column: span 5;">
+        <div class="tick" style="border: 1px solid #DCE1E6; padding: 9px; background: #FFFFFF;">
+          <img src="milling-bed.jpg" alt="가공 현장" style="display: block; width: 100%; height: 420px; object-fit: cover;" />
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 12px;">
+          <span class="mono" style="font-size: 11px; color: #5A646E; letter-spacing: 0.04em;">화성 공장 가공 현장</span>
+          <span class="mono" style="font-size: 11px; color: #A9B2BA; letter-spacing: 0.04em;">FIG. 01</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 회사 개요 -->
+  <section style="padding: 0 48px 88px;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+      <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; color: #10428E;">02</span>
+      <span style="width: 28px; height: 1px; background: #C6CFD8;"></span>
+      <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; color: #8A939C;">COMPANY PROFILE</span>
+    </div>
+    <h2 style="margin: 0 0 32px; font-size: 32px; font-weight: 600; letter-spacing: -0.02em;">회사 개요</h2>
+
+    <div style="display: grid; grid-template-columns: 160px 1fr 160px 1fr; background: #FFFFFF; border: 1px solid #DCE1E6;">
+      <div class="mono" style="padding: 20px 22px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; background: #FAFBFC; border-bottom: 1px solid #EBEEF1;">회사명</div>
+      <div style="padding: 20px 22px; font-size: 15px; border-bottom: 1px solid #EBEEF1; border-right: 1px solid #EBEEF1;">SJ AUTOMATION</div>
+      <div class="mono" style="padding: 20px 22px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; background: #FAFBFC; border-bottom: 1px solid #EBEEF1;">대표자</div>
+      <div style="padding: 20px 22px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">[대표자명]</div>
+
+      <div class="mono" style="padding: 20px 22px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; background: #FAFBFC; border-bottom: 1px solid #EBEEF1;">설립일</div>
+      <div class="mono" style="padding: 20px 22px; font-size: 15px; border-bottom: 1px solid #EBEEF1; border-right: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+      <div class="mono" style="padding: 20px 22px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; background: #FAFBFC; border-bottom: 1px solid #EBEEF1;">사업자등록번호</div>
+      <div class="mono" style="padding: 20px 22px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">[000-00-00000]</div>
+
+      <div class="mono" style="padding: 20px 22px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; background: #FAFBFC; border-bottom: 1px solid #EBEEF1;">임직원</div>
+      <div style="padding: 20px 22px; font-size: 15px; border-bottom: 1px solid #EBEEF1; border-right: 1px solid #EBEEF1;">[00]명</div>
+      <div class="mono" style="padding: 20px 22px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; background: #FAFBFC; border-bottom: 1px solid #EBEEF1;">주요 거래처</div>
+      <div style="padding: 20px 22px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">한양대학교 외 [00]개사</div>
+
+      <div class="mono" style="padding: 20px 22px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; background: #FAFBFC;">사업 분야</div>
+      <div style="padding: 20px 22px; font-size: 15px; line-height: 1.7; grid-column: span 3;">
+        자동화 기계 제작(턴키) · 설계 및 가공 · 모션/제어 솔루션 · 스마트팩토리 고도화
+      </div>
+    </div>
+  </section>
+
+  <!-- 두 사업장 -->
+  <section style="padding: 0 48px 88px;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+      <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; color: #10428E;">03</span>
+      <span style="width: 28px; height: 1px; background: #C6CFD8;"></span>
+      <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; color: #8A939C;">TWO SITES</span>
+    </div>
+    <h2 style="margin: 0 0 12px; font-size: 32px; font-weight: 600; letter-spacing: -0.02em;">사업장 두 곳</h2>
+    <p style="margin: 0 0 32px; font-size: 15px; line-height: 1.85; color: #5A646E; max-width: 640px;">
+      제어와 소프트웨어를 다루는 팀, 기계를 만드는 팀이 각각 자리를 잡고 있습니다.
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+      <article style="background: #FFFFFF; border: 1px solid #DCE1E6;">
+        <img src="code.jpg" alt="광명 사무소" style="display: block; width: 100%; height: 260px; object-fit: cover;" />
+        <div style="padding: 30px 30px 34px;">
+          <div class="mono" style="font-size: 11px; letter-spacing: 0.14em; color: #10428E; margin-bottom: 14px;">GWANGMYEONG</div>
+          <h3 style="margin: 0 0 12px; font-size: 21px; font-weight: 600; letter-spacing: -0.015em;">로보틱스 · 임베디드 · PLC 솔루션 팀</h3>
+          <p style="margin: 0 0 22px; font-size: 14px; line-height: 1.85; color: #5A646E;">
+            제어 로직, 임베디드 보드, 관제 소프트웨어를 설계하고 개발합니다. 연구 과제와 용역 개발도 이곳에서 진행합니다.
+          </p>
+          <div style="display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid #EBEEF1;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10428E" stroke-width="1.5" stroke-linecap="square"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+            <span style="font-size: 14px; color: #3C444D;">경기도 광명시 원광명로 [상세 주소]</span>
+          </div>
+        </div>
+      </article>
+
+      <article style="background: #FFFFFF; border: 1px solid #DCE1E6;">
+        <img src="cnc-machine.jpg" alt="화성 공장" style="display: block; width: 100%; height: 260px; object-fit: cover;" />
+        <div style="padding: 30px 30px 34px;">
+          <div class="mono" style="font-size: 11px; letter-spacing: 0.14em; color: #10428E; margin-bottom: 14px;">HWASEONG</div>
+          <h3 style="margin: 0 0 12px; font-size: 21px; font-weight: 600; letter-spacing: -0.015em;">자동화 기계 제작 · 가공 솔루션 팀</h3>
+          <p style="margin: 0 0 22px; font-size: 14px; line-height: 1.85; color: #5A646E;">
+            절곡, 절단, 대형 프레나, 선반, 밀링 설비를 직접 갖추고 부품 가공부터 장비 조립까지 처리합니다.
+          </p>
+          <div style="display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid #EBEEF1;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10428E" stroke-width="1.5" stroke-linecap="square"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+            <span style="font-size: 14px; color: #3C444D;">경기도 화성시 팔탄면 [상세 주소]</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 연혁 -->
+  <section style="padding: 80px 48px 88px; background: #0E1319;">
+    <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: start;">
+      <div style="grid-column: span 4;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+          <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; color: #6E9BE0;">04</span>
+          <span style="width: 28px; height: 1px; background: #39424C;"></span>
+          <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; color: #8A939C;">HISTORY</span>
+        </div>
+        <h2 style="margin: 0 0 20px; font-size: 32px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.02em; line-height: 1.4;">걸어온 길</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.85; color: #A9B2BA; text-wrap: pretty;">
+          [연혁은 설립, 사업장 이전이나 증설, 설비 도입, 인증 취득, 규모가 큰 납품 정도만 적으면 충분합니다.]
+        </p>
+      </div>
+
+      <div style="grid-column: span 8; display: flex; flex-direction: column;">
+        <div style="display: grid; grid-template-columns: 120px 1fr; gap: 28px; padding: 26px 0; border-top: 1px solid #2A323B;">
+          <div class="mono" style="font-size: 20px; color: #6E9BE0; letter-spacing: 0.02em;">[2026]</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-size: 15px; color: #E8EBEE;">한양대학교 무인 굴삭기 조종 관제 시스템 납품</span>
+            <span style="font-size: 15px; color: #E8EBEE;">한양대학교 모바일 로봇 조종기 커스텀 제작</span>
+            <span style="font-size: 15px; color: #A9B2BA;">[그 해의 다른 실적을 적습니다]</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 120px 1fr; gap: 28px; padding: 26px 0; border-top: 1px solid #2A323B;">
+          <div class="mono" style="font-size: 20px; color: #6E9BE0; letter-spacing: 0.02em;">[2025]</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-size: 15px; color: #A9B2BA;">[주요 납품 또는 설비 도입 내용]</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 120px 1fr; gap: 28px; padding: 26px 0; border-top: 1px solid #2A323B;">
+          <div class="mono" style="font-size: 20px; color: #6E9BE0; letter-spacing: 0.02em;">[2023]</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-size: 15px; color: #A9B2BA;">[주요 납품 또는 설비 도입 내용]</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 120px 1fr; gap: 28px; padding: 26px 0; border-top: 1px solid #2A323B; border-bottom: 1px solid #2A323B;">
+          <div class="mono" style="font-size: 20px; color: #6E9BE0; letter-spacing: 0.02em;">[설립]</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-size: 15px; color: #A9B2BA;">SJ AUTOMATION 설립</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding: 76px 48px; background: #10428E;">
+    <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: center;">
+      <div style="grid-column: span 7;">
+        <h2 style="margin: 0 0 16px; font-size: 34px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.02em; line-height: 1.4;">한 번 이야기해 보시죠</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.85; color: #C5D6F2; max-width: 560px; text-wrap: pretty;">
+          지금 고민 중인 공정이나 장비가 있다면, 가능한지부터 같이 따져보겠습니다.
+        </p>
+      </div>
+      <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 12px; align-items: flex-end;">
+        <a href="#" style="display: flex; align-items: center; justify-content: center; width: 260px; height: 56px; background: #FFFFFF; color: #10428E; font-size: 15px; font-weight: 600; border-radius: 2px;" data-goto="request">제작 · 견적 문의하기</a>
+        <a href="#" class="mono" style="display: flex; align-items: center; justify-content: center; width: 260px; height: 56px; border: 1px solid #5C82C4; color: #FFFFFF; font-size: 14px; letter-spacing: 0.04em; border-radius: 2px;">T. [전화번호]</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding: 60px 48px 44px; background: #FFFFFF; border-top: 1px solid #DCE1E6;">
+    <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; padding-bottom: 40px; border-bottom: 1px solid #EBEEF1;">
+      <div style="grid-column: span 4;">
+        <div style="font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 12px;">SJ AUTOMATION</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.85; color: #8A939C;">산업 자동화 기계 설계 · 제작<br />모션 제어 · 스마트팩토리 고도화</p>
+      </div>
+      <div style="grid-column: span 4;">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.12em; color: #10428E; margin-bottom: 14px;">GWANGMYEONG</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.85; color: #5A646E;">경기도 광명시 원광명로 [상세 주소]<br />로보틱스 · 임베디드 · PLC 솔루션 팀</p>
+      </div>
+      <div style="grid-column: span 4;">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.12em; color: #10428E; margin-bottom: 14px;">HWASEONG</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.85; color: #5A646E;">경기도 화성시 팔탄면 [상세 주소]<br />자동화 기계 제작 · 가공 솔루션 팀</p>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 26px;">
+      <div class="mono" style="font-size: 11px; color: #A9B2BA; letter-spacing: 0.04em;">
+        사업자등록번호 [000-00-00000]　·　대표 [대표자명]　·　T. [전화번호]　·　[이메일 주소]
+      </div>
+      <div style="display: flex; gap: 24px;">
+        <a href="#" style="font-size: 12px; color: #8A939C;">이용약관</a>
+        <a href="#" style="font-size: 12px; color: #8A939C;">개인정보처리방침</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

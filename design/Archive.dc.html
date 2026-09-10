@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" />
+  <style>
+    body { margin: 0; font-family: 'IBM Plex Sans KR', 'Malgun Gothic', system-ui, sans-serif; color: #0E1319; background: #F7F8F9; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #10428E; text-decoration: none; }
+    a:hover { color: #0A2E68; }
+    .mono { font-family: 'IBM Plex Mono', Consolas, monospace; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; background: #F7F8F9; background-image: linear-gradient(#EDF0F3 1px, transparent 1px), linear-gradient(90deg, #EDF0F3 1px, transparent 1px); background-size: 48px 48px;">
+
+  <!-- HEADER -->
+  <header style="background: #161D25;">
+    <div style="display: flex; justify-content: space-between; align-items: center; height: 36px; padding: 0 48px; border-bottom: 1px solid #2E3843;">
+      <div class="mono" style="font-size: 11px; color: #8A939C; letter-spacing: 0.04em;">경기 광명 · 로보틱스/임베디드/PLC 솔루션 팀　　경기 화성 · 자동화 기계 제작/가공 솔루션 팀</div>
+      <div class="mono" style="font-size: 11px; color: #AAB4BE; letter-spacing: 0.04em;">T. [전화번호]　·　[이메일 주소]</div>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: center; height: 78px; padding: 0 48px;">
+      <div data-goto="main" style="display: flex; align-items: baseline; gap: 16px;">
+        <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #FFFFFF;">SJ AUTOMATION</span>
+        <span class="mono" style="font-size: 11px; color: #AAB4BE; letter-spacing: 0.1em;">산업자동화 설계 · 제작</span>
+      </div>
+      <nav style="display: flex; gap: 8px; align-items: center;">
+        <a href="#" data-goto="about" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13); color: #CBD3DB;">회사소개</a>
+        <a href="#" data-goto="business" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13); color: #CBD3DB;">사업분야</a>
+        <a href="#" data-goto="works" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13); color: #CBD3DB;">실적사례</a>
+        <a href="#" data-goto="archive" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; background: #3B82F6; border: 1px solid #3B82F6; color: #FFFFFF; box-shadow: 0 4px 18px rgba(59, 130, 246, 0.45);">자료실</a>
+        <a href="#" data-goto="notice" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13); color: #CBD3DB;">공지사항</a>
+        <a href="#" data-goto="request" style="display: flex; align-items: center; height: 54px; padding: 0 24px; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; background: #FFFFFF; border: 1px solid #FFFFFF; color: #0E1319;">견적 문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 타이틀 -->
+  <section style="padding: 64px 48px 40px; background: #FFFFFF; border-bottom: 1px solid #DCE1E6;">
+    <div class="mono" style="display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.1em; color: #A9B2BA; margin-bottom: 26px;">
+      <span data-goto="main">HOME</span><span>/</span><span style="color: #10428E;">ARCHIVE</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+      <div>
+        <h1 style="margin: 0 0 16px; font-size: 44px; font-weight: 600; letter-spacing: -0.025em;">자료실</h1>
+        <p style="margin: 0; font-size: 16px; line-height: 1.85; color: #5A646E; max-width: 640px; text-wrap: pretty;">
+          기술지원 자료, 장비 매뉴얼, 강의 자료, 소프트웨어 툴을 내려받으실 수 있습니다.
+          필요한 자료가 목록에 없으면 문의로 요청해 주십시오.
+        </p>
+      </div>
+      <div class="mono" style="font-size: 12px; color: #8A939C; letter-spacing: 0.06em; padding-bottom: 6px;">TOTAL [00]</div>
+    </div>
+  </section>
+
+  <!-- 카테고리 카드 -->
+  <section style="padding: 40px 48px 0;">
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px;">
+      <article style="background: #10428E; padding: 26px 26px 30px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" style="margin-bottom: 18px;"><path d="M4 4h10l6 6v10H4z" /><path d="M14 4v6h6" /></svg>
+        <h3 style="margin: 0 0 8px; font-size: 17px; font-weight: 600; color: #FFFFFF;">기술지원 자료</h3>
+        <p style="margin: 0; font-size: 13px; line-height: 1.7; color: #C5D6F2;">설치 · 배선 · 파라미터 설정 가이드</p>
+      </article>
+      <article style="background: #FFFFFF; border: 1px solid #DCE1E6; padding: 26px 26px 30px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10428E" stroke-width="1.5" stroke-linecap="square" style="margin-bottom: 18px;"><path d="M4 5h7v15H4zM13 5h7v15h-7z" /></svg>
+        <h3 style="margin: 0 0 8px; font-size: 17px; font-weight: 600;">장비 매뉴얼</h3>
+        <p style="margin: 0; font-size: 13px; line-height: 1.7; color: #5A646E;">납품 장비 사용 · 정비 설명서</p>
+      </article>
+      <article style="background: #FFFFFF; border: 1px solid #DCE1E6; padding: 26px 26px 30px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10428E" stroke-width="1.5" stroke-linecap="square" style="margin-bottom: 18px;"><path d="M3 5h18v12H3z" /><path d="M8 21h8" /></svg>
+        <h3 style="margin: 0 0 8px; font-size: 17px; font-weight: 600;">강의 자료</h3>
+        <p style="margin: 0; font-size: 13px; line-height: 1.7; color: #5A646E;">교육용 PLC · 모션 제어 자료</p>
+      </article>
+      <article style="background: #FFFFFF; border: 1px solid #DCE1E6; padding: 26px 26px 30px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10428E" stroke-width="1.5" stroke-linecap="square" style="margin-bottom: 18px;"><path d="M9 8l-5 4 5 4M15 8l5 4-5 4" /></svg>
+        <h3 style="margin: 0 0 8px; font-size: 17px; font-weight: 600;">소프트웨어 툴</h3>
+        <p style="margin: 0; font-size: 13px; line-height: 1.7; color: #5A646E;">계산기 · 설정 유틸리티</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 파일 목록 -->
+  <section style="padding: 40px 48px 88px;">
+    <div style="background: #FFFFFF; border: 1px solid #DCE1E6; padding: 36px 36px 40px;">
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px;">
+        <h2 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.015em;">전체 자료</h2>
+        <div style="display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 16px; border: 1px solid #DCE1E6; width: 280px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A939C" stroke-width="1.6" stroke-linecap="square"><circle cx="11" cy="11" r="6" /><path d="M16 16l4 4" /></svg>
+          <span style="font-size: 14px; color: #B4BCC4;">자료명 검색</span>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 64px 130px 1fr 90px 90px 120px 110px; border-top: 1.5px solid #0E1319;">
+
+        <div class="mono" style="padding: 15px 8px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; border-bottom: 1px solid #DCE1E6;">NO</div>
+        <div class="mono" style="padding: 15px 8px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; border-bottom: 1px solid #DCE1E6;">분류</div>
+        <div class="mono" style="padding: 15px 8px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; border-bottom: 1px solid #DCE1E6;">자료명</div>
+        <div class="mono" style="padding: 15px 8px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; border-bottom: 1px solid #DCE1E6;">형식</div>
+        <div class="mono" style="padding: 15px 8px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; border-bottom: 1px solid #DCE1E6;">용량</div>
+        <div class="mono" style="padding: 15px 8px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; border-bottom: 1px solid #DCE1E6;">등록일</div>
+        <div class="mono" style="padding: 15px 8px; font-size: 11px; letter-spacing: 0.1em; color: #8A939C; border-bottom: 1px solid #DCE1E6;">다운로드</div>
+
+        <div class="mono" style="padding: 17px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">5</div>
+        <div style="padding: 17px 8px; border-bottom: 1px solid #EBEEF1;"><span class="mono" style="display: inline-flex; align-items: center; height: 24px; padding: 0 9px; background: #E9EFF8; color: #10428E; font-size: 10px; letter-spacing: 0.06em;">기술지원</span></div>
+        <div style="padding: 17px 8px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">[자료명이 들어갑니다]</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #5A646E; border-bottom: 1px solid #EBEEF1;">PDF</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[0.0MB]</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+        <div style="padding: 12px 8px; border-bottom: 1px solid #EBEEF1;">
+          <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 7px; height: 36px; border: 1px solid #DCE1E6; font-size: 12px; color: #0E1319;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10428E" stroke-width="1.8" stroke-linecap="square"><path d="M12 4v12M7 11l5 5 5-5M4 20h16" /></svg>
+            받기
+          </a>
+        </div>
+
+        <div class="mono" style="padding: 17px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">4</div>
+        <div style="padding: 17px 8px; border-bottom: 1px solid #EBEEF1;"><span class="mono" style="display: inline-flex; align-items: center; height: 24px; padding: 0 9px; background: #F1F3F5; color: #5A646E; font-size: 10px; letter-spacing: 0.06em;">매뉴얼</span></div>
+        <div style="padding: 17px 8px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">[자료명이 들어갑니다]</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #5A646E; border-bottom: 1px solid #EBEEF1;">PDF</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[0.0MB]</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+        <div style="padding: 12px 8px; border-bottom: 1px solid #EBEEF1;">
+          <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 7px; height: 36px; border: 1px solid #DCE1E6; font-size: 12px; color: #0E1319;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10428E" stroke-width="1.8" stroke-linecap="square"><path d="M12 4v12M7 11l5 5 5-5M4 20h16" /></svg>
+            받기
+          </a>
+        </div>
+
+        <div class="mono" style="padding: 17px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">3</div>
+        <div style="padding: 17px 8px; border-bottom: 1px solid #EBEEF1;"><span class="mono" style="display: inline-flex; align-items: center; height: 24px; padding: 0 9px; background: #F1F3F5; color: #5A646E; font-size: 10px; letter-spacing: 0.06em;">강의자료</span></div>
+        <div style="padding: 17px 8px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">[자료명이 들어갑니다]</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #5A646E; border-bottom: 1px solid #EBEEF1;">ZIP</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[0.0MB]</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+        <div style="padding: 12px 8px; border-bottom: 1px solid #EBEEF1;">
+          <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 7px; height: 36px; border: 1px solid #DCE1E6; font-size: 12px; color: #0E1319;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10428E" stroke-width="1.8" stroke-linecap="square"><path d="M12 4v12M7 11l5 5 5-5M4 20h16" /></svg>
+            받기
+          </a>
+        </div>
+
+        <div class="mono" style="padding: 17px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">2</div>
+        <div style="padding: 17px 8px; border-bottom: 1px solid #EBEEF1;"><span class="mono" style="display: inline-flex; align-items: center; height: 24px; padding: 0 9px; background: #F1F3F5; color: #5A646E; font-size: 10px; letter-spacing: 0.06em;">SW 툴</span></div>
+        <div style="padding: 17px 8px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">[자료명이 들어갑니다]</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #5A646E; border-bottom: 1px solid #EBEEF1;">EXE</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[0.0MB]</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+        <div style="padding: 12px 8px; border-bottom: 1px solid #EBEEF1;">
+          <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 7px; height: 36px; border: 1px solid #DCE1E6; font-size: 12px; color: #0E1319;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10428E" stroke-width="1.8" stroke-linecap="square"><path d="M12 4v12M7 11l5 5 5-5M4 20h16" /></svg>
+            받기
+          </a>
+        </div>
+
+        <div class="mono" style="padding: 17px 8px; font-size: 13px; color: #A9B2BA; border-bottom: 1px solid #EBEEF1;">1</div>
+        <div style="padding: 17px 8px; border-bottom: 1px solid #EBEEF1;"><span class="mono" style="display: inline-flex; align-items: center; height: 24px; padding: 0 9px; background: #F1F3F5; color: #5A646E; font-size: 10px; letter-spacing: 0.06em;">기술지원</span></div>
+        <div style="padding: 17px 8px; font-size: 15px; border-bottom: 1px solid #EBEEF1;">[자료명이 들어갑니다]</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #5A646E; border-bottom: 1px solid #EBEEF1;">PDF</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[0.0MB]</div>
+        <div class="mono" style="padding: 17px 8px; font-size: 12px; color: #8A939C; border-bottom: 1px solid #EBEEF1;">[YYYY.MM.DD]</div>
+        <div style="padding: 12px 8px; border-bottom: 1px solid #EBEEF1;">
+          <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 7px; height: 36px; border: 1px solid #DCE1E6; font-size: 12px; color: #0E1319;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10428E" stroke-width="1.8" stroke-linecap="square"><path d="M12 4v12M7 11l5 5 5-5M4 20h16" /></svg>
+            받기
+          </a>
+        </div>
+
+      </div>
+
+      <div style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 40px;">
+        <a href="#" class="mono" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #0E1319; color: #FFFFFF; font-size: 13px;">1</a>
+        <a href="#" class="mono" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid #DCE1E6; background: #FFFFFF; color: #0E1319; font-size: 13px;">›</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 자료 요청 -->
+  <section style="padding: 0 48px 96px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 32px; background: #0E1319; padding: 44px 44px;">
+      <div>
+        <h2 style="margin: 0 0 12px; font-size: 26px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.02em;">찾으시는 자료가 없나요?</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.85; color: #A9B2BA; max-width: 620px; text-wrap: pretty;">
+          납품받으신 장비의 도면이나 파라미터 설정값이 필요하시면 문의로 알려주십시오. 확인 후 보내드립니다.
+        </p>
+      </div>
+      <a href="#" style="display: flex; align-items: center; justify-content: center; width: 220px; height: 56px; background: #FFFFFF; color: #0E1319; font-size: 15px; font-weight: 600; border-radius: 2px; flex-shrink: 0;" data-goto="request">자료 요청하기</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding: 60px 48px 44px; background: #FFFFFF; border-top: 1px solid #DCE1E6;">
+    <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; padding-bottom: 40px; border-bottom: 1px solid #EBEEF1;">
+      <div style="grid-column: span 4;">
+        <div style="font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 12px;">SJ AUTOMATION</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.85; color: #8A939C;">산업 자동화 기계 설계 · 제작<br />모션 제어 · 스마트팩토리 고도화</p>
+      </div>
+      <div style="grid-column: span 4;">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.12em; color: #10428E; margin-bottom: 14px;">GWANGMYEONG</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.85; color: #5A646E;">경기도 광명시 원광명로 [상세 주소]<br />로보틱스 · 임베디드 · PLC 솔루션 팀</p>
+      </div>
+      <div style="grid-column: span 4;">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.12em; color: #10428E; margin-bottom: 14px;">HWASEONG</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.85; color: #5A646E;">경기도 화성시 팔탄면 [상세 주소]<br />자동화 기계 제작 · 가공 솔루션 팀</p>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 26px;">
+      <div class="mono" style="font-size: 11px; color: #A9B2BA; letter-spacing: 0.04em;">
+        사업자등록번호 [000-00-00000]　·　대표 [대표자명]　·　T. [전화번호]　·　[이메일 주소]
+      </div>
+      <div style="display: flex; gap: 24px;">
+        <a href="#" style="font-size: 12px; color: #8A939C;">이용약관</a>
+        <a href="#" style="font-size: 12px; color: #8A939C;">개인정보처리방침</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>
