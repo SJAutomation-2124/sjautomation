@@ -86,25 +86,35 @@ sj-automation/
    ```
 3. 브라우저에서 `http://localhost:3000` 열어서 지금까지 만든 화면 확인
 
-### 5-3. GitHub에 올리기
+### 5-3. GitHub에 올리기 — **완료 (2026-09-10, 전용 PC)**
 
-`web` 폴더는 이미 `git init` + 첫 커밋까지 되어 있습니다. GitHub에 새 저장소를
-만든 뒤:
+저장소: <https://github.com/SJAutomation-2124/sjautomation>
+
+`sj-automation` 폴더 **전체**가 하나의 git 저장소입니다 (HANDOFF.md + design/ + web/).
+저장소 루트가 `web`이 아니라 그 한 단계 위라는 점만 기억하면 됩니다.
+
+> 참고: 처음 올렸을 때 `web` 폴더 안에 별도의 `.git`이 남아 있어서 GitHub에는
+> `web`이 빈 폴더로만 올라갔었습니다. 안쪽 `.git`을 저장소 밖
+> (`Documents\hompage\web-git-backup`)으로 옮기고 다시 커밋해서 해결했습니다.
+> 그 백업 폴더는 이제 필요 없으니 지워도 됩니다.
+
+이후 변경사항을 올릴 때는 `sj-automation` 폴더에서:
 
 ```
-cd web
-git remote add origin <새로 만든 저장소 주소>
-git branch -M main
-git push -u origin main
+git add -A
+git commit -m "설명"
+git push
 ```
 
 ### 5-4. Vercel 연결
 
 1. [vercel.com](https://vercel.com) 가입 (GitHub 계정으로 로그인하면 편함)
-2. "New Project" → 방금 올린 저장소 선택 → Deploy
-3. 몇 분 안에 임시 주소(`*.vercel.app`)가 나오면 배포 성공
-4. Vercel 프로젝트 설정 → Domains → `sjautosolution.com` 추가
-5. 가비아 도메인 관리 화면에서 Vercel이 알려주는 값대로 네임서버/DNS 레코드 설정
+2. "New Project" → `SJAutomation-2124/sjautomation` 저장소 선택
+3. **Root Directory를 `web`으로 지정** (Edit 버튼 → `web` 선택). 저장소 루트에는
+   package.json이 없어서 이걸 안 하면 배포가 실패합니다. → Deploy
+4. 몇 분 안에 임시 주소(`*.vercel.app`)가 나오면 배포 성공
+5. Vercel 프로젝트 설정 → Domains → `sjautosolution.com` 추가
+6. 가비아 도메인 관리 화면에서 Vercel이 알려주는 값대로 네임서버/DNS 레코드 설정
    (보통 10분~수 시간 내 반영)
 
 ### 5-5. 이후 Claude와 이어서 작업하기
