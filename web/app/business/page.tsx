@@ -97,8 +97,8 @@ export default function BusinessPage() {
       {AREAS.map((area) => (
         <section className="section" style={{ paddingTop: 80, paddingBottom: 0 }} key={area.num}>
           <div
-            className="container grid"
-            style={{ gridTemplateColumns: '5fr 7fr', alignItems: 'start' }}
+            className={`container grid ${area.imgFirst ? 'split-5-7' : 'split-7-5'}`}
+            style={{ alignItems: 'start' }}
           >
             {area.imgFirst ? (
               <>
@@ -133,7 +133,7 @@ export default function BusinessPage() {
           <p style={{ fontSize: 15, lineHeight: 1.85, color: 'var(--dark-body)', maxWidth: 640, marginBottom: 44 }}>
             문의부터 납품까지 여섯 단계로 진행합니다. 각 단계에서 확인된 내용은 문서로 남겨 드립니다.
           </p>
-          <div className="grid" style={{ gridTemplateColumns: 'repeat(6, minmax(0, 1fr))' }}>
+          <div className="process-grid">
             {PROCESS.map((p, i) => (
               <div
                 key={p.n}
@@ -152,7 +152,7 @@ export default function BusinessPage() {
 
       {/* CTA */}
       <section className="section--accent" style={{ padding: '76px 0' }}>
-        <div className="container grid" style={{ gridTemplateColumns: '7fr 5fr', alignItems: 'center' }}>
+        <div className="container grid split-7-5" style={{ alignItems: 'center' }}>
           <div>
             <h2 style={{ fontSize: 34, fontWeight: 600, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.4, marginBottom: 16 }}>
               어느 단계부터든 맡기실 수 있습니다

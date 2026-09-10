@@ -57,7 +57,7 @@ export default function HomePage() {
     <main className="bp-grid">
       {/* HERO */}
       <section className="section section--panel">
-        <div className="container grid" style={{ gridTemplateColumns: '7fr 5fr', alignItems: 'start' }}>
+        <div className="container grid split-7-5" style={{ alignItems: 'start' }}>
           <div>
             <div className="eyebrow">
               <span className="num mono">SJ AUTOMATION</span>
@@ -199,7 +199,7 @@ export default function HomePage() {
 
       {/* 보유 설비 / 대응 브랜드 */}
       <section className="section section--dark">
-        <div className="container grid" style={{ gridTemplateColumns: '4fr 8fr', alignItems: 'start' }}>
+        <div className="container grid split-4-8" style={{ alignItems: 'start' }}>
           <div>
             <div className="eyebrow">
               <span className="num mono">02</span>
@@ -325,7 +325,7 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="section--accent" style={{ padding: '76px 0' }}>
-        <div className="container grid" style={{ gridTemplateColumns: '7fr 5fr', alignItems: 'center' }}>
+        <div className="container grid split-7-5" style={{ alignItems: 'center' }}>
           <div>
             <h2 style={{ fontSize: 36, fontWeight: 600, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.4, marginBottom: 16 }}>
               도면이 없어도 괜찮습니다

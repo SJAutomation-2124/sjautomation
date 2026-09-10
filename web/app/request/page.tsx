@@ -26,7 +26,7 @@ export default function RequestPage() {
       </section>
 
       <section className="section">
-        <div className="container grid" style={{ gridTemplateColumns: '8fr 4fr', alignItems: 'start' }}>
+        <div className="container grid split-8-4" style={{ alignItems: 'start' }}>
           <form className="card" style={{ padding: '40px 40px 44px' }}>
             <div
               style={{

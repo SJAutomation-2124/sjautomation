@@ -42,7 +42,7 @@ export default function AboutPage() {
 
       {/* 인사말 */}
       <section className="section">
-        <div className="container grid" style={{ gridTemplateColumns: '7fr 5fr', alignItems: 'start' }}>
+        <div className="container grid split-7-5" style={{ alignItems: 'start' }}>
           <div>
             <div className="eyebrow">
               <span className="num mono">01</span>
@@ -107,7 +107,6 @@ export default function AboutPage() {
                 className="profile-row"
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '160px 1fr 160px 1fr',
                   borderBottom: i < PROFILE_ROWS.length - 1 ? '1px solid var(--line-soft)' : undefined,
                 }}
               >
@@ -192,7 +191,7 @@ export default function AboutPage() {
 
       {/* 연혁 */}
       <section className="section section--dark">
-        <div className="container grid" style={{ gridTemplateColumns: '4fr 8fr', alignItems: 'start' }}>
+        <div className="container grid split-4-8" style={{ alignItems: 'start' }}>
           <div>
             <div className="eyebrow">
               <span className="num mono">04</span>
@@ -239,7 +238,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="section--accent" style={{ padding: '76px 0' }}>
-        <div className="container grid" style={{ gridTemplateColumns: '7fr 5fr', alignItems: 'center' }}>
+        <div className="container grid split-7-5" style={{ alignItems: 'center' }}>
           <div>
             <h2 style={{ fontSize: 34, fontWeight: 600, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.4, marginBottom: 16 }}>
               한 번 이야기해 보시죠

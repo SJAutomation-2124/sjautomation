@@ -513,6 +513,56 @@ h3 {
   }
 }
 
+/* ---------------- 비대칭 2단 레이아웃 (모바일에서 1단으로) ---------------- */
+
+.split-7-5 {
+  grid-template-columns: 7fr 5fr;
+}
+.split-5-7 {
+  grid-template-columns: 5fr 7fr;
+}
+.split-4-8 {
+  grid-template-columns: 4fr 8fr;
+}
+.split-8-4 {
+  grid-template-columns: 8fr 4fr;
+}
+@media (max-width: 900px) {
+  .split-7-5,
+  .split-5-7,
+  .split-4-8,
+  .split-8-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------- 회사 개요 표 / 프로세스 6단 ---------------- */
+
+.profile-row {
+  grid-template-columns: 160px 1fr 160px 1fr;
+}
+.process-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+@media (max-width: 900px) {
+  .profile-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .process-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .profile-row {
+    grid-template-columns: 1fr;
+  }
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* ---------------- 표 (자료실/공지) ---------------- */
 
 .data-table {

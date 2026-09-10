@@ -37,7 +37,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
             <span className="current">{work.category}</span>
           </div>
 
-          <div className="grid" style={{ gridTemplateColumns: '7fr 5fr', alignItems: 'start' }}>
+          <div className="grid split-7-5" style={{ alignItems: 'start' }}>
             <div>
               <span className="badge" style={{ marginBottom: 20 }}>
                 {work.category}
@@ -74,7 +74,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
       </section>
 
       <section className="section">
-        <div className="container grid" style={{ gridTemplateColumns: '8fr 4fr', alignItems: 'start' }}>
+        <div className="container grid split-8-4" style={{ alignItems: 'start' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
             <BodyBlock num="01" tag="BACKGROUND" title="과제 배경">
               [고객이 어떤 상황이었고 무엇이 문제였는지 적습니다. 기존 방식의 한계, 요구 사양, 현장 제약 조건 같은
