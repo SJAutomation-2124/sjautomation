@@ -106,13 +106,28 @@ git commit -m "설명"
 git push
 ```
 
-### 5-4. Vercel 연결
+### 5-4. Vercel 연결 — **완료 (2026-09-10)**
 
 1. [vercel.com](https://vercel.com) 가입 (GitHub 계정으로 로그인하면 편함)
 2. "New Project" → `SJAutomation-2124/sjautomation` 저장소 선택
 3. **Root Directory를 `web`으로 지정** (Edit 버튼 → `web` 선택). 저장소 루트에는
    package.json이 없어서 이걸 안 하면 배포가 실패합니다. → Deploy
 4. 몇 분 안에 임시 주소(`*.vercel.app`)가 나오면 배포 성공
+
+> **겪었던 문제**: 최초 Import 때 Root Directory Edit을 건너뛰고 배포했다가,
+> 나중에 Settings에서 Root Directory만 뒤늦게 `web`으로 고쳐서 Redeploy했더니
+> 빌드 로그는 성공(`Build Completed`, `Deployment completed`)인데도 모든
+> 배포 URL·심지어 프로젝트 기본 도메인(`*.vercel.app`)까지 계속
+> `404 NOT_FOUND` (Vercel 플랫폼 레벨 에러, 앱 코드 문제 아님)가 떴습니다.
+> Settings → Domains 메뉴에 도메인이 아예 하나도 없는 상태였던 게 단서였는데,
+> 최초 생성 시점에 잘못된 설정으로 실패를 겪은 프로젝트라 도메인이 정상
+> 프로비저닝되지 않은 것으로 보입니다. **해결책**: 그 프로젝트를 통째로
+> 삭제(Settings → 맨 아래 Delete Project — GitHub 코드는 건드리지 않음)하고,
+> **Import 화면에서 처음부터** Root Directory를 `web`으로 지정한 뒤 재생성하니
+> 정상적으로 도메인이 붙고 해결됐습니다. → 앞으로 Vercel 프로젝트를 새로 만들
+> 일이 있으면 **반드시 Import 단계에서 바로** Root Directory를 지정할 것,
+> 나중에 Settings에서 고치는 방식은 피할 것.
+
 5. Vercel 프로젝트 설정 → Domains → `sjautosolution.com` 추가
 6. 가비아 도메인 관리 화면에서 Vercel이 알려주는 값대로 네임서버/DNS 레코드 설정
    (보통 10분~수 시간 내 반영)
