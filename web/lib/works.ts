@@ -6,6 +6,8 @@ export type Work = {
   title: string;
   img: string;
   client?: string;
+  /** 유튜브 영상 ID만 적습니다 (youtube.com/watch?v= 뒤에 붙는 부분). 없으면 영상 섹션이 아예 안 나옵니다. */
+  youtubeId?: string;
 };
 
 export const WORKS: Work[] = [

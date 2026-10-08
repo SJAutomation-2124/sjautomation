@@ -73,6 +73,28 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
         </div>
       </section>
 
+      {work.youtubeId && (
+        <section className="section" style={{ paddingBottom: 0 }}>
+          <div className="container">
+            <div className="eyebrow">
+              <span className="num mono">00</span>
+              <span className="rule" />
+              <span className="label mono">VIDEO</span>
+            </div>
+            <div style={{ position: 'relative', paddingTop: '56.25%', background: 'var(--ink)' }}>
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${work.youtubeId}`}
+                title={`${work.title} 영상`}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="section">
         <div className="container grid split-8-4" style={{ alignItems: 'start' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
