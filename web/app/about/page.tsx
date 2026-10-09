@@ -18,15 +18,6 @@ const SITE_TEAMS = [
   ['로보틱스 · 임베디드 · 소프트웨어', '임베디드 보드, 관제 · 모니터링 소프트웨어, 연구 과제와 용역 개발'],
 ];
 
-const HISTORY = [
-  {
-    year: '[2026]',
-    items: ['한양대학교 무인 굴삭기 조종 관제 시스템 납품', '한양대학교 모바일 로봇 조종기 커스텀 제작', '[그 해의 다른 실적을 적습니다]'],
-  },
-  { year: '[2025]', items: ['[주요 납품 또는 설비 도입 내용]'] },
-  { year: '[2023]', items: ['[주요 납품 또는 설비 도입 내용]'] },
-];
-
 export default function AboutPage() {
   return (
     <main className="bp-grid">
@@ -171,53 +162,6 @@ export default function AboutPage() {
               <p style={{ fontSize: 14, color: 'var(--body)', paddingTop: 18, margin: 0 }}>{ADDRESS}</p>
             </div>
           </article>
-        </div>
-      </section>
-
-      {/* 연혁 */}
-      <section className="section section--dark">
-        <div className="container grid split-4-8" style={{ alignItems: 'start' }}>
-          <div>
-            <div className="eyebrow">
-              <span className="num mono">04</span>
-              <span className="rule" />
-              <span className="label mono">HISTORY</span>
-            </div>
-            <h2 style={{ fontSize: 32, fontWeight: 600, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.4, marginBottom: 20 }}>
-              걸어온 길
-            </h2>
-            <p style={{ fontSize: 15, lineHeight: 1.85, color: 'var(--dark-body)' }}>
-              연혁은 사업장 이전이나 증설, 설비 도입, 인증 취득, 규모가 큰 납품 위주로
-              정리했습니다.
-            </p>
-          </div>
-
-          <div>
-            {HISTORY.map((h, i) => (
-              <div
-                key={h.year}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '120px 1fr',
-                  gap: 28,
-                  padding: '26px 0',
-                  borderTop: '1px solid var(--dark-edge)',
-                  borderBottom: i === HISTORY.length - 1 ? '1px solid var(--dark-edge)' : undefined,
-                }}
-              >
-                <div className="mono" style={{ fontSize: 20, color: '#6e9be0', letterSpacing: '0.02em' }}>
-                  {h.year}
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  {h.items.map((item, j) => (
-                    <span key={j} style={{ fontSize: 15, color: i === 0 ? 'var(--dark-ink)' : 'var(--dark-body)' }}>
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
