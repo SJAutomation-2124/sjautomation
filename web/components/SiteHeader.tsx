@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/lib/nav';
-import { EMAIL, PHONE, PHONE_HREF } from '@/lib/contact';
+import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '@/lib/contact';
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -15,7 +15,7 @@ export default function SiteHeader() {
           경기 광명 · 로보틱스/임베디드/PLC 솔루션 팀　　경기 화성 · 자동화 기계 제작/가공 솔루션 팀
         </span>
         <span>
-          <a href={PHONE_HREF}>T. {PHONE}</a>　·　{EMAIL}
+          <a href={PHONE_HREF}>T. {PHONE}</a>　·　<a href={EMAIL_HREF}>{EMAIL}</a>
         </span>
       </div>
 

@@ -1,4 +1,4 @@
-import { EMAIL, PHONE, PHONE_HREF } from '@/lib/contact';
+import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '@/lib/contact';
 
 // 전화번호 · 이메일은 lib/contact.ts에서 바꾸면 사이트 전체에 반영됩니다.
 const BIZ_NO = '[000-00-00000]';
@@ -38,7 +38,7 @@ export default function SiteFooter() {
 
         <div className="footer-bottom">
           <span>
-            사업자등록번호 {BIZ_NO}　·　<a href={PHONE_HREF} style={{ color: 'inherit' }}>T. {PHONE}</a>　·　{EMAIL}
+            사업자등록번호 {BIZ_NO}　·　<a href={PHONE_HREF} style={{ color: 'inherit' }}>T. {PHONE}</a>　·　<a href={EMAIL_HREF} style={{ color: 'inherit' }}>{EMAIL}</a>
           </span>
           <span className="legal-links">
             <a href="/terms">이용약관</a>

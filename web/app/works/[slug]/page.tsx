@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { WORKS, hasVideo } from '@/lib/works';
-import { EMAIL, PHONE, PHONE_HREF } from '@/lib/contact';
+import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '@/lib/contact';
 
 export function generateStaticParams() {
   return WORKS.map((w) => ({ slug: w.slug }));
@@ -190,9 +190,9 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
                 <a href={PHONE_HREF} className="mono" style={{ fontSize: 14, color: 'var(--ink)' }}>
                   T. {PHONE}
                 </a>
-                <span className="mono" style={{ fontSize: 14 }}>
+                <a href={EMAIL_HREF} className="mono" style={{ fontSize: 14, color: 'var(--ink)' }}>
                   {EMAIL}
-                </span>
+                </a>
               </div>
             </div>
           </aside>
