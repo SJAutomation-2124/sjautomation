@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { WORKS } from '@/lib/works';
 
 const BUSINESS_AREAS = [
   {
@@ -36,21 +37,9 @@ const BUSINESS_AREAS = [
   },
 ];
 
-const RECENT_WORKS = [
-  { slug: 'steel-rolling', category: '자동화 기계', title: '철판 롤링기', img: '/images/rolling.jpg' },
-  {
-    slug: 'io-precision-measure',
-    category: '모션 · 제어',
-    title: 'IO 모듈 고속 정밀 측정',
-    img: '/images/scope.jpg',
-  },
-  {
-    slug: 'excavator-teleop',
-    category: '모션 · 제어',
-    title: '무인 굴삭기 조종 관제',
-    img: '/images/robot.jpg',
-  },
-];
+const RECENT_WORKS = ['excavator-teleop', 'cnc-retrofit', 'press-brake-scada'].map(
+  (slug) => WORKS.find((w) => w.slug === slug)!,
+);
 
 export default function HomePage() {
   return (
@@ -284,7 +273,13 @@ export default function HomePage() {
             {RECENT_WORKS.map((work) => (
               <Link href={`/works/${work.slug}`} className="card link-card" key={work.slug}>
                 <div style={{ position: 'relative', height: 240 }}>
-                  <Image src={work.img} alt={work.title} fill sizes="400px" style={{ objectFit: 'cover' }} />
+                  <Image
+                    src={work.img}
+                    alt={work.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 400px"
+                    style={{ objectFit: 'cover', objectPosition: work.imgPosition }}
+                  />
                 </div>
                 <div className="card-body">
                   <span className="tag mono">{work.category}</span>

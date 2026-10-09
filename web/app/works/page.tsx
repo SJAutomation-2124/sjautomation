@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { WORKS, WORK_CATEGORIES } from '@/lib/works';
+import { WORKS, WORK_CATEGORIES, hasVideo } from '@/lib/works';
 
 export const metadata: Metadata = { title: '실적사례' };
 
@@ -53,15 +53,59 @@ export default async function WorksPage({
         <div className="container">
           <div className="grid grid-3">
             {filtered.map((work) => (
-              <Link href={`/works/${work.slug}`} className="card link-card" key={work.slug}>
+              <Link href={`/works/${work.slug}`} className="card link-card" key={work.slug} style={{ display: 'flex', flexDirection: 'column' }}>
                 <div style={{ position: 'relative', height: 230 }}>
-                  <Image src={work.img} alt={work.title} fill sizes="400px" style={{ objectFit: 'cover' }} />
+                  <Image
+                    src={work.img}
+                    alt={work.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 400px"
+                    style={{ objectFit: 'cover', objectPosition: work.imgPosition }}
+                  />
+                  {hasVideo(work) && (
+                    <span
+                      className="mono"
+                      style={{
+                        position: 'absolute',
+                        top: 12,
+                        left: 12,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 6,
+                        height: 26,
+                        padding: '0 10px',
+                        background: 'rgba(14, 19, 25, 0.82)',
+                        color: '#fff',
+                        fontSize: 11,
+                        letterSpacing: '0.08em',
+                      }}
+                    >
+                      <svg width="9" height="10" viewBox="0 0 9 10" aria-hidden="true">
+                        <path d="M0 0l9 5-9 5z" fill="currentColor" />
+                      </svg>
+                      VIDEO
+                    </span>
+                  )}
                 </div>
                 <div className="card-body">
                   <span className="tag mono">{work.category}</span>
-                  <h3 style={{ fontSize: 18, fontWeight: 600, letterSpacing: '-0.01em', lineHeight: 1.5 }}>
+                  <h3 style={{ fontSize: 18, fontWeight: 600, letterSpacing: '-0.01em', lineHeight: 1.5, marginBottom: 10 }}>
                     {work.title}
                   </h3>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: 14,
+                      lineHeight: 1.75,
+                      color: 'var(--muted)',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    {work.summary}
+                  </p>
                 </div>
               </Link>
             ))}
