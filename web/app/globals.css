@@ -746,3 +746,51 @@ h3 {
     font-size: 12px;
   }
 }
+
+/* ---------------- 메인: 보유 설비 · 대응 기술 표 ---------------- */
+
+.stack-row {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  padding: 24px 0;
+  border-top: 1px solid var(--dark-edge);
+}
+.stack-label {
+  padding-top: 9px;
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  color: #6e9be0;
+}
+.stack-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-width: 0;
+}
+.stack-chip {
+  padding: 8px 16px;
+  border: 1px solid var(--dark-edge);
+  color: var(--dark-ink);
+  font-size: 14px;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .stack-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 20px 0;
+  }
+  .stack-label {
+    padding-top: 0;
+  }
+  .stack-chips {
+    gap: 8px;
+  }
+  .stack-chip {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+}

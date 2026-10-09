@@ -221,24 +221,13 @@ export default function HomePage() {
             ].map((row, i, all) => (
               <div
                 key={row.label}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '160px 1fr',
-                  gap: 24,
-                  padding: '24px 0',
-                  borderTop: '1px solid var(--dark-edge)',
-                  borderBottom: i === all.length - 1 ? '1px solid var(--dark-edge)' : undefined,
-                }}
+                className="stack-row"
+                style={{ borderBottom: i === all.length - 1 ? '1px solid var(--dark-edge)' : undefined }}
               >
-                <div className="mono" style={{ fontSize: 12, letterSpacing: '0.1em', color: '#6e9be0' }}>
-                  {row.label}
-                </div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                <div className="stack-label mono">{row.label}</div>
+                <div className="stack-chips">
                   {row.items.map((item) => (
-                    <span
-                      key={item}
-                      style={{ padding: '8px 16px', border: '1px solid var(--dark-edge)', color: 'var(--dark-ink)', fontSize: 14 }}
-                    >
+                    <span key={item} className="stack-chip">
                       {item}
                     </span>
                   ))}
