@@ -51,11 +51,20 @@ sjrobotics.com이 전부 타사(경기 화성의 "삼정오토메이션" 등)가
 - 시안 아티팩트: https://claude.ai/code/artifact/259227a6-420d-4fdf-98d2-3887cbb3fcf6
 - 실사이트 미리보기: https://claude.ai/code/artifact/2fafa574-7b26-40e7-8b35-cedb1efc3133
 
-## 3. 아직 안 만든 것
+## 3. Supabase 연동 (2026-10-09 시작)
 
-- 공지사항 상세 페이지 (실제 공지가 생기면)
-- Supabase 연동: 게시판 CRUD, 비공개 견적문의 폼 저장, 관리자 로그인, 메일 알림
-- 아래 4번의 대괄호 정보 채우기
+- 프로젝트: `https://qapjbvshkoqeizfbygqe.supabase.co` (Region: Seoul, Free 플랜)
+- **1단계 — 견적 문의 폼: 코드 완료.** 문의는 `inquiries` 테이블, 첨부파일은 비공개
+  `inquiry-files` 저장소(20MB)에 저장. 공개 키로는 읽기·쓰기 모두 막혀 있고
+  홈페이지 서버만 비밀 키로 저장함. 접수 시 Resend로 jeniussdi@naver.com에 알림
+  (메일에 답장하면 손님에게 회신, 첨부는 7일짜리 다운로드 링크).
+  - DB 구조: `web/supabase/schema.sql` (SQL Editor에서 실행)
+  - Vercel 환경 변수: `SUPABASE_SECRET_KEY`, `RESEND_API_KEY` (비밀 값 — 채팅·코드에 넣지 말 것)
+  - 무료 플랜 7일 미사용 일시정지 방지: `web/vercel.json` 크론이 매일 `/api/keepalive` 호출
+  - Resend는 도메인 인증 전이라 가입 메일(jeniussdi@naver.com)로만 발송 가능
+- 2단계 — 공지사항 · 자료실 관리자 화면 (예정)
+- 공개 문의 게시판은 보류 (스팸·관리 부담 대비 효과 적음)
+- 개인정보처리방침 페이지(`/privacy`, 하단 링크)와 이용약관(`/terms`)은 아직 없음
 
 ## 4. 아직 못 받은 정보 (대괄호 `[ ]`로 남긴 것)
 

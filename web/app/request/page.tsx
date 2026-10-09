@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ADDRESS, EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '@/lib/contact';
+import InquiryForm from './InquiryForm';
 
 export const metadata: Metadata = { title: '제작 · 견적 문의' };
-
-const INQUIRY_TYPES = ['자동화 기계 제작 (턴키)', '설계 · 가공', 'PLC · 모션 제어 · 임베디드', '스마트팩토리 · 전산 연동'];
 
 export default function RequestPage() {
   return (
@@ -28,109 +27,7 @@ export default function RequestPage() {
 
       <section className="section">
         <div className="container grid split-8-4" style={{ alignItems: 'start' }}>
-          <form className="card" style={{ padding: '40px 40px 44px' }}>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 10,
-                padding: '14px 18px',
-                background: 'var(--accent-soft)',
-                marginBottom: 36,
-              }}
-            >
-              <span style={{ fontSize: 13, color: 'var(--accent)', lineHeight: 1.6 }}>
-                이 문의는 <strong style={{ fontWeight: 600 }}>공개되지 않습니다.</strong> 담당자만 확인하며,
-                접수 즉시 메일로 알림이 갑니다.
-              </span>
-            </div>
-
-            <div className="grid grid-2" style={{ marginBottom: 20 }}>
-              <div className="field">
-                <label>
-                  회사명 <span className="req">*</span>
-                </label>
-                <input type="text" name="company" placeholder="(주)○○○" required />
-              </div>
-              <div className="field">
-                <label>
-                  담당자명 <span className="req">*</span>
-                </label>
-                <input type="text" name="name" placeholder="홍길동" required />
-              </div>
-            </div>
-
-            <div className="grid grid-2" style={{ marginBottom: 32 }}>
-              <div className="field">
-                <label>
-                  연락처 <span className="req">*</span>
-                </label>
-                <input type="tel" name="phone" className="mono" placeholder="010-0000-0000" required />
-              </div>
-              <div className="field">
-                <label>
-                  이메일 <span className="req">*</span>
-                </label>
-                <input type="email" name="email" className="mono" placeholder="name@company.co.kr" required />
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 32 }}>
-              <label style={{ fontSize: 13, fontWeight: 500 }}>
-                문의 분야 <span className="req">*</span>{' '}
-                <span style={{ color: 'var(--faint)', fontWeight: 400 }}>중복 선택 가능</span>
-              </label>
-              <div className="grid grid-2">
-                {INQUIRY_TYPES.map((type) => (
-                  <label
-                    key={type}
-                    className="checkline"
-                    style={{ height: 52, padding: '0 18px', border: '1px solid var(--line)', background: '#fff' }}
-                  >
-                    <input type="checkbox" name="type" value={type} />
-                    <span style={{ fontSize: 14, color: 'var(--ink)' }}>{type}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div className="field" style={{ marginBottom: 24 }}>
-              <label>
-                문의 내용 <span className="req">*</span>
-              </label>
-              <textarea
-                name="message"
-                placeholder="만들고 싶은 장비나 해결하려는 문제, 현장 조건(설치 공간, 전원, 기존 설비), 희망 일정을 적어주시면 더 정확한 답변을 드릴 수 있습니다."
-                required
-              />
-            </div>
-
-            <div className="field" style={{ marginBottom: 28 }}>
-              <label>
-                첨부파일 <span style={{ color: 'var(--faint)', fontWeight: 400 }}>도면, 사진, 사양서 · 최대 20MB</span>
-              </label>
-              <input type="file" name="attachment" style={{ height: 'auto', padding: 16 }} />
-            </div>
-
-            <label
-              className="checkline"
-              style={{ padding: '18px 0', borderTop: '1px solid var(--line-soft)', marginBottom: 28 }}
-            >
-              <input type="checkbox" name="consent" required />
-              <span>
-                개인정보 수집 및 이용에 동의합니다. <a href="/privacy">약관 보기</a>
-              </span>
-            </label>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-              <button type="submit" className="btn btn-primary" style={{ width: 220 }} disabled>
-                문의 보내기
-              </button>
-              <span style={{ fontSize: 13, color: 'var(--faint)' }}>
-                온라인 접수 기능은 준비 중입니다. 지금은 전화나 이메일로 문의해 주세요.
-              </span>
-            </div>
-          </form>
+          <InquiryForm />
 
           <aside style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <div style={{ background: 'var(--ink)', padding: '32px 30px 34px' }}>
