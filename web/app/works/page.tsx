@@ -1,9 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { WORKS, WORK_CATEGORIES, hasVideo } from '@/lib/works';
 
-export const metadata: Metadata = { title: '실적사례' };
+export const metadata: Metadata = pageMeta({
+  title: '실적사례',
+  description:
+    'SJ AUTOMATION 실적사례 — 내진용 부품 전용 CNC 가공기, 절단기 가공 라인, 철판 V-Cutting, 무인 굴삭기 원격 관제, 서보 튜닝 HMI, 절곡기 · 절단기 SCADA 모니터링, 자동화 연계 ERP 등 자동화 기계 · 제어 · 스마트팩토리 납품 사례.',
+  path: '/works',
+});
 
 export default async function WorksPage({
   searchParams,

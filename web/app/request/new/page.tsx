@@ -1,9 +1,14 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import ContactAside from '../ContactAside';
 import InquiryForm from '../InquiryForm';
 
-export const metadata: Metadata = { title: '문의 글쓰기' };
+export const metadata: Metadata = pageMeta({
+  title: '문의 글쓰기',
+  description: '도면이나 사양서가 없어도 괜찮습니다. 만들고 싶은 것과 현장 조건만 알려주시면 방식과 개략 견적부터 같이 잡아드립니다.',
+  path: '/request/new',
+});
 
 export default function NewInquiryPage() {
   return (

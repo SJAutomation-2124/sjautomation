@@ -1,8 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata: Metadata = { title: '사업분야' };
+export const metadata: Metadata = pageMeta({
+  title: '사업분야',
+  description:
+    '자동화 기계 턴키 제작, 설계 · 가공(절곡 · 절단 · 대형 프레나 · 선반 · 밀링 · NC), 모션 · 제어(PLC · HMI · 서보 · ARM 임베디드), 스마트팩토리 고도화(ERP · 관제 · DB 연동). 문의부터 납품 · 사후관리까지 6단계로 진행합니다.',
+  path: '/business',
+});
 
 const AREAS = [
   {

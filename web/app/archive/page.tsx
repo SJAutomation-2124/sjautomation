@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata: Metadata = { title: '자료실' };
+export const metadata: Metadata = pageMeta({
+  title: '자료실',
+  description: 'SJ AUTOMATION 자료실 — 기술지원 자료, 납품 장비 매뉴얼, PLC · 모션 제어 강의 자료, 소프트웨어 툴.',
+  path: '/archive',
+});
 
 const CATEGORIES = [
   { title: '기술지원 자료', desc: '설치 · 배선 · 파라미터 설정 가이드', primary: true },

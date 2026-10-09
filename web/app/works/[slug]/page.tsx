@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { WORKS, hasVideo } from '@/lib/works';
 import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '@/lib/contact';
 
@@ -17,7 +18,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const work = WORKS.find((w) => w.slug === slug);
   if (!work) return { title: '실적사례' };
-  return { title: work.title, description: work.summary, openGraph: { images: [work.img] } };
+  return pageMeta({ title: work.title, description: work.summary, path: `/works/${work.slug}`, image: work.img });
 }
 
 export default async function WorkDetailPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -1,10 +1,16 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import Board from './Board';
 import ContactAside from './ContactAside';
 import InquiryNotice from './InquiryNotice';
 
-export const metadata: Metadata = { title: '제작 · 견적 문의' };
+export const metadata: Metadata = pageMeta({
+  title: '제작 · 견적 문의',
+  description:
+    '자동화 기계 제작, 설계 · 가공, PLC · 모션 제어, 스마트팩토리 견적 문의 게시판. 비밀글로 남길 수 있고, 접수 즉시 담당자에게 메일로 전달됩니다. 전화 010-6297-3279.',
+  path: '/request',
+});
 
 export const dynamic = 'force-dynamic';
 

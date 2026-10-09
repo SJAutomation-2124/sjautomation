@@ -2,8 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ADDRESS, PHONE, PHONE_HREF } from '@/lib/contact';
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata: Metadata = { title: '회사소개' };
+export const metadata: Metadata = pageMeta({
+  title: '회사소개',
+  description:
+    'SJ AUTOMATION 회사소개 — 기계 설계 · 가공, 전장 · PLC 제어, 로보틱스 · 임베디드 · 소프트웨어 팀이 경기 화성 사업장 한 곳에 모여 자동화 장비를 처음부터 끝까지 만듭니다.',
+  path: '/about',
+});
 
 const PROFILE_ROWS = [
   ['회사명', 'SJ AUTOMATION'],

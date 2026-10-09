@@ -1,8 +1,13 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '@/lib/contact';
 
-export const metadata: Metadata = { title: '개인정보처리방침' };
+export const metadata: Metadata = pageMeta({
+  title: '개인정보처리방침',
+  description: 'SJ AUTOMATION 개인정보처리방침 — 견적 문의로 받는 개인정보의 처리 목적, 항목, 보유 기간, 위탁 및 국외 이전.',
+  path: '/privacy',
+});
 
 const EFFECTIVE_DATE = '2026년 10월 9일';
 

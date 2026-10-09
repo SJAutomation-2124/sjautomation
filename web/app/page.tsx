@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { PHONE, PHONE_HREF } from '@/lib/contact';
+import type { Metadata } from 'next';
+import { HOME_DESCRIPTION, HOME_TITLE, pageMeta } from '@/lib/seo';
 import { WORKS } from '@/lib/works';
+
+export const metadata: Metadata = pageMeta({ title: HOME_TITLE, absoluteTitle: true, description: HOME_DESCRIPTION, path: '/' });
 
 const BUSINESS_AREAS = [
   {
