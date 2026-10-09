@@ -20,3 +20,9 @@ export function formatBytes(b: number | null | undefined) {
 export function fileExt(name: string) {
   return (/\.([A-Za-z0-9]{1,10})$/.exec(name)?.[1] ?? 'FILE').toUpperCase();
 }
+
+// supabase-js의 createSignedUrl(download: 이름)은 파일명을 두 번 인코딩해 한글 이름이 %ED%94… 로 깨집니다.
+// 서명 링크만 받고, 내려받을 파일명은 한 번만 인코딩해 직접 붙입니다.
+export function withDownloadName(signedUrl: string, name: string | null | undefined) {
+  return `${signedUrl}${signedUrl.includes('?') ? '&' : '?'}download=${encodeURIComponent(name || '')}`;
+}
