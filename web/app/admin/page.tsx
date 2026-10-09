@@ -4,7 +4,7 @@ import { INQUIRY_BUCKET } from '@/lib/inquiry';
 import { createAdminClient } from '@/lib/supabase-admin';
 import { getAdminUser } from '@/lib/supabase-server';
 import { LockIcon, StatusBadge } from '../request/Board';
-import { signOut } from './actions';
+import AdminHeader from './AdminHeader';
 import { AnswerForm, DeleteButton } from './InquiryControls';
 
 export const dynamic = 'force-dynamic';
@@ -52,20 +52,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
     <main className="bp-grid">
       <section className="section" style={{ paddingTop: 48 }}>
         <div className="container" style={{ maxWidth: 1040 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 16, flexWrap: 'wrap', marginBottom: 28 }}>
-            <div>
-              <div className="mono" style={{ fontSize: 11, letterSpacing: '0.14em', color: 'var(--accent)', marginBottom: 10 }}>
-                ADMIN
-              </div>
-              <h1 style={{ fontSize: 30, fontWeight: 600, letterSpacing: '-0.02em', margin: 0 }}>견적 문의 관리</h1>
-            </div>
-            <form action={signOut} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 13, color: 'var(--muted)' }}>
-              <span>{user.email}</span>
-              <button type="submit" className="btn btn-outline" style={{ height: 38, padding: '0 16px', fontSize: 13 }}>
-                로그아웃
-              </button>
-            </form>
-          </div>
+          <AdminHeader email={user.email} active="inquiries" title="견적 문의 관리" />
 
           <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
             <Link href="/admin" style={tab(!onlyNew)}>

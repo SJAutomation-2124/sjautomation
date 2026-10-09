@@ -3,15 +3,8 @@
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { INQUIRY_BUCKET, type ActionResult } from '@/lib/inquiry';
-import { createAdminClient } from '@/lib/supabase-admin';
-import { createSessionClient, getAdminUser } from '@/lib/supabase-server';
-
-const ID = /^[0-9a-f-]{36}$/;
-
-async function adminDb() {
-  if (!(await getAdminUser())) return null;
-  return createAdminClient();
-}
+import { adminDb, UUID as ID } from '@/lib/admin-db';
+import { createSessionClient } from '@/lib/supabase-server';
 
 function refresh(id: string) {
   revalidatePath('/admin');

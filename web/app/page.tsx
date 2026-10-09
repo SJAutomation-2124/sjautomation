@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { PHONE, PHONE_HREF } from '@/lib/contact';
 import type { Metadata } from 'next';
 import { HOME_DESCRIPTION, HOME_TITLE, pageMeta } from '@/lib/seo';
+import { formatDate } from '@/lib/inquiry';
+import { createAdminClient } from '@/lib/supabase-admin';
 import { WORKS } from '@/lib/works';
 
 export const metadata: Metadata = pageMeta({ title: HOME_TITLE, absoluteTitle: true, description: HOME_DESCRIPTION, path: '/' });
@@ -50,7 +52,21 @@ const RECENT_WORKS = ['excavator-teleop', 'cnc-retrofit', 'press-brake-scada'].m
   (slug) => WORKS.find((w) => w.slug === slug)!,
 );
 
-export default function HomePage() {
+// 최신 공지 · 자료 수를 보여주므로 5분마다 새로 만들고, 관리자 화면에서 글을 바꾸면 바로 갱신합니다.
+export const revalidate = 300;
+
+async function getHomeBoards() {
+  const db = createAdminClient();
+  if (!db) return { notices: [], files: 0 };
+  const [{ data }, { count }] = await Promise.all([
+    db.from('notices').select('id, title, created_at, pinned').order('pinned', { ascending: false }).order('created_at', { ascending: false }).limit(3),
+    db.from('archive_files').select('id', { count: 'exact', head: true }),
+  ]);
+  return { notices: data ?? [], files: count ?? 0 };
+}
+
+export default async function HomePage() {
+  const { notices, files } = await getHomeBoards();
   return (
     <main className="bp-grid">
       {/* HERO */}
@@ -300,7 +316,27 @@ export default function HomePage() {
                 MORE +
               </Link>
             </div>
-            <p style={{ fontSize: 14, color: 'var(--faint)' }}>등록된 공지가 아직 없습니다.</p>
+            {notices.length === 0 ? (
+              <p style={{ fontSize: 14, color: 'var(--faint)' }}>등록된 공지가 아직 없습니다.</p>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                {notices.map((n) => (
+                  <Link
+                    key={n.id}
+                    href={`/notice/${n.id}`}
+                    style={{ display: 'flex', justifyContent: 'space-between', gap: 16, padding: '12px 0', borderTop: '1px solid var(--line-soft)', color: 'var(--ink)' }}
+                  >
+                    <span style={{ fontSize: 15, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontWeight: n.pinned ? 600 : 400 }}>
+                      {n.pinned && <span style={{ color: 'var(--accent)' }}>[공지] </span>}
+                      {n.title}
+                    </span>
+                    <span className="mono" style={{ fontSize: 12, color: 'var(--faint)', flexShrink: 0 }}>
+                      {formatDate(n.created_at)}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="card" style={{ padding: '36px 36px 30px' }}>
@@ -313,6 +349,11 @@ export default function HomePage() {
             <p style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--muted)' }}>
               기술 지원 자료, 매뉴얼, 강의 자료를 내려받으실 수 있습니다.
             </p>
+            {files > 0 && (
+              <Link href="/archive" className="btn btn-outline" style={{ height: 44, marginTop: 18, fontSize: 14 }}>
+                자료 {files}개 보기
+              </Link>
+            )}
           </div>
         </div>
       </section>
