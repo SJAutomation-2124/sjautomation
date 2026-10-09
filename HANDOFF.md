@@ -54,7 +54,7 @@ sjrobotics.com이 전부 타사(경기 화성의 "삼정오토메이션" 등)가
 ## 3. Supabase 연동 (2026-10-09 시작)
 
 - 프로젝트: `https://qapjbvshkoqeizfbygqe.supabase.co` (Region: Seoul, Free 플랜)
-- **1단계 — 견적 문의 폼: 코드 완료.** 문의는 `inquiries` 테이블, 첨부파일은 비공개
+- **1단계 — 견적 문의 폼: 운영 중 (2026-10-09 실사이트 테스트 완료 — 저장 · 첨부 · 메일 알림 모두 확인).** 문의는 `inquiries` 테이블, 첨부파일은 비공개
   `inquiry-files` 저장소(20MB)에 저장. 공개 키로는 읽기·쓰기 모두 막혀 있고
   홈페이지 서버만 비밀 키로 저장함. 접수 시 Resend로 jeniussdi@naver.com에 알림
   (메일에 답장하면 손님에게 회신, 첨부는 7일짜리 다운로드 링크).
