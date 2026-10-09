@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Sans_KR, IBM_Plex_Mono } from 'next/font/google';
+import { IBM_Plex_Sans_KR, IBM_Plex_Mono, IBM_Plex_Serif } from 'next/font/google';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import './globals.css';
@@ -8,6 +8,14 @@ const sans = IBM_Plex_Sans_KR({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-sans',
+  display: 'swap',
+});
+
+// 로고 옆 회사명(SJ AUTOMATION)에만 씁니다. 로고 안의 SJ와 같은 글꼴입니다.
+const serif = IBM_Plex_Serif({
+  subsets: ['latin'],
+  weight: ['700'],
+  variable: '--font-serif',
   display: 'swap',
 });
 
@@ -30,7 +38,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" className={`${sans.variable} ${mono.variable}`}>
+    <html lang="ko" className={`${sans.variable} ${mono.variable} ${serif.variable}`}>
       <body>
         <SiteHeader />
         {children}

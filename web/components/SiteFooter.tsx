@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { ADDRESS, EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '@/lib/contact';
 
 export default function SiteFooter() {
@@ -6,7 +7,15 @@ export default function SiteFooter() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <h4>SJ AUTOMATION</h4>
+            <Image
+              src="/brand/sj-emblem-light.svg"
+              alt="SJ AUTOMATION 로고"
+              width={84}
+              height={84}
+              unoptimized
+              style={{ marginBottom: 14 }}
+            />
+            <h4 style={{ fontFamily: 'var(--font-serif), Georgia, serif', fontWeight: 700, letterSpacing: '0.03em' }}>SJ AUTOMATION</h4>
             <p style={{ color: 'var(--faint)' }}>
               산업 자동화 기계 설계 · 제작
               <br />

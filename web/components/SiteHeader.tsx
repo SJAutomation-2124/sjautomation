@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/lib/nav';
@@ -21,8 +22,11 @@ export default function SiteHeader() {
 
       <div className="container main-row">
         <Link href="/" className="brand">
-          <span className="brand-name">SJ AUTOMATION</span>
-          <span className="brand-tag mono">산업자동화 설계 · 제작</span>
+          <Image src="/brand/sj-emblem-dark.svg" alt="" width={54} height={54} className="brand-mark" priority unoptimized />
+          <span className="brand-words">
+            <span className="brand-name">SJ AUTOMATION</span>
+            <span className="brand-tag mono">산업자동화 설계 · 제작</span>
+          </span>
         </Link>
 
         <nav className="nav-row" aria-label="주요 메뉴">
