@@ -10,8 +10,9 @@ const AREAS = [
     tag: 'TURNKEY',
     title: '자동화 기계 제작',
     desc: '시제품 한 대부터 실제 생산 라인에 들어가는 장비까지 만듭니다. 기존 라인에 맞춰 설계하기 때문에, 공간과 기존 설비 조건을 먼저 확인합니다.',
-    img: '/images/cnc-retrofit.jpg',
-    imgAlt: '자동화 기계 제작',
+    img: '/images/works/cnc-retrofit-panel.jpg',
+    imgPosition: 'center 50%',
+    imgAlt: '수동 밀링기를 CNC로 개조한 조작반과 서보 전장 박스',
     fields: [
       ['범위', '시제품 · 실제 라인 장비 제작'],
       ['NC', 'NC 자동화 장비 제작'],
@@ -25,8 +26,9 @@ const AREAS = [
     tag: 'DESIGN & MACHINING',
     title: '설계 · 가공',
     desc: '2D · 3D 설계와 정적 해석부터 실제 가공까지 자체 설비로 처리합니다. 도면만 주시면 가공만 받아 드리는 것도 가능합니다.',
-    img: '/images/machining.jpg',
-    imgAlt: '설계 및 가공',
+    img: '/images/works/okuma-mcv-machining.jpg',
+    imgPosition: 'center 45%',
+    imgAlt: '오쿠마 MCV 문형 머시닝센터 가공',
     fields: [
       ['설계', '2D / 3D 설계, 정적 해석'],
       ['판금', '절곡 · 절단'],
@@ -40,8 +42,9 @@ const AREAS = [
     tag: 'MOTION & CONTROL',
     title: '모션 · 제어',
     desc: '상용 PLC로 되는 일은 상용 PLC로, 안 되는 일은 보드를 직접 만들어 해결합니다. 고속 계측처럼 일반 PLC로 정밀도가 안 나오는 영역은 ARM 기반 커스텀 보드로 대응합니다.',
-    img: '/images/press-hmi.jpg',
-    imgAlt: '모션 제어 솔루션',
+    img: '/images/works/mobile-robot-controller.jpg',
+    imgPosition: 'center 55%',
+    imgAlt: '직접 설계한 모바일 로봇 무선 조종기',
     fields: [
       ['PLC / HMI', '시퀀스 제어 · IO 솔루션'],
       ['대응 브랜드', 'LS / MITSUBISHI / BECKHOFF / OMRON'],
@@ -55,8 +58,9 @@ const AREAS = [
     tag: 'SMART FACTORY',
     title: '스마트팩토리 · 고도화',
     desc: '장비를 새로 사지 않고도, 이미 돌아가는 설비에 데이터를 붙여 생산 현황을 눈에 보이게 만듭니다. 사내 전산이나 ERP와 연결하는 작업도 포함합니다.',
-    img: '/images/mes.jpg',
-    imgAlt: '스마트팩토리 고도화',
+    img: '/images/works/press-brake-scada.png',
+    imgPosition: 'left top',
+    imgAlt: '절곡기 운전 데이터를 실시간으로 보여주는 모니터링 화면',
     fields: [
       ['연동', '생산 · 재고 ERP 전산 연동'],
       ['관제', '관제 시스템 구축'],
@@ -103,7 +107,7 @@ export default function BusinessPage() {
             {area.imgFirst ? (
               <>
                 <div className="photo-frame" style={{ position: 'relative', height: 400 }}>
-                  <Image src={area.img} alt={area.imgAlt} fill sizes="480px" style={{ objectFit: 'cover' }} />
+                  <Image src={area.img} alt={area.imgAlt} fill sizes="(max-width: 900px) 100vw, 480px" style={{ objectFit: 'cover', objectPosition: area.imgPosition }} />
                 </div>
                 <AreaBody area={area} />
               </>
@@ -111,7 +115,7 @@ export default function BusinessPage() {
               <>
                 <AreaBody area={area} />
                 <div className="photo-frame" style={{ position: 'relative', height: 400 }}>
-                  <Image src={area.img} alt={area.imgAlt} fill sizes="480px" style={{ objectFit: 'cover' }} />
+                  <Image src={area.img} alt={area.imgAlt} fill sizes="(max-width: 900px) 100vw, 480px" style={{ objectFit: 'cover', objectPosition: area.imgPosition }} />
                 </div>
               </>
             )}

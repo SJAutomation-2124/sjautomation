@@ -8,7 +8,8 @@ const BUSINESS_AREAS = [
     tag: 'TURNKEY',
     title: '자동화 기계 제작',
     desc: '시제품부터 실제 생산 라인 장비까지 턴키로 제작합니다.',
-    img: '/images/cnc-retrofit.jpg',
+    img: '/images/works/cnc-retrofit-panel.jpg',
+    imgPosition: 'center 50%',
     items: ['시제품 · 라인 장비 제작', 'NC 자동화 장비 제작', '로보틱스 응용'],
   },
   {
@@ -16,7 +17,8 @@ const BUSINESS_AREAS = [
     tag: 'MACHINING',
     title: '설계 · 가공',
     desc: '2D/3D 설계와 정적 해석부터 실가공까지 자체 설비로 처리합니다.',
-    img: '/images/milling-bed.jpg',
+    img: '/images/works/okuma-mcv-machining.jpg',
+    imgPosition: 'center 45%',
     items: ['2D / 3D 설계, 정적 해석', '절곡 · 절단 · 대형 프레나', '선반 · 밀링 · NC 가공'],
   },
   {
@@ -24,7 +26,8 @@ const BUSINESS_AREAS = [
     tag: 'CONTROL',
     title: '모션 · 제어',
     desc: '상용 PLC부터 ARM 기반 커스텀 보드까지, 필요한 층위에서 제어합니다.',
-    img: '/images/press-hmi.jpg',
+    img: '/images/works/mobile-robot-controller.jpg',
+    imgPosition: 'center 55%',
     items: ['PLC / HMI · IO 솔루션', '서보 제어 · 튜닝', 'ARM 기반 임베디드 커스텀'],
   },
   {
@@ -32,7 +35,8 @@ const BUSINESS_AREAS = [
     tag: 'SMART FACTORY',
     title: '스마트팩토리 · 고도화',
     desc: '이미 돌아가는 설비에 데이터를 붙여 생산 현황을 눈에 보이게 만듭니다.',
-    img: '/images/mes.jpg',
+    img: '/images/works/press-brake-scada.png',
+    imgPosition: 'left top',
     items: ['생산 · 재고 ERP 연동', '관제 시스템 구축', '사내 전산 DB 연동'],
   },
 ];
@@ -152,7 +156,7 @@ export default function HomePage() {
             {BUSINESS_AREAS.map((area) => (
               <article className="card" key={area.num}>
                 <div style={{ position: 'relative', height: 190 }}>
-                  <Image src={area.img} alt={area.title} fill sizes="320px" style={{ objectFit: 'cover' }} />
+                  <Image src={area.img} alt={area.title} fill sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 320px" style={{ objectFit: 'cover', objectPosition: area.imgPosition }} />
                 </div>
                 <div className="card-body">
                   <span className="tag mono">

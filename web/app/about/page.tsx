@@ -78,7 +78,13 @@ export default function AboutPage() {
 
           <div>
             <div className="photo-frame" style={{ position: 'relative', height: 420 }}>
-              <Image src="/images/milling-bed.jpg" alt="가공 현장" fill sizes="480px" style={{ objectFit: 'cover' }} />
+              <Image
+                src="/images/works/okuma-mcv-machining.jpg"
+                alt="오쿠마 MCV 문형 머시닝센터에서 장척 판재를 가공하는 모습"
+                fill
+                sizes="(max-width: 900px) 100vw, 480px"
+                style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
+              />
             </div>
             <div className="photo-cap">
               <span>화성 공장 가공 현장</span>
@@ -150,7 +156,13 @@ export default function AboutPage() {
           <div className="grid grid-2">
             <article className="card">
               <div style={{ position: 'relative', height: 260 }}>
-                <Image src="/images/code.jpg" alt="광명 사무소" fill sizes="600px" style={{ objectFit: 'cover' }} />
+                <Image
+                  src="/images/works/excavator-teleop-screen.jpg"
+                  alt="굴삭기 원격 조종 관제 화면"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 600px"
+                  style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
+                />
               </div>
               <div className="card-body" style={{ padding: '30px 30px 34px' }}>
                 <span className="tag mono">GWANGMYEONG</span>
@@ -169,7 +181,13 @@ export default function AboutPage() {
 
             <article className="card">
               <div style={{ position: 'relative', height: 260 }}>
-                <Image src="/images/cnc-machine.jpg" alt="화성 공장" fill sizes="600px" style={{ objectFit: 'cover' }} />
+                <Image
+                  src="/images/works/coil-cut-line.jpg"
+                  alt="코일 공급부터 교정, 절단까지 이어지는 가공 라인"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 600px"
+                  style={{ objectFit: 'cover', objectPosition: 'center 55%' }}
+                />
               </div>
               <div className="card-body" style={{ padding: '30px 30px 34px' }}>
                 <span className="tag mono">HWASEONG</span>
