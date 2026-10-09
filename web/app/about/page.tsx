@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { PHONE, PHONE_HREF } from '@/lib/contact';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = { title: '회사소개' };
@@ -18,7 +19,6 @@ const HISTORY = [
   },
   { year: '[2025]', items: ['[주요 납품 또는 설비 도입 내용]'] },
   { year: '[2023]', items: ['[주요 납품 또는 설비 도입 내용]'] },
-  { year: '[설립]', items: ['SJ AUTOMATION 설립'] },
 ];
 
 export default function AboutPage() {
@@ -215,7 +215,7 @@ export default function AboutPage() {
               걸어온 길
             </h2>
             <p style={{ fontSize: 15, lineHeight: 1.85, color: 'var(--dark-body)' }}>
-              연혁은 설립, 사업장 이전이나 증설, 설비 도입, 인증 취득, 규모가 큰 납품 위주로
+              연혁은 사업장 이전이나 증설, 설비 도입, 인증 취득, 규모가 큰 납품 위주로
               정리했습니다.
             </p>
           </div>
@@ -264,8 +264,8 @@ export default function AboutPage() {
             <Link href="/request" className="btn btn-on-dark" style={{ width: 260 }}>
               제작 · 견적 문의하기
             </Link>
-            <a href="tel:" className="btn btn-on-dark-outline mono" style={{ width: 260 }}>
-              T. [전화번호]
+            <a href={PHONE_HREF} className="btn btn-on-dark-outline mono" style={{ width: 260 }}>
+              T. {PHONE}
             </a>
           </div>
         </div>

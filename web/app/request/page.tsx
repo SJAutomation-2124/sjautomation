@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { EMAIL, PHONE, PHONE_HREF } from '@/lib/contact';
 
 export const metadata: Metadata = { title: '제작 · 견적 문의' };
 
@@ -140,11 +141,11 @@ export default function RequestPage() {
                 급한 건은 전화가 가장 빠릅니다.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                <span className="mono" style={{ fontSize: 18, color: '#fff', letterSpacing: '0.02em' }}>
-                  [전화번호]
-                </span>
+                <a href={PHONE_HREF} className="mono" style={{ fontSize: 18, color: '#fff', letterSpacing: '0.02em' }}>
+                  {PHONE}
+                </a>
                 <span className="mono" style={{ fontSize: 14, color: 'var(--dark-ink)' }}>
-                  [이메일 주소]
+                  {EMAIL}
                 </span>
                 <span style={{ fontSize: 14, color: 'var(--dark-ink)' }}>평일 [09:00 – 18:00]</span>
               </div>

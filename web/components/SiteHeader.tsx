@@ -3,10 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/lib/nav';
-
-// 연락처: 아직 확정 전이라 대괄호로 남겨둡니다. 받으면 이 두 줄만 바꾸면 됩니다.
-const PHONE = '[전화번호]';
-const EMAIL = '[이메일 주소]';
+import { EMAIL, PHONE, PHONE_HREF } from '@/lib/contact';
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -18,7 +15,7 @@ export default function SiteHeader() {
           경기 광명 · 로보틱스/임베디드/PLC 솔루션 팀　　경기 화성 · 자동화 기계 제작/가공 솔루션 팀
         </span>
         <span>
-          T. {PHONE}　·　{EMAIL}
+          <a href={PHONE_HREF}>T. {PHONE}</a>　·　{EMAIL}
         </span>
       </div>
 

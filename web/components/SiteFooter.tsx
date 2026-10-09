@@ -1,9 +1,7 @@
-// 아래 값들은 아직 확정 전이라 대괄호로 남겨둡니다. 정보 받으면 이 파일 하나만 고치면
-// 헤더 연락처(components/SiteHeader.tsx)를 뺀 나머지 전체가 반영됩니다.
+import { EMAIL, PHONE, PHONE_HREF } from '@/lib/contact';
+
+// 전화번호 · 이메일은 lib/contact.ts에서 바꾸면 사이트 전체에 반영됩니다.
 const BIZ_NO = '[000-00-00000]';
-const CEO_NAME = '[대표자명]';
-const PHONE = '[전화번호]';
-const EMAIL = '[이메일 주소]';
 const GWANGMYEONG_ADDR = '경기도 광명시 원광명로 [상세 주소]';
 const HWASEONG_ADDR = '경기도 화성시 팔탄면 [상세 주소]';
 
@@ -40,7 +38,7 @@ export default function SiteFooter() {
 
         <div className="footer-bottom">
           <span>
-            사업자등록번호 {BIZ_NO}　·　대표 {CEO_NAME}　·　T. {PHONE}　·　{EMAIL}
+            사업자등록번호 {BIZ_NO}　·　<a href={PHONE_HREF} style={{ color: 'inherit' }}>T. {PHONE}</a>　·　{EMAIL}
           </span>
           <span className="legal-links">
             <a href="/terms">이용약관</a>

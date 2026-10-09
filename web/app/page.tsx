@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { PHONE, PHONE_HREF } from '@/lib/contact';
 import { WORKS } from '@/lib/works';
 
 const BUSINESS_AREAS = [
@@ -338,8 +339,8 @@ export default function HomePage() {
             <Link href="/request" className="btn btn-on-dark" style={{ width: 260 }}>
               제작 · 견적 문의하기
             </Link>
-            <a href="tel:" className="btn btn-on-dark-outline mono" style={{ width: 260 }}>
-              T. [전화번호]
+            <a href={PHONE_HREF} className="btn btn-on-dark-outline mono" style={{ width: 260 }}>
+              T. {PHONE}
             </a>
           </div>
         </div>
