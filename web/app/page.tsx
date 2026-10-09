@@ -217,7 +217,8 @@ export default function HomePage() {
               { label: '로봇', items: ['KUKA', 'YASKAWA', 'HYUNDAI'] },
               { label: 'PLC / 제어', items: ['LS ELECTRIC', 'MITSUBISHI', 'BECKHOFF', 'OMRON'] },
               { label: '임베디드', items: ['ARM 기반 커스텀 보드', '고속 IO 계측 모듈'] },
-            ].map((row, i) => (
+              { label: '소프트웨어 (HMI · 전산 · 관제)', items: ['C# / JAVA', '파이썬', '파워빌더', 'Oracle DB'] },
+            ].map((row, i, all) => (
               <div
                 key={row.label}
                 style={{
@@ -226,7 +227,7 @@ export default function HomePage() {
                   gap: 24,
                   padding: '24px 0',
                   borderTop: '1px solid var(--dark-edge)',
-                  borderBottom: i === 3 ? '1px solid var(--dark-edge)' : undefined,
+                  borderBottom: i === all.length - 1 ? '1px solid var(--dark-edge)' : undefined,
                 }}
               >
                 <div className="mono" style={{ fontSize: 12, letterSpacing: '0.1em', color: '#6e9be0' }}>
