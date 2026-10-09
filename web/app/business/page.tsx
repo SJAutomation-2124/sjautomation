@@ -42,9 +42,9 @@ const AREAS = [
     tag: 'MOTION & CONTROL',
     title: '모션 · 제어',
     desc: '상용 PLC로 되는 일은 상용 PLC로, 안 되는 일은 보드를 직접 만들어 해결합니다. 고속 계측처럼 일반 PLC로 정밀도가 안 나오는 영역은 ARM 기반 커스텀 보드로 대응합니다.',
-    img: '/images/works/mobile-robot-controller.jpg',
-    imgPosition: 'center 55%',
-    imgAlt: '직접 설계한 모바일 로봇 무선 조종기',
+    img: '/images/works/servo-tuner-render.png',
+    imgPosition: 'center',
+    imgAlt: '서보 게인을 조정하며 스텝 응답과 사인파 추종을 확인하는 튜닝 화면',
     fields: [
       ['PLC / HMI', '시퀀스 제어 · IO 솔루션'],
       ['대응 브랜드', 'LS / MITSUBISHI / BECKHOFF / OMRON'],
@@ -77,7 +77,7 @@ const PROCESS = [
   { n: '03', title: '설계', desc: '2D · 3D 도면과 해석 결과를 확인받습니다.' },
   { n: '04', title: '가공 · 제작', desc: '자체 설비로 가공하고 조립합니다.' },
   { n: '05', title: '제어 · 시운전', desc: 'PLC · 서보를 잡고 실제로 돌려봅니다.' },
-  { n: '06', title: '납품 · 사후관리', desc: '현장 설치 후 [00개월] 무상 대응.' },
+  { n: '06', title: '납품 · 사후관리', desc: '현장 설치 후에도 사후 대응합니다.' },
 ];
 
 export default function BusinessPage() {

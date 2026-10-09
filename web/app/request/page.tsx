@@ -147,7 +147,7 @@ export default function RequestPage() {
                 <a href={EMAIL_HREF} className="mono" style={{ fontSize: 14, color: 'var(--dark-ink)' }}>
                   {EMAIL}
                 </a>
-                <span style={{ fontSize: 14, color: 'var(--dark-ink)' }}>평일 [09:00 – 18:00]</span>
+                <span style={{ fontSize: 14, color: 'var(--dark-ink)' }}>평일 업무시간 응대</span>
               </div>
             </div>
 

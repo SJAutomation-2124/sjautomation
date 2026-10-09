@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: '회사소개' };
 const PROFILE_ROWS = [
   ['회사명', 'SJ AUTOMATION'],
   ['소재지', ADDRESS],
-  ['주요 거래처', '한양대학교 외 [00]개사'],
+  ['주요 거래처', '한양대학교 등'],
   ['사업 분야', '자동화 기계 제작(턴키) · 설계 및 가공 · 모션/제어 솔루션 · 스마트팩토리 고도화'],
 ];
 

@@ -27,8 +27,8 @@ const BUSINESS_AREAS = [
     tag: 'CONTROL',
     title: '모션 · 제어',
     desc: '상용 PLC부터 ARM 기반 커스텀 보드까지, 필요한 층위에서 제어합니다.',
-    img: '/images/works/mobile-robot-controller.jpg',
-    imgPosition: 'center 55%',
+    img: '/images/works/servo-tuner-render.png',
+    imgPosition: 'center',
     items: ['PLC / HMI · IO 솔루션', '서보 제어 · 튜닝', 'ARM 기반 임베디드 커스텀'],
   },
   {
