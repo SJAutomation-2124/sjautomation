@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import Board from './Board';
 import ContactAside from './ContactAside';
+import InquiryNotice from './InquiryNotice';
 
 export const metadata: Metadata = { title: '제작 · 견적 문의' };
 
@@ -34,14 +35,16 @@ export default async function RequestPage({ searchParams }: { searchParams: Prom
         <div className="container grid split-8-4" style={{ alignItems: 'start' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16, minWidth: 0 }}>
             {sp.done === '1' && (
-              <div role="status" style={{ padding: '18px 22px', background: 'var(--accent-soft)', borderLeft: '3px solid var(--accent)' }}>
-                <strong style={{ display: 'block', fontSize: 15, color: 'var(--accent)', marginBottom: 4 }}>문의가 접수되었습니다</strong>
+              <div role="status" style={{ padding: '18px 22px', background: '#eaf7ef', border: '1px solid #bfe3cc', borderLeft: '4px solid #1e8e4a' }}>
+                <strong style={{ display: 'block', fontSize: 16, color: '#1e7a40', marginBottom: 4 }}>✓ 문의가 접수되었습니다</strong>
                 <span style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--body)' }}>
                   담당자가 확인한 뒤 영업일 기준 1일 이내에 남겨주신 연락처로 회신드립니다. 답변은 아래 게시판에서도 확인하실 수
                   있습니다.
                 </span>
               </div>
             )}
+
+            <InquiryNotice />
 
             <div className="card" style={{ padding: 'clamp(24px, 4vw, 36px) clamp(20px, 4vw, 36px) 40px' }}>
               <div

@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState, type FormEvent } from 'react';
 import { createAttachmentUpload, submitInquiry } from './actions';
+import InquiryNotice from './InquiryNotice';
 import { INQUIRY_BUCKET, INQUIRY_TYPES, MAX_ATTACHMENT_BYTES, MIN_PASSWORD_LENGTH } from '@/lib/inquiry';
 
 type Status = 'idle' | 'uploading' | 'sending';
@@ -78,11 +79,8 @@ export default function InquiryForm() {
 
   return (
     <form className="card" style={{ padding: '40px 40px 44px' }} onSubmit={handleSubmit}>
-      <div style={{ padding: '14px 18px', background: 'var(--accent-soft)', marginBottom: 36 }}>
-        <span style={{ fontSize: 13, color: 'var(--accent)', lineHeight: 1.6 }}>
-          문의는 <strong style={{ fontWeight: 600 }}>문의 게시판</strong>에 올라갑니다. 비밀글로 쓰시면 담당자와 비밀번호를
-          아는 분만 볼 수 있고, 공개글이어도 회사명 · 연락처 · 이메일 · 첨부파일은 공개되지 않습니다.
-        </span>
+      <div style={{ marginBottom: 36 }}>
+        <InquiryNotice />
       </div>
 
       <div aria-hidden="true" style={{ position: 'absolute', left: -10000, width: 1, height: 1, overflow: 'hidden' }}>
