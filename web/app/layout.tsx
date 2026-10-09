@@ -35,8 +35,11 @@ export const metadata: Metadata = {
   },
   description: HOME_DESCRIPTION,
   applicationName: SITE_NAME,
-  // 검색엔진 소유 확인 (네이버 서치어드바이저). 구글 코드를 받으면 google: '...' 추가
-  verification: { other: { 'naver-site-verification': '98ba8f4bc4183b7c5c4a4bf7c1f5a12bb1a0a892' } },
+  // 검색엔진 소유 확인 (구글 서치 콘솔 · 네이버 서치어드바이저)
+  verification: {
+    google: 'ndMvrTXpxd_ozHlow7DUFch61U-jhB6JqLmdiNNEqfk',
+    other: { 'naver-site-verification': '98ba8f4bc4183b7c5c4a4bf7c1f5a12bb1a0a892' },
+  },
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
