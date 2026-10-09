@@ -13,6 +13,8 @@ export type Work = {
   imgPosition?: string;
   /** 세로 사진처럼 대표 사진을 자르지 않고 통째로 보여줘야 할 때 true. */
   imgContain?: boolean;
+  /** imgContain일 때 사진 둘레 여백 색 (기본: 어두운 남색). */
+  imgBg?: string;
   client?: string;
   tech: string[];
   summary: string;
@@ -162,8 +164,9 @@ export const WORKS: Work[] = [
     category: '모션 · 제어',
     title: '서보 튜닝기 HMI 솔루션',
     img: '/images/works/servo-tuner-render.png',
-    imgCaption: '튜닝 화면 구성 — 게인 설정, 명령 프로파일, 스텝 응답 · 사인파 추종 (화면 재구성 이미지)',
+    imgCaption: '서보 튜너 화면 — AS IS / TO BE 게인 설정, Sine · Square 프로파일, 명령(녹색) · 응답(노랑) 파형',
     imgContain: true,
+    imgBg: '#f7f8f9',
     tech: ['LS ELECTRIC · BECKHOFF · MITSUBISHI 서보 대응', '서보 게인 튜닝', '실시간 응답 그래프'],
     summary:
       '서보 축에 사각파 · 사인파 명령을 넣고 응답 파형을 보면서 게인을 조정하는 튜닝 전용 화면입니다. LS ELECTRIC, BECKHOFF, MITSUBISHI 등 여러 제조사 서보에 같은 방식으로 적용할 수 있습니다.',

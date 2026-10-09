@@ -85,7 +85,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
                 position: 'relative',
                 width: '100%',
                 height: '100%',
-                background: work.imgContain ? 'var(--ink)' : undefined,
+                background: work.imgContain ? (work.imgBg ?? 'var(--ink)') : undefined,
               }}
             >
               <Image
