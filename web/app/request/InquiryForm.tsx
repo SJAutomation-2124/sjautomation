@@ -214,7 +214,13 @@ export default function InquiryForm() {
             <br />
             보유 기간: 문의 처리 완료 후 3년간 보관 후 파기
             <br />
-            동의를 거부할 수 있으며, 이 경우 온라인 문의 접수가 제한됩니다. 전화나 이메일로는 계속 문의하실 수 있습니다.
+            처리 위탁 · 국외 이전: 접수 처리와 알림 메일 발송을 위해 Vercel(미국), Resend(미국)를 거치며, 저장은 Supabase(서울)에
+            합니다.
+            <br />
+            동의를 거부할 수 있으며, 이 경우 온라인 문의 접수가 제한됩니다. 전화나 이메일로는 계속 문의하실 수 있습니다.{' '}
+            <a href="/privacy" target="_blank" rel="noopener">
+              개인정보처리방침 전문
+            </a>
           </div>
           <label className="checkline">
             <input type="checkbox" name="consent" required />

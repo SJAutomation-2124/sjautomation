@@ -643,3 +643,27 @@ h3 {
     animation: none !important;
   }
 }
+
+/* ---------------- 개인정보처리방침 본문 ---------------- */
+
+.privacy p,
+.privacy ul {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--body);
+}
+.privacy ul {
+  padding-left: 20px;
+}
+.privacy li + li {
+  margin-top: 4px;
+}
+.privacy .table-scroll {
+  margin: 4px 0 16px;
+}
+.privacy .data-table td {
+  font-size: 14px;
+  line-height: 1.7;
+  vertical-align: top;
+}
