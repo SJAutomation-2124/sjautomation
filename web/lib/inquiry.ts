@@ -39,5 +39,11 @@ export function maskName(name: string) {
   return chars[0] + '*'.repeat(chars.length - 2) + chars[chars.length - 1];
 }
 
-export const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('ko-KR', { timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/.s?/g, '.').replace(/.$/, '');
+const DATE_PARTS = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit' });
+
+/** 2026-10-09T05:00:00Z → 2026.10.09 (한국 시간 기준) */
+export function formatDate(iso: string) {
+  const parts = DATE_PARTS.formatToParts(new Date(iso));
+  const get = (type: Intl.DateTimeFormatPartTypes) => parts.find((p) => p.type === type)?.value ?? '';
+  return `${get('year')}.${get('month')}.${get('day')}`;
+}
