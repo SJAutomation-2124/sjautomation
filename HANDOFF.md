@@ -63,9 +63,8 @@ sjrobotics.com이 전부 타사(경기 화성의 "삼정오토메이션" 등)가
   - 무료 플랜 7일 미사용 일시정지 방지: `web/vercel.json` 크론이 매일 `/api/keepalive` 호출
   - Resend는 도메인 인증 전이라 가입 메일(jeniussdi@naver.com)로만 발송 가능
 - **문의 게시판 + 관리자 화면** (2026-10-09, 사장님 요청으로 추가)
-  - ⚠️ **아직 배포 안 함 (로컬 커밋만).** 순서: ① Supabase SQL Editor에서 `002_board.sql` 실행 → ② Authentication > Users에서
-    jeniussdi@naver.com 관리자 계정 생성(Auto Confirm) → ③ 회원가입(Allow new users to sign up) 끄기 → `git push` →
-    공개글 · 비밀글 테스트 → 사장님이 /admin 로그인 · 답변 테스트
+  - **운영 중 (2026-10-10 배포).** 공개글 · 비밀글 게시, 비밀번호 열람(틀리면 거절), 비밀글 제목 · 연락처 비노출 확인 완료.
+    Supabase Auth: 관리자 계정 jeniussdi@naver.com 생성, 회원가입 차단(disable_signup=true) 확인
   - 문의 폼에 제목 · 비밀글(기본 켜짐) · 열람 비밀번호(scrypt 해시 저장) 추가. 쓴 글은 `/request` 아래 게시판에 올라감
   - 공개글: 제목 · 내용 · 가린 이름(홍*동) · 답변만 공개. 회사명 · 연락처 · 이메일 · 첨부는 절대 비공개
   - 비밀글: 목록에 "비밀글입니다", 글(`/request/[id]`)은 작성자 비밀번호로 열람
