@@ -72,14 +72,21 @@ sjrobotics.com이 전부 타사(경기 화성의 "삼정오토메이션" 등)가
   - 관리자 `/admin`: Supabase Auth 이메일 로그인, `ADMIN_EMAILS`(=jeniussdi@naver.com)만 인정.
     모든 문의 · 연락처 · 첨부(1시간 링크) 확인, 답변 등록(→ 답변완료), 삭제
   - DB 변경: `web/supabase/002_board.sql`. Supabase Auth는 관리자 계정 1개만 만들고 회원가입은 꺼둠
-- **2단계 — 공지사항 · 자료실 관리** (2026-10-10)
+- **2단계 — 공지사항 · 자료실 관리** (2026-10-09 완료 · 실제 글 · 파일로 확인)
   - 관리자 /admin 위쪽 탭: 견적 문의 · 공지사항(/admin/notices) · 자료실(/admin/archive)
   - 공지: 제목 · 내용 · 맨 위 고정 · 첨부(사진이면 본문에 표시). 공개 /notice, /notice/[id](조회수, 이전 · 다음 글)
   - 자료실: 자료명 · 분류(기술지원/장비 매뉴얼/강의 자료/소프트웨어 툴) · 설명 · 파일(50MB). 공개 /archive(분류 필터)
   - 파일은 비공개 저장소 site-files, 내려받을 때 /archive/download/[id] · /notice/[id]/download 가 60초 링크로 보냄
   - 홈 공지 칸에 최신 3개 자동 표시. DB 구조: `web/supabase/003_notice_archive.sql`
+  - 주의: supabase-js `createSignedUrl(..., { download: 이름 })`은 한글 파일명을 두 번 인코딩함 → `withDownloadName()`(lib/site-files.ts)로 직접 붙임
+  - 자료실은 다운로드 전용(사진도 "받기"로만 보임). 사진을 화면에 보이려면 공지 첨부(JPG · PNG · WEBP · GIF)
 - 개인정보처리방침 `/privacy` (2026-10-09 시행, 위탁: Vercel · Supabase · Resend / 국외 이전: Vercel · Resend 미국). 수탁 업체나 보유 기간이 바뀌면 이 페이지도 고칠 것
-- 이용약관(`/terms`)은 아직 없음 (하단 링크만 있음)
+- 이용약관(`/terms`)은 만들지 않기로 함 (하단 링크도 뺐음)
+
+### 다음에 할 일 (2026-10-09 기준, 추천 순서)
+1. **방문자 통계** — Vercel Web Analytics. 사장님이 Vercel → Analytics → Enable 누르고, 코드에 `@vercel/analytics` 붙이기. 쿠키 안 씀
+2. **알림 메일을 회사 주소로** — Resend에 sjautosolution.com 도메인 인증(가비아 DNS 추가) → noreply@sjautosolution.com 발신, 답변 등록 시 손님에게도 알림 메일
+3. 사장님 직접: 네이버 스마트플레이스 · 구글 비즈니스 프로필 등록, 실적 보강 자료(연도 · 발주처 · 사진)
 
 ## 4. 아직 못 받은 정보 (대괄호 `[ ]`로 남긴 것)
 
