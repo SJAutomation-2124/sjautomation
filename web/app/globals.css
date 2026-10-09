@@ -536,28 +536,19 @@ h3 {
   }
 }
 
-/* ---------------- 회사 개요 표 / 프로세스 6단 ---------------- */
+/* ---------------- 프로세스 6단 ---------------- */
 
-.profile-row {
-  grid-template-columns: 160px 1fr 160px 1fr;
-}
 .process-grid {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 @media (max-width: 900px) {
-  .profile-row {
-    grid-template-columns: 1fr 1fr;
-  }
   .process-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 @media (max-width: 560px) {
-  .profile-row {
-    grid-template-columns: 1fr;
-  }
   .process-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

@@ -12,7 +12,7 @@ export default function SiteHeader() {
     <header className="site-header">
       <div className="container util-row">
         <span>
-          경기 광명 · 로보틱스/임베디드/PLC 솔루션 팀　　경기 화성 · 자동화 기계 제작/가공 솔루션 팀
+          경기 화성 · 자동화 기계 제작 · 가공 · 로보틱스 · 임베디드 · PLC 솔루션
         </span>
         <span>
           <a href={PHONE_HREF}>T. {PHONE}</a>　·　<a href={EMAIL_HREF}>{EMAIL}</a>

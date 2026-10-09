@@ -1,15 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { PHONE, PHONE_HREF } from '@/lib/contact';
+import { ADDRESS, PHONE, PHONE_HREF } from '@/lib/contact';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = { title: '회사소개' };
 
-const PROFILE_ROWS = [['회사명', 'SJ AUTOMATION', '사업자등록번호', '[000-00-00000]']];
-
-const PROFILE_WIDE_ROWS = [
+const PROFILE_ROWS = [
+  ['회사명', 'SJ AUTOMATION'],
+  ['소재지', ADDRESS],
   ['주요 거래처', '한양대학교 외 [00]개사'],
   ['사업 분야', '자동화 기계 제작(턴키) · 설계 및 가공 · 모션/제어 솔루션 · 스마트팩토리 고도화'],
+];
+
+const SITE_TEAMS = [
+  ['기계 제작 · 가공', '절곡, 절단, 대형 프레나, 선반, 밀링 설비로 부품 가공부터 장비 조립까지'],
+  ['제어 · PLC', '시퀀스 제어, 서보 제어 · 튜닝, HMI 화면 구성'],
+  ['로보틱스 · 임베디드 · 소프트웨어', '임베디드 보드, 관제 · 모니터링 소프트웨어, 연구 과제와 용역 개발'],
 ];
 
 const HISTORY = [
@@ -102,27 +108,15 @@ export default function AboutPage() {
           </h2>
 
           <div style={{ border: '1px solid var(--line)', background: 'var(--panel)' }}>
-            {PROFILE_ROWS.map((row, i) => (
+            {PROFILE_ROWS.map(([label, value], i) => (
               <div
-                key={i}
-                className="profile-row"
+                key={label}
                 style={{
                   display: 'grid',
-                  borderBottom: i < PROFILE_ROWS.length - 1 ? '1px solid var(--line-soft)' : undefined,
+                  gridTemplateColumns: '120px 1fr',
+                  borderTop: i > 0 ? '1px solid var(--line-soft)' : undefined,
                 }}
               >
-                <div className="mono" style={{ padding: '20px 22px', fontSize: 11, letterSpacing: '0.1em', color: 'var(--faint)', background: '#fafbfc' }}>
-                  {row[0]}
-                </div>
-                <div style={{ padding: '20px 22px', fontSize: 15, borderRight: '1px solid var(--line-soft)' }}>{row[1]}</div>
-                <div className="mono" style={{ padding: '20px 22px', fontSize: 11, letterSpacing: '0.1em', color: 'var(--faint)', background: '#fafbfc' }}>
-                  {row[2]}
-                </div>
-                <div style={{ padding: '20px 22px', fontSize: 15 }}>{row[3]}</div>
-              </div>
-            ))}
-            {PROFILE_WIDE_ROWS.map(([label, value]) => (
-              <div key={label} style={{ display: 'grid', gridTemplateColumns: '160px 1fr', borderTop: '1px solid var(--line-soft)' }}>
                 <div className="mono" style={{ padding: '20px 22px', fontSize: 11, letterSpacing: '0.1em', color: 'var(--faint)', background: '#fafbfc' }}>
                   {label}
                 </div>
@@ -133,72 +127,50 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 두 사업장 */}
+      {/* 사업장 */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="eyebrow">
             <span className="num mono">03</span>
             <span className="rule" />
-            <span className="label mono">TWO SITES</span>
+            <span className="label mono">SITE</span>
           </div>
           <h2 style={{ fontSize: 32, fontWeight: 600, letterSpacing: '-0.02em', marginBottom: 12 }}>
-            사업장 두 곳
+            화성 사업장
           </h2>
           <p style={{ fontSize: 15, lineHeight: 1.85, color: 'var(--muted)', maxWidth: 640, marginBottom: 32 }}>
-            제어와 소프트웨어를 다루는 팀, 기계를 만드는 팀이 각각 자리를 잡고 있습니다.
+            기계를 만드는 팀과 제어 · 소프트웨어를 다루는 팀이 모두 화성 사업장 한 곳에 있습니다.
           </p>
 
-          <div className="grid grid-2">
-            <article className="card">
-              <div style={{ position: 'relative', height: 260 }}>
-                <Image
-                  src="/images/works/excavator-teleop-screen.jpg"
-                  alt="굴삭기 원격 조종 관제 화면"
-                  fill
-                  sizes="(max-width: 640px) 100vw, 600px"
-                  style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
-                />
+          <article className="card grid split-5-7" style={{ gap: 0 }}>
+            <div style={{ position: 'relative', minHeight: 300 }}>
+              <Image
+                src="/images/works/coil-cut-line.jpg"
+                alt="코일 공급부터 교정, 절단까지 이어지는 가공 라인"
+                fill
+                sizes="(max-width: 900px) 100vw, 500px"
+                style={{ objectFit: 'cover', objectPosition: 'center 55%' }}
+              />
+            </div>
+            <div className="card-body" style={{ padding: '32px 32px 34px' }}>
+              <span className="tag mono">HWASEONG</span>
+              <h3 style={{ fontSize: 21, fontWeight: 600, letterSpacing: '-0.015em', marginBottom: 12 }}>
+                설계부터 가공 · 제어 · 소프트웨어까지 한 곳에서
+              </h3>
+              <p style={{ fontSize: 14, lineHeight: 1.85, color: 'var(--muted)', marginBottom: 22 }}>
+                도면이 바뀌면 같은 사업장 안에서 바로 가공과 제어에 반영됩니다.
+              </p>
+              <div style={{ borderTop: '1px solid var(--line-soft)' }}>
+                {SITE_TEAMS.map(([team, desc]) => (
+                  <div key={team} style={{ padding: '14px 0', borderBottom: '1px solid var(--line-soft)' }}>
+                    <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 4 }}>{team}</div>
+                    <div style={{ fontSize: 13, lineHeight: 1.7, color: 'var(--muted)' }}>{desc}</div>
+                  </div>
+                ))}
               </div>
-              <div className="card-body" style={{ padding: '30px 30px 34px' }}>
-                <span className="tag mono">GWANGMYEONG</span>
-                <h3 style={{ fontSize: 21, fontWeight: 600, letterSpacing: '-0.015em', marginBottom: 12 }}>
-                  로보틱스 · 임베디드 · PLC 솔루션 팀
-                </h3>
-                <p style={{ fontSize: 14, lineHeight: 1.85, color: 'var(--muted)', marginBottom: 22 }}>
-                  제어 로직, 임베디드 보드, 관제 소프트웨어를 설계하고 개발합니다. 연구 과제와 용역
-                  개발도 이곳에서 진행합니다.
-                </p>
-                <p style={{ fontSize: 14, color: 'var(--body)', paddingTop: 20, borderTop: '1px solid var(--line-soft)' }}>
-                  경기도 광명시 원광명로 [상세 주소]
-                </p>
-              </div>
-            </article>
-
-            <article className="card">
-              <div style={{ position: 'relative', height: 260 }}>
-                <Image
-                  src="/images/works/coil-cut-line.jpg"
-                  alt="코일 공급부터 교정, 절단까지 이어지는 가공 라인"
-                  fill
-                  sizes="(max-width: 640px) 100vw, 600px"
-                  style={{ objectFit: 'cover', objectPosition: 'center 55%' }}
-                />
-              </div>
-              <div className="card-body" style={{ padding: '30px 30px 34px' }}>
-                <span className="tag mono">HWASEONG</span>
-                <h3 style={{ fontSize: 21, fontWeight: 600, letterSpacing: '-0.015em', marginBottom: 12 }}>
-                  자동화 기계 제작 · 가공 솔루션 팀
-                </h3>
-                <p style={{ fontSize: 14, lineHeight: 1.85, color: 'var(--muted)', marginBottom: 22 }}>
-                  절곡, 절단, 대형 프레나, 선반, 밀링 설비를 직접 갖추고 부품 가공부터 장비 조립까지
-                  처리합니다.
-                </p>
-                <p style={{ fontSize: 14, color: 'var(--body)', paddingTop: 20, borderTop: '1px solid var(--line-soft)' }}>
-                  경기도 화성시 팔탄면 [상세 주소]
-                </p>
-              </div>
-            </article>
-          </div>
+              <p style={{ fontSize: 14, color: 'var(--body)', paddingTop: 18, margin: 0 }}>{ADDRESS}</p>
+            </div>
+          </article>
         </div>
       </section>
 

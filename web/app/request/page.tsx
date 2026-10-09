@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '@/lib/contact';
+import { ADDRESS, EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '@/lib/contact';
 
 export const metadata: Metadata = { title: '제작 · 견적 문의' };
 
@@ -153,18 +153,12 @@ export default function RequestPage() {
 
             <div className="card" style={{ padding: '28px 28px 30px' }}>
               <div className="mono" style={{ fontSize: 11, letterSpacing: '0.14em', color: 'var(--accent)', marginBottom: 14 }}>
-                GWANGMYEONG OFFICE
+                HWASEONG
               </div>
-              <p style={{ fontSize: 14, lineHeight: 1.8, marginBottom: 10 }}>경기도 광명시 원광명로 [상세 주소]</p>
-              <p style={{ fontSize: 13, lineHeight: 1.7, color: 'var(--faint)' }}>로보틱스 · 임베디드 · PLC 솔루션 팀</p>
-            </div>
-
-            <div className="card" style={{ padding: '28px 28px 30px' }}>
-              <div className="mono" style={{ fontSize: 11, letterSpacing: '0.14em', color: 'var(--accent)', marginBottom: 14 }}>
-                HWASEONG FACTORY
-              </div>
-              <p style={{ fontSize: 14, lineHeight: 1.8, marginBottom: 10 }}>경기도 화성시 팔탄면 [상세 주소]</p>
-              <p style={{ fontSize: 13, lineHeight: 1.7, color: 'var(--faint)' }}>자동화 기계 제작 · 가공 솔루션 팀</p>
+              <p style={{ fontSize: 14, lineHeight: 1.8, marginBottom: 10 }}>{ADDRESS}</p>
+              <p style={{ fontSize: 13, lineHeight: 1.7, color: 'var(--faint)' }}>
+                자동화 기계 제작 · 가공 · 로보틱스 · 임베디드 · PLC 솔루션
+              </p>
             </div>
           </aside>
         </div>
