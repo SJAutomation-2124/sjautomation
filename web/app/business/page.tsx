@@ -166,7 +166,7 @@ export default function BusinessPage() {
             </p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
-            <Link href="/request" className="btn btn-on-dark" style={{ width: 260 }}>
+            <Link href="/request/new" className="btn btn-on-dark" style={{ width: 260 }}>
               제작 · 견적 문의하기
             </Link>
             <Link href="/works" className="btn btn-on-dark-outline" style={{ width: 260 }}>

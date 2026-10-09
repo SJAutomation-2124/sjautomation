@@ -1,15 +1,16 @@
 'use client';
 
-import { useRef, useState, type FormEvent } from 'react';
+import { useRouter } from 'next/navigation';
+import { useState, type FormEvent } from 'react';
 import { createAttachmentUpload, submitInquiry } from './actions';
 import { INQUIRY_BUCKET, INQUIRY_TYPES, MAX_ATTACHMENT_BYTES, MIN_PASSWORD_LENGTH } from '@/lib/inquiry';
 
-type Status = 'idle' | 'uploading' | 'sending' | 'done';
+type Status = 'idle' | 'uploading' | 'sending';
 
 const formatSize = (b: number) => (b >= 1024 * 1024 ? `${(b / 1024 / 1024).toFixed(1)}MB` : `${Math.max(1, Math.round(b / 1024))}KB`);
 
 export default function InquiryForm() {
-  const formRef = useRef<HTMLFormElement>(null);
+  const router = useRouter();
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState('');
   const [file, setFile] = useState<File | null>(null);
@@ -68,40 +69,18 @@ export default function InquiryForm() {
         attachmentName: file?.name,
       });
       if (!res.ok) throw new Error(res.error);
-      setStatus('done');
-      formRef.current?.reset();
-      setFile(null);
-      setIsSecret(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      router.push('/request?done=1');
     } catch (err) {
       setStatus('idle');
       setError(err instanceof Error ? err.message : '접수 중 문제가 생겼습니다. 전화로 문의해 주세요.');
     }
   }
 
-  if (status === 'done') {
-    return (
-      <div className="card" style={{ padding: '56px 40px 60px' }}>
-        <div className="mono" style={{ fontSize: 11, letterSpacing: '0.14em', color: 'var(--accent)', marginBottom: 16 }}>
-          RECEIVED
-        </div>
-        <h2 style={{ fontSize: 28, fontWeight: 600, letterSpacing: '-0.02em', marginBottom: 14 }}>문의가 접수되었습니다</h2>
-        <p style={{ fontSize: 15, lineHeight: 1.85, color: 'var(--muted)', marginBottom: 32, maxWidth: 520 }}>
-          담당자가 내용을 확인한 뒤 영업일 기준 1일 이내에 남겨주신 연락처로 회신드리겠습니다. 아래 문의 게시판에서도 답변을
-          확인하실 수 있습니다. 급한 건은 전화 주시면 더 빠릅니다.
-        </p>
-        <button type="button" className="btn btn-outline" onClick={() => setStatus('idle')}>
-          새 문의 작성
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <form ref={formRef} className="card" style={{ padding: '40px 40px 44px' }} onSubmit={handleSubmit}>
+    <form className="card" style={{ padding: '40px 40px 44px' }} onSubmit={handleSubmit}>
       <div style={{ padding: '14px 18px', background: 'var(--accent-soft)', marginBottom: 36 }}>
         <span style={{ fontSize: 13, color: 'var(--accent)', lineHeight: 1.6 }}>
-          문의는 아래 <strong style={{ fontWeight: 600 }}>문의 게시판</strong>에 올라갑니다. 비밀글로 쓰시면 담당자와 비밀번호를
+          문의는 <strong style={{ fontWeight: 600 }}>문의 게시판</strong>에 올라갑니다. 비밀글로 쓰시면 담당자와 비밀번호를
           아는 분만 볼 수 있고, 공개글이어도 회사명 · 연락처 · 이메일 · 첨부파일은 공개되지 않습니다.
         </span>
       </div>

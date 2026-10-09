@@ -177,7 +177,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
-            <Link href="/request" className="btn btn-on-dark" style={{ width: 260 }}>
+            <Link href="/request/new" className="btn btn-on-dark" style={{ width: 260 }}>
               제작 · 견적 문의하기
             </Link>
             <a href={PHONE_HREF} className="btn btn-on-dark-outline mono" style={{ width: 260 }}>

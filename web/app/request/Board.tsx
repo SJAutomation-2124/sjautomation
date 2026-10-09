@@ -73,7 +73,7 @@ export default async function Board({ page }: { page: number }) {
           {Array.from({ length: pages }, (_, i) => i + 1).map((p) => (
             <Link
               key={p}
-              href={`/request?page=${p}#board`}
+              href={`/request?page=${p}`}
               className="mono"
               aria-current={p === page ? 'page' : undefined}
               style={{

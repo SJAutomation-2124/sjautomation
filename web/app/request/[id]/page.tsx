@@ -36,7 +36,7 @@ export default async function InquiryPostPage({ params }: { params: Promise<{ id
           <div className="crumb">
             <Link href="/">HOME</Link>
             <span>/</span>
-            <Link href="/request#board">CONTACT</Link>
+            <Link href="/request">CONTACT</Link>
             <span>/</span>
             <span className="current">VIEW</span>
           </div>
@@ -76,7 +76,7 @@ export default async function InquiryPostPage({ params }: { params: Promise<{ id
           </article>
 
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: 32 }}>
-            <Link href="/request#board" className="btn btn-dark">
+            <Link href="/request" className="btn btn-dark">
               목록으로
             </Link>
           </div>

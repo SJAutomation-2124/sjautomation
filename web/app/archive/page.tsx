@@ -95,7 +95,7 @@ export default function ArchivePage() {
                 보내드립니다.
               </p>
             </div>
-            <Link href="/request" className="btn btn-on-dark" style={{ width: 220, flexShrink: 0 }}>
+            <Link href="/request/new" className="btn btn-on-dark" style={{ width: 220, flexShrink: 0 }}>
               자료 요청하기
             </Link>
           </div>

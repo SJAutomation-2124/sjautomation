@@ -177,7 +177,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
               <p style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--dark-body)', marginBottom: 24 }}>
                 이 사례를 기준으로 사양과 개략 견적을 잡아드립니다.
               </p>
-              <Link href="/request" className="btn btn-on-dark btn-block">
+              <Link href="/request/new" className="btn btn-on-dark btn-block">
                 이 사례로 문의하기
               </Link>
             </div>

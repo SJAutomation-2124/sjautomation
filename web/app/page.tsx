@@ -89,7 +89,7 @@ export default function HomePage() {
             </p>
 
             <div style={{ display: 'flex', gap: 12, marginBottom: 56, flexWrap: 'wrap' }}>
-              <Link href="/request" className="btn btn-primary">
+              <Link href="/request/new" className="btn btn-primary">
                 제작 · 견적 문의하기
               </Link>
               <Link href="/works" className="btn btn-outline">
@@ -336,7 +336,7 @@ export default function HomePage() {
             </p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
-            <Link href="/request" className="btn btn-on-dark" style={{ width: 260 }}>
+            <Link href="/request/new" className="btn btn-on-dark" style={{ width: 260 }}>
               제작 · 견적 문의하기
             </Link>
             <a href={PHONE_HREF} className="btn btn-on-dark-outline mono" style={{ width: 260 }}>
