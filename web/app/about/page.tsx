@@ -4,10 +4,11 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = { title: '회사소개' };
 
-const PROFILE_ROWS = [
-  ['회사명', 'SJ AUTOMATION', '대표자', '[대표자명]'],
-  ['설립일', '[YYYY.MM.DD]', '사업자등록번호', '[000-00-00000]'],
-  ['임직원', '[00]명', '주요 거래처', '한양대학교 외 [00]개사'],
+const PROFILE_ROWS = [['회사명', 'SJ AUTOMATION', '사업자등록번호', '[000-00-00000]']];
+
+const PROFILE_WIDE_ROWS = [
+  ['주요 거래처', '한양대학교 외 [00]개사'],
+  ['사업 분야', '자동화 기계 제작(턴키) · 설계 및 가공 · 모션/제어 솔루션 · 스마트팩토리 고도화'],
 ];
 
 const HISTORY = [
@@ -64,16 +65,10 @@ export default function AboutPage() {
               됩니다. 도면을 그린 사람이 가공까지 지켜보고, 가공을 한 사람이 제어까지 손대야
               어긋남 없이 돌아갑니다. SJ AUTOMATION은 그 원칙 하나로 시작한 회사입니다.
             </p>
-            <p style={{ fontSize: 16, lineHeight: 1.95, color: 'var(--body)', maxWidth: 620, marginBottom: 36 }}>
+            <p style={{ fontSize: 16, lineHeight: 1.95, color: 'var(--body)', maxWidth: 620, marginBottom: 0 }}>
               규모가 크지 않은 만큼, 문의 주신 내용은 저희 팀이 직접 검토하고 답을 드립니다. 할 수
               있는 일과 시간이 걸리는 일을 정직하게 말씀드리는 것부터 시작하겠습니다.
             </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14, paddingTop: 24, borderTop: '1px solid var(--line)' }}>
-              <span className="mono" style={{ fontSize: 11, letterSpacing: '0.12em', color: 'var(--faint)' }}>
-                대표이사
-              </span>
-              <span style={{ fontSize: 17, fontWeight: 600, letterSpacing: '-0.01em' }}>[대표자명]</span>
-            </div>
           </div>
 
           <div>
@@ -126,14 +121,14 @@ export default function AboutPage() {
                 <div style={{ padding: '20px 22px', fontSize: 15 }}>{row[3]}</div>
               </div>
             ))}
-            <div style={{ display: 'grid', gridTemplateColumns: '160px 1fr', borderTop: '1px solid var(--line-soft)' }}>
-              <div className="mono" style={{ padding: '20px 22px', fontSize: 11, letterSpacing: '0.1em', color: 'var(--faint)', background: '#fafbfc' }}>
-                사업 분야
+            {PROFILE_WIDE_ROWS.map(([label, value]) => (
+              <div key={label} style={{ display: 'grid', gridTemplateColumns: '160px 1fr', borderTop: '1px solid var(--line-soft)' }}>
+                <div className="mono" style={{ padding: '20px 22px', fontSize: 11, letterSpacing: '0.1em', color: 'var(--faint)', background: '#fafbfc' }}>
+                  {label}
+                </div>
+                <div style={{ padding: '20px 22px', fontSize: 15, lineHeight: 1.7 }}>{value}</div>
               </div>
-              <div style={{ padding: '20px 22px', fontSize: 15, lineHeight: 1.7 }}>
-                자동화 기계 제작(턴키) · 설계 및 가공 · 모션/제어 솔루션 · 스마트팩토리 고도화
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
