@@ -2,7 +2,7 @@
 
 import { useRef, useState, type FormEvent } from 'react';
 import { createAttachmentUpload, submitInquiry } from './actions';
-import { INQUIRY_BUCKET, INQUIRY_TYPES, MAX_ATTACHMENT_BYTES } from '@/lib/inquiry';
+import { INQUIRY_BUCKET, INQUIRY_TYPES, MAX_ATTACHMENT_BYTES, MIN_PASSWORD_LENGTH } from '@/lib/inquiry';
 
 type Status = 'idle' | 'uploading' | 'sending' | 'done';
 
@@ -13,6 +13,7 @@ export default function InquiryForm() {
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState('');
   const [file, setFile] = useState<File | null>(null);
+  const [isSecret, setIsSecret] = useState(true);
 
   const busy = status === 'uploading' || status === 'sending';
 
@@ -24,6 +25,11 @@ export default function InquiryForm() {
     const types = fd.getAll('type').map(String);
     if (types.length === 0) {
       setError('문의 분야를 하나 이상 선택해 주세요.');
+      return;
+    }
+    const password = String(fd.get('password') ?? '');
+    if (isSecret && password.length < MIN_PASSWORD_LENGTH) {
+      setError(`비밀글 비밀번호를 ${MIN_PASSWORD_LENGTH}자 이상 입력해 주세요.`);
       return;
     }
     if (file && file.size > MAX_ATTACHMENT_BYTES) {
@@ -47,6 +53,9 @@ export default function InquiryForm() {
 
       setStatus('sending');
       const res = await submitInquiry({
+        title: String(fd.get('title') ?? ''),
+        isSecret,
+        password: isSecret ? password : '',
         company: String(fd.get('company') ?? ''),
         name: String(fd.get('name') ?? ''),
         phone: String(fd.get('phone') ?? ''),
@@ -62,6 +71,7 @@ export default function InquiryForm() {
       setStatus('done');
       formRef.current?.reset();
       setFile(null);
+      setIsSecret(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
       setStatus('idle');
@@ -77,8 +87,8 @@ export default function InquiryForm() {
         </div>
         <h2 style={{ fontSize: 28, fontWeight: 600, letterSpacing: '-0.02em', marginBottom: 14 }}>문의가 접수되었습니다</h2>
         <p style={{ fontSize: 15, lineHeight: 1.85, color: 'var(--muted)', marginBottom: 32, maxWidth: 520 }}>
-          담당자가 내용을 확인한 뒤 영업일 기준 1일 이내에 남겨주신 연락처로 회신드리겠습니다. 급한 건은 전화 주시면 더
-          빠릅니다.
+          담당자가 내용을 확인한 뒤 영업일 기준 1일 이내에 남겨주신 연락처로 회신드리겠습니다. 아래 문의 게시판에서도 답변을
+          확인하실 수 있습니다. 급한 건은 전화 주시면 더 빠릅니다.
         </p>
         <button type="button" className="btn btn-outline" onClick={() => setStatus('idle')}>
           새 문의 작성
@@ -91,8 +101,8 @@ export default function InquiryForm() {
     <form ref={formRef} className="card" style={{ padding: '40px 40px 44px' }} onSubmit={handleSubmit}>
       <div style={{ padding: '14px 18px', background: 'var(--accent-soft)', marginBottom: 36 }}>
         <span style={{ fontSize: 13, color: 'var(--accent)', lineHeight: 1.6 }}>
-          이 문의는 <strong style={{ fontWeight: 600 }}>공개되지 않습니다.</strong> 담당자만 확인하며, 접수 즉시 메일로
-          알림이 갑니다.
+          문의는 아래 <strong style={{ fontWeight: 600 }}>문의 게시판</strong>에 올라갑니다. 비밀글로 쓰시면 담당자와 비밀번호를
+          아는 분만 볼 수 있고, 공개글이어도 회사명 · 연락처 · 이메일 · 첨부파일은 공개되지 않습니다.
         </span>
       </div>
 
@@ -103,6 +113,39 @@ export default function InquiryForm() {
       </div>
 
       <fieldset disabled={busy} style={{ border: 0, padding: 0, margin: 0, minWidth: 0 }}>
+        <div className="field" style={{ marginBottom: 20 }}>
+          <label htmlFor="iq-title">
+            제목 <span className="req">*</span>
+          </label>
+          <input id="iq-title" type="text" name="title" placeholder="예) 철판 절단 라인 자동화 견적 문의" maxLength={100} required />
+        </div>
+
+        <div
+          className="grid grid-2"
+          style={{ marginBottom: 32, padding: '16px 18px', border: '1px solid var(--line)', background: '#fafbfc', alignItems: 'center' }}
+        >
+          <label className="checkline" style={{ fontSize: 14, color: 'var(--ink)' }}>
+            <input type="checkbox" checked={isSecret} onChange={(e) => setIsSecret(e.target.checked)} />
+            <span>
+              <strong style={{ fontWeight: 600 }}>비밀글</strong>로 문의하기
+              <span style={{ display: 'block', fontSize: 12, color: 'var(--faint)' }}>담당자와 비밀번호를 아는 분만 볼 수 있습니다</span>
+            </span>
+          </label>
+          {isSecret ? (
+            <div className="field">
+              <label htmlFor="iq-password" style={{ fontSize: 12 }}>
+                열람 비밀번호 <span className="req">*</span>{' '}
+                <span style={{ color: 'var(--faint)', fontWeight: 400 }}>{MIN_PASSWORD_LENGTH}자 이상</span>
+              </label>
+              <input id="iq-password" type="password" name="password" autoComplete="new-password" maxLength={100} required />
+            </div>
+          ) : (
+            <span style={{ fontSize: 12, lineHeight: 1.7, color: 'var(--muted)' }}>
+              공개글은 제목 · 내용 · 가린 이름(홍*동)만 게시판에 보입니다.
+            </span>
+          )}
+        </div>
+
         <div className="grid grid-2" style={{ marginBottom: 20 }}>
           <div className="field">
             <label htmlFor="iq-company">
@@ -208,9 +251,9 @@ export default function InquiryForm() {
           >
             <strong style={{ fontWeight: 600, color: 'var(--body)' }}>개인정보 수집 · 이용 안내</strong>
             <br />
-            수집 항목: 회사명, 담당자명, 연락처, 이메일, 문의 내용, 첨부파일
+            수집 항목: 제목, 회사명, 담당자명, 연락처, 이메일, 문의 내용, 첨부파일, 비밀글 비밀번호(암호화 저장)
             <br />
-            이용 목적: 견적 · 제작 문의에 대한 상담과 회신
+            이용 목적: 견적 · 제작 문의에 대한 상담과 회신, 문의 게시판 게시(공개글은 제목 · 내용 · 가린 이름만 공개)
             <br />
             보유 기간: 문의 처리 완료 후 3년간 보관 후 파기
             <br />

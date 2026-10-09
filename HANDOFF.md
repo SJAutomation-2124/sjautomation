@@ -62,8 +62,14 @@ sjrobotics.com이 전부 타사(경기 화성의 "삼정오토메이션" 등)가
   - Vercel 환경 변수: `SUPABASE_SECRET_KEY`, `RESEND_API_KEY` (비밀 값 — 채팅·코드에 넣지 말 것)
   - 무료 플랜 7일 미사용 일시정지 방지: `web/vercel.json` 크론이 매일 `/api/keepalive` 호출
   - Resend는 도메인 인증 전이라 가입 메일(jeniussdi@naver.com)로만 발송 가능
-- 2단계 — 공지사항 · 자료실 관리자 화면 (예정)
-- 공개 문의 게시판은 보류 (스팸·관리 부담 대비 효과 적음)
+- **문의 게시판 + 관리자 화면** (2026-10-09, 사장님 요청으로 추가)
+  - 문의 폼에 제목 · 비밀글(기본 켜짐) · 열람 비밀번호(scrypt 해시 저장) 추가. 쓴 글은 `/request` 아래 게시판에 올라감
+  - 공개글: 제목 · 내용 · 가린 이름(홍*동) · 답변만 공개. 회사명 · 연락처 · 이메일 · 첨부는 절대 비공개
+  - 비밀글: 목록에 "비밀글입니다", 글(`/request/[id]`)은 작성자 비밀번호로 열람
+  - 관리자 `/admin`: Supabase Auth 이메일 로그인, `ADMIN_EMAILS`(=jeniussdi@naver.com)만 인정.
+    모든 문의 · 연락처 · 첨부(1시간 링크) 확인, 답변 등록(→ 답변완료), 삭제
+  - DB 변경: `web/supabase/002_board.sql`. Supabase Auth는 관리자 계정 1개만 만들고 회원가입은 꺼둠
+- 2단계 — 공지사항 · 자료실 관리자 화면 (예정, 같은 /admin 로그인 재사용)
 - 개인정보처리방침 `/privacy` (2026-10-09 시행, 위탁: Vercel · Supabase · Resend / 국외 이전: Vercel · Resend 미국). 수탁 업체나 보유 기간이 바뀌면 이 페이지도 고칠 것
 - 이용약관(`/terms`)은 아직 없음 (하단 링크만 있음)
 

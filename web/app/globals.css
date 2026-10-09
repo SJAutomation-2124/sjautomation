@@ -667,3 +667,63 @@ h3 {
   line-height: 1.7;
   vertical-align: top;
 }
+
+/* ---------------- 문의 게시판 ---------------- */
+
+.board-row {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) 100px 110px 90px;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.board-head {
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 8px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--faint);
+}
+.board-link {
+  color: var(--ink);
+  transition: background 0.12s ease;
+}
+.board-link:hover {
+  background: #f5f8fc;
+  color: var(--ink);
+}
+.board-no {
+  font-size: 13px;
+  color: var(--faint-2);
+}
+.board-title {
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.board-meta {
+  font-size: 13px;
+  color: var(--muted);
+}
+@media (max-width: 640px) {
+  .board-head,
+  .board-no {
+    display: none;
+  }
+  .board-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    padding: 16px 4px;
+  }
+  .board-title {
+    flex-basis: 100%;
+    white-space: normal;
+  }
+  .board-meta {
+    font-size: 12px;
+  }
+}

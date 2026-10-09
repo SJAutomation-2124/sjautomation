@@ -1,11 +1,16 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ADDRESS, EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '@/lib/contact';
+import Board from './Board';
 import InquiryForm from './InquiryForm';
 
 export const metadata: Metadata = { title: '제작 · 견적 문의' };
 
-export default function RequestPage() {
+export const dynamic = 'force-dynamic';
+
+export default async function RequestPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+  const page = Math.max(1, Number.parseInt((await searchParams).page ?? '1', 10) || 1);
+
   return (
     <main className="bp-grid">
       <section className="section--tight section--panel">
@@ -61,19 +66,17 @@ export default function RequestPage() {
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
+      <section id="board" className="section" style={{ paddingTop: 0, scrollMarginTop: 120 }}>
         <div className="container">
-          <div className="card" style={{ padding: '40px 40px 44px' }}>
+          <div className="card" style={{ padding: 'clamp(24px, 4vw, 40px) clamp(20px, 4vw, 40px) 44px' }}>
             <h2 style={{ fontSize: 26, fontWeight: 600, letterSpacing: '-0.02em', marginBottom: 12 }}>
               문의 게시판
             </h2>
             <p style={{ fontSize: 15, lineHeight: 1.8, color: 'var(--muted)', marginBottom: 30 }}>
-              기술적인 질문이나 다른 분들도 궁금해할 내용은 여기에 남겨주세요. 비공개로 쓰면 담당자만 볼 수
-              있습니다.
+              위 문의 폼으로 남기신 글이 이곳에 올라갑니다. 비밀글은 담당자와 비밀번호를 아는 분만 볼 수 있고, 답변이
+              달리면 상태가 &lsquo;답변완료&rsquo;로 바뀝니다.
             </p>
-            <div style={{ padding: '48px 0', textAlign: 'center', borderTop: '1px solid var(--line)' }}>
-              <p style={{ fontSize: 15, color: 'var(--faint)' }}>등록된 문의가 아직 없습니다.</p>
-            </div>
+            <Board page={page} />
           </div>
         </div>
       </section>

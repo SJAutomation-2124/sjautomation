@@ -38,7 +38,6 @@ export default function SiteFooter() {
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} SJ AUTOMATION</span>
           <span className="legal-links">
-            <a href="/terms">이용약관</a>
             <a href="/privacy">개인정보처리방침</a>
           </span>
         </div>
