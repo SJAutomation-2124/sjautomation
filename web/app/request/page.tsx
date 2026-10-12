@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { pageMeta } from '@/lib/seo';
 import Board from './Board';
 import ContactAside from './ContactAside';
+import Faq, { FAQ_JSON_LD } from './Faq';
+import { FAQS } from '@/lib/faq';
 import InquiryNotice from './InquiryNotice';
 
 export const metadata: Metadata = pageMeta({
@@ -34,6 +36,10 @@ export default async function RequestPage({ searchParams }: { searchParams: Prom
             자동화 기계, 설계 · 가공, PLC · 임베디드 제어, 스마트팩토리 연동 무엇이든 문의 주세요. 도면이나 사양서가 없어도
             괜찮습니다. 만들고 싶은 것과 현장 조건만 알려주시면 방식부터 같이 잡아드립니다.
           </p>
+          <a href="/request#faq" className="faq-jump">
+            <span className="mono">FAQ</span>
+            자주 묻는 질문 {FAQS.length}가지 먼저 보기 ↓
+          </a>
         </div>
       </section>
 
@@ -78,11 +84,14 @@ export default async function RequestPage({ searchParams }: { searchParams: Prom
               </div>
               <Board page={page} />
             </div>
+
+            <Faq />
           </div>
 
           <ContactAside />
         </div>
       </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }} />
     </main>
   );
 }

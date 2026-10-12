@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { FAQS } from '@/lib/faq';
 import { pageMeta } from '@/lib/seo';
 import ContactAside from '../ContactAside';
 import InquiryForm from '../InquiryForm';
@@ -28,6 +29,10 @@ export default function NewInquiryPage() {
           <p style={{ fontSize: 16, lineHeight: 1.85, color: 'var(--muted)', maxWidth: 680 }}>
             도면이나 사양서가 없어도 괜찮습니다. 만들고 싶은 것과 현장 조건만 알려주시면 방식부터 같이 잡아드립니다.
           </p>
+          <a href="/request#faq" className="faq-jump">
+            <span className="mono">FAQ</span>
+            쓰기 전에 자주 묻는 질문 {FAQS.length}가지 보기 →
+          </a>
         </div>
       </section>
 
