@@ -83,6 +83,11 @@ sjrobotics.com이 전부 타사(경기 화성의 "삼정오토메이션" 등)가
 - 개인정보처리방침 `/privacy` (2026-10-09 시행, 위탁: Vercel · Supabase · Resend / 국외 이전: Vercel · Resend 미국). 수탁 업체나 보유 기간이 바뀌면 이 페이지도 고칠 것
 - 이용약관(`/terms`)은 만들지 않기로 함 (하단 링크도 뺐음)
 
+- **자주 묻는 질문(FAQ)** (2026-10-12) — /request 게시판 아래 7문항, 내용은 `web/lib/faq.ts`. FAQPage 구조화 데이터 포함
+  - 사장님 확인 대기: ① 6번 유압 제어 범위(비례 밸브 · 좌우 동기 등) ② 6번 질문의 "Delem" 이름 유지 여부
+    ③ 7번 로봇 응용 실제 사례 → 실적 추가 · 링크 ④ 5번 터치패널 HMI 작화 여부
+  - 가짜 문의글(과거 날짜) 요청은 표시광고법 · 신뢰 문제로 하지 않기로 함. 실제 지난 문의는 "옮겨 적음" 표시하고 실제 날짜로 올릴 수 있음
+
 ### 다음에 할 일 (2026-10-09 기준, 추천 순서)
 1. **방문자 통계** — Vercel Web Analytics. 사장님이 Vercel → Analytics → Enable 누르고, 코드에 `@vercel/analytics` 붙이기. 쿠키 안 씀
 2. **알림 메일을 회사 주소로** — Resend에 sjautosolution.com 도메인 인증(가비아 DNS 추가) → noreply@sjautosolution.com 발신, 답변 등록 시 손님에게도 알림 메일
