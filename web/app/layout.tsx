@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Sans_KR, IBM_Plex_Mono, IBM_Plex_Serif } from 'next/font/google';
+import { IBM_Plex_Sans_KR, IBM_Plex_Mono, IBM_Plex_Serif, Noto_Serif_KR } from 'next/font/google';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import { HOME_DESCRIPTION, HOME_TITLE, OG_IMAGE, ORGANIZATION_JSON_LD, SITE_NAME, SITE_URL } from '@/lib/seo';
@@ -18,6 +18,14 @@ const serif = IBM_Plex_Serif({
   weight: ['700'],
   variable: '--font-serif',
   display: 'swap',
+});
+
+// 로고 옆 한글 상호(에스제이모션)용 명조. 한글은 글자 묶음별로 쪼개져 있어 쓰는 글자만 내려받습니다.
+const serifKr = Noto_Serif_KR({
+  weight: ['700'],
+  variable: '--font-serif-kr',
+  display: 'swap',
+  preload: false,
 });
 
 const mono = IBM_Plex_Mono({
@@ -53,7 +61,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" className={`${sans.variable} ${mono.variable} ${serif.variable}`}>
+    <html lang="ko" className={`${sans.variable} ${mono.variable} ${serif.variable} ${serifKr.variable}`}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSON_LD) }} />
         <SiteHeader />

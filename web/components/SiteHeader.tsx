@@ -24,7 +24,7 @@ export default function SiteHeader() {
         <Link href="/" className="brand">
           <Image src="/brand/sj-emblem-dark.svg" alt="" width={54} height={54} className="brand-mark" priority unoptimized />
           <span className="brand-words">
-            <span className="brand-name">SJ AUTOMATION</span>
+            <span className="brand-name">에스제이모션</span>
             <span className="brand-tag mono">산업자동화 설계 · 제작</span>
           </span>
         </Link>
