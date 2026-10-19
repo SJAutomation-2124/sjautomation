@@ -12,7 +12,7 @@
 | 항목 | 내용 |
 |---|---|
 | 도메인 | **sjautosolution.com** (가비아에서 구매 완료, 등록 2026-09-10 / 만료 2027-09-10) |
-| 회사명 | **한글 에스제이모션 · 영문 SJ MOTION** (2026-10-19 SJ AUTOMATION에서 변경, 둘 다 씀). 코드에서는 `lib/seo.ts`의 `SITE_NAME` · `SITE_NAME_EN`. 로고 옆 이름은 한글(Noto Serif KR 700). 도메인 sjautosolution.com은 그대로 |
+| 회사명 | **한글 에스제이모션 · 영문 SJ MOTION** (2026-10-19 SJ AUTOMATION에서 변경, 둘 다 씀). 코드에서는 `lib/seo.ts`의 `SITE_NAME` · `SITE_NAME_EN`. 로고 옆 이름은 영문 SJ MOTION(IBM Plex Serif Bold, 로고 속 SJ와 같은 글꼴 — 한글로 해보니 어색하다고 하심). 도메인 sjautosolution.com은 그대로 |
 | 디자인 방향 | "정밀 도면" 스타일 — 흰 바탕, 얇은 그리드, 딥블루(#10428E) 포인트 |
 | 헤더 스타일 | 어두운 바(#161D25) + 밝은 파랑(#3B82F6) 버튼형 메뉴 |
 | 서체 | IBM Plex Sans KR (본문) / IBM Plex Mono (라벨·숫자) |

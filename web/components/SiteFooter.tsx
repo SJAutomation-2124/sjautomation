@@ -9,13 +9,13 @@ export default function SiteFooter() {
           <div>
             <Image
               src="/brand/sj-emblem-light.svg"
-              alt="에스제이모션 로고"
+              alt="SJ MOTION 로고"
               width={84}
               height={84}
               unoptimized
               style={{ marginBottom: 14 }}
             />
-            <h4 style={{ fontFamily: 'var(--font-serif-kr), serif', fontWeight: 700, letterSpacing: '0.04em' }}>에스제이모션</h4>
+            <h4 style={{ fontFamily: 'var(--font-serif), Georgia, serif', fontWeight: 700, letterSpacing: '0.03em' }}>SJ MOTION</h4>
             <p style={{ color: 'var(--faint)' }}>
               산업 자동화 기계 설계 · 제작
               <br />
