@@ -35,7 +35,7 @@ async function getNotice(id: string) {
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const n = await getNotice((await params).id);
   if (!n) return { title: '공지사항' };
-  const description = n.body.replace(/\s+/g, ' ').trim().slice(0, 140) || `SJ AUTOMATION 공지 — ${n.title}`;
+  const description = n.body.replace(/\s+/g, ' ').trim().slice(0, 140) || `에스제이모션 공지 — ${n.title}`;
   return pageMeta({ title: n.title, description, path: `/notice/${n.id}` });
 }
 

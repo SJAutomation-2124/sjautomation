@@ -6,7 +6,7 @@ import { createAdminClient } from '@/lib/supabase-admin';
 
 export const metadata: Metadata = pageMeta({
   title: '공지사항',
-  description: 'SJ AUTOMATION 공지사항 — 휴무 안내, 설비 도입, 인증 취득 등 거래처에 알려드리는 소식.',
+  description: '에스제이모션 공지사항 — 휴무 안내, 설비 도입, 인증 취득 등 거래처에 알려드리는 소식.',
   path: '/notice',
 });
 

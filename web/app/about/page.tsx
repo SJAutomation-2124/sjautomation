@@ -7,12 +7,12 @@ import { pageMeta } from '@/lib/seo';
 export const metadata: Metadata = pageMeta({
   title: '회사소개',
   description:
-    'SJ AUTOMATION 회사소개 — 기계 설계 · 가공, 전장 · PLC 제어, 로보틱스 · 임베디드 · 소프트웨어 팀이 경기 화성 사업장 한 곳에 모여 자동화 장비를 처음부터 끝까지 만듭니다.',
+    '에스제이모션(SJ MOTION) 회사소개 — 기계 설계 · 가공, 전장 · PLC 제어, 로보틱스 · 임베디드 · 소프트웨어 팀이 경기 화성 사업장 한 곳에 모여 자동화 장비를 처음부터 끝까지 만듭니다.',
   path: '/about',
 });
 
 const PROFILE_ROWS = [
-  ['회사명', 'SJ AUTOMATION'],
+  ['회사명', '에스제이모션 (영문 SJ MOTION)'],
   ['소재지', ADDRESS],
   ['주요 거래처', '한양대학교 등'],
   ['사업 분야', '자동화 기계 제작(턴키) · 설계 및 가공 · 모션/제어 솔루션 · 스마트팩토리 고도화'],
@@ -60,13 +60,13 @@ export default function AboutPage() {
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.95, color: 'var(--body)', maxWidth: 620, marginBottom: 22 }}>
               장비 하나를 만들려면 설계, 가공, 조립, 전장, 제어, 시운전이 다 필요합니다. 이걸 업체
-              다섯 곳에 나눠 맡기면 문제가 생겼을 때 서로 책임을 미룹니다. SJ AUTOMATION은 그
+              다섯 곳에 나눠 맡기면 문제가 생겼을 때 서로 책임을 미룹니다. 에스제이모션은 그
               과정을 한 곳에서 끝내려고 만든 회사입니다.
             </p>
             <p style={{ fontSize: 16, lineHeight: 1.95, color: 'var(--body)', maxWidth: 620, marginBottom: 22 }}>
               현장에서 오래 일하다 보면, 정말 잘 만든 장비는 설계자와 만든 사람이 같다는 걸 알게
               됩니다. 도면을 그린 사람이 가공까지 지켜보고, 가공을 한 사람이 제어까지 손대야
-              어긋남 없이 돌아갑니다. SJ AUTOMATION은 그 원칙 하나로 시작한 회사입니다.
+              어긋남 없이 돌아갑니다. 에스제이모션은 그 원칙 하나로 시작한 회사입니다.
             </p>
             <p style={{ fontSize: 16, lineHeight: 1.95, color: 'var(--body)', maxWidth: 620, marginBottom: 0 }}>
               규모가 크지 않은 만큼, 문의 주신 내용은 저희 팀이 직접 검토하고 답을 드립니다. 할 수

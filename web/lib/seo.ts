@@ -2,11 +2,13 @@ import type { Metadata } from 'next';
 import { ADDRESS, EMAIL, PHONE } from '@/lib/contact';
 
 export const SITE_URL = 'https://sjautosolution.com';
-export const SITE_NAME = 'SJ AUTOMATION';
-export const HOME_TITLE = 'SJ AUTOMATION — 자동화 기계 제작 · PLC 제어 · 스마트팩토리';
+// 상호: 한글 에스제이모션 · 영문 SJ MOTION (2026-10 SJ AUTOMATION에서 변경). 둘 다 정식 이름으로 씁니다.
+export const SITE_NAME = '에스제이모션';
+export const SITE_NAME_EN = 'SJ MOTION';
+export const HOME_TITLE = '에스제이모션 SJ MOTION — 자동화 기계 제작 · PLC 제어 · 스마트팩토리';
 export const HOME_DESCRIPTION =
-  '경기 화성 SJ AUTOMATION. 자동화 기계 턴키 제작, 2D · 3D 설계와 가공, PLC · 서보 모션 제어, ARM 임베디드 보드, 스마트팩토리 · ERP 전산 연동까지 한 곳에서 합니다.';
-export const OG_IMAGE = { url: '/og.png', width: 1200, height: 630, alt: 'SJ AUTOMATION — 자동화 기계 제작 · PLC 제어 · 스마트팩토리' };
+  '경기 화성 에스제이모션(SJ MOTION). 자동화 기계 턴키 제작, 2D · 3D 설계와 가공, PLC · 서보 모션 제어, ARM 임베디드 보드, 스마트팩토리 · ERP 전산 연동까지 한 곳에서 합니다.';
+export const OG_IMAGE = { url: '/og.png', width: 1200, height: 630, alt: '에스제이모션 SJ MOTION — 자동화 기계 제작 · PLC 제어 · 스마트팩토리' };
 
 // 페이지별 제목 · 설명 · 대표 주소(canonical) · 공유 카드. 페이지에서 openGraph를 따로 쓰면
 // 레이아웃 값이 통째로 덮이므로 사이트 이름 · 언어 · 이미지까지 여기서 함께 채웁니다.
@@ -47,6 +49,7 @@ export const ORGANIZATION_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: SITE_NAME,
+  alternateName: SITE_NAME_EN,
   url: SITE_URL,
   logo: `${SITE_URL}/brand/sj-emblem-light.png`,
   image: `${SITE_URL}/og.png`,

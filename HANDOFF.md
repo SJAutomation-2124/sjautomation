@@ -1,4 +1,4 @@
-# SJ AUTOMATION 홈페이지 — 인수인계 문서
+# 에스제이모션 (SJ MOTION) 홈페이지 — 인수인계 문서
 
 이 폴더(`sj-automation`) 전체를 그대로 새 PC로 옮기면, 대화 내용 없이도
 이 문서 하나만 읽으면 이어서 작업할 수 있게 정리했습니다.
@@ -12,11 +12,11 @@
 | 항목 | 내용 |
 |---|---|
 | 도메인 | **sjautosolution.com** (가비아에서 구매 완료, 등록 2026-09-10 / 만료 2027-09-10) |
-| 회사명 | SJ AUTOMATION 그대로 사용 (도메인만 다른 이름으로 우회) |
+| 회사명 | **한글 에스제이모션 · 영문 SJ MOTION** (2026-10-19 SJ AUTOMATION에서 변경, 둘 다 씀). 코드에서는 `lib/seo.ts`의 `SITE_NAME` · `SITE_NAME_EN`. 로고 옆 이름은 한글(Noto Serif KR 700). 도메인 sjautosolution.com은 그대로 |
 | 디자인 방향 | "정밀 도면" 스타일 — 흰 바탕, 얇은 그리드, 딥블루(#10428E) 포인트 |
 | 헤더 스타일 | 어두운 바(#161D25) + 밝은 파랑(#3B82F6) 버튼형 메뉴 |
 | 서체 | IBM Plex Sans KR (본문) / IBM Plex Mono (라벨·숫자) |
-| 로고 | 인장형 — 작은 원 안에 금색 학사모 + SJ(IBM Plex Serif Bold), 두 원 사이 위쪽에 "SJ AUTOMATION · ROBOTICS · SMART FACTORY", 아래쪽에 기어가는 로봇 크레스티드 게코 (2026-10-10 확정, 7차 시안). 파일: `web/public/brand/` (어두운 바탕용 · 흰 바탕용 SVG/PNG, 작은 마크). 글자는 외곽선이라 글꼴 없이도 똑같이 보임. 파비콘 `web/app/icon.svg` · `apple-icon.png` |
+| 로고 | 인장형 — 작은 원 안에 금색 학사모 + SJ(IBM Plex Serif Bold), 두 원 사이 위쪽에 "SJ AUTOMATION · ROBOTICS · SMART FACTORY", 아래쪽에 기어가는 로봇 크레스티드 게코 (2026-10-10 확정, 7차 시안). 상호 변경 후에도 로고는 그대로 두기로 함(둘레 글씨 SJ AUTOMATION 유지). 파일: `web/public/brand/` (어두운 바탕용 · 흰 바탕용 SVG/PNG, 작은 마크). 글자는 외곽선이라 글꼴 없이도 똑같이 보임. 파비콘 `web/app/icon.svg` · `apple-icon.png` |
 | 스택 | Next.js 15 + Vercel(무료 배포) + Supabase(무료 DB) |
 | 구성 | 메인 / 회사소개 / 사업분야 / 실적사례(목록·상세) / 자료실 / 공지사항(목록·상세) / 문의(비공개 폼 + 공개 게시판) |
 | 예상 비용 | 도메인만 연 1.3~1.8만원, 서버비 0원 |

@@ -152,7 +152,7 @@ async function notify(n: Notice) {
     method: 'POST',
     headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      from: 'SJ AUTOMATION 홈페이지 <onboarding@resend.dev>',
+      from: '에스제이모션 홈페이지 <onboarding@resend.dev>',
       to: [EMAIL],
       reply_to: n.email,
       subject: `[홈페이지 문의] ${n.title} — ${n.company} · ${n.name}`,

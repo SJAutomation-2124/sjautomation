@@ -7,7 +7,7 @@ import { createAdminClient } from '@/lib/supabase-admin';
 
 export const metadata: Metadata = pageMeta({
   title: '자료실',
-  description: 'SJ AUTOMATION 자료실 — 기술지원 자료, 납품 장비 매뉴얼, PLC · 모션 제어 강의 자료, 소프트웨어 툴.',
+  description: '에스제이모션 자료실 — 기술지원 자료, 납품 장비 매뉴얼, PLC · 모션 제어 강의 자료, 소프트웨어 툴.',
   path: '/archive',
 });
 

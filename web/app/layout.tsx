@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Sans_KR, IBM_Plex_Mono, IBM_Plex_Serif, Noto_Serif_KR } from 'next/font/google';
+import { IBM_Plex_Sans_KR, IBM_Plex_Mono, Noto_Serif_KR } from 'next/font/google';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import { HOME_DESCRIPTION, HOME_TITLE, OG_IMAGE, ORGANIZATION_JSON_LD, SITE_NAME, SITE_URL } from '@/lib/seo';
@@ -9,14 +9,6 @@ const sans = IBM_Plex_Sans_KR({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-sans',
-  display: 'swap',
-});
-
-// 로고 옆 회사명(SJ AUTOMATION)에만 씁니다. 로고 안의 SJ와 같은 글꼴입니다.
-const serif = IBM_Plex_Serif({
-  subsets: ['latin'],
-  weight: ['700'],
-  variable: '--font-serif',
   display: 'swap',
 });
 
@@ -39,7 +31,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: HOME_TITLE,
-    template: '%s · SJ AUTOMATION',
+    template: `%s · ${SITE_NAME}`,
   },
   description: HOME_DESCRIPTION,
   applicationName: SITE_NAME,
@@ -61,7 +53,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" className={`${sans.variable} ${mono.variable} ${serif.variable} ${serifKr.variable}`}>
+    <html lang="ko" className={`${sans.variable} ${mono.variable} ${serifKr.variable}`}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSON_LD) }} />
         <SiteHeader />

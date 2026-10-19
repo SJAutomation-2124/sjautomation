@@ -5,7 +5,7 @@ import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '@/lib/contact';
 
 export const metadata: Metadata = pageMeta({
   title: '개인정보처리방침',
-  description: 'SJ AUTOMATION 개인정보처리방침 — 견적 문의로 받는 개인정보의 처리 목적, 항목, 보유 기간, 위탁 및 국외 이전.',
+  description: '에스제이모션 개인정보처리방침 — 견적 문의로 받는 개인정보의 처리 목적, 항목, 보유 기간, 위탁 및 국외 이전.',
   path: '/privacy',
 });
 
@@ -57,7 +57,7 @@ export default function PrivacyPage() {
             개인정보처리방침
           </h1>
           <p style={{ fontSize: 16, lineHeight: 1.85, color: 'var(--muted)', maxWidth: 720 }}>
-            SJ AUTOMATION(이하 &lsquo;회사&rsquo;)은 「개인정보 보호법」에 따라 정보주체의 개인정보를 보호하고 관련 고충을
+            에스제이모션(SJ MOTION, 이하 &lsquo;회사&rsquo;)은 「개인정보 보호법」에 따라 정보주체의 개인정보를 보호하고 관련 고충을
             신속하게 처리할 수 있도록 다음과 같이 개인정보처리방침을 둡니다.
           </p>
           <p className="mono" style={{ fontSize: 12, color: 'var(--faint)', marginTop: 18, letterSpacing: '0.04em' }}>
@@ -208,7 +208,7 @@ export default function PrivacyPage() {
                   <tbody>
                     <tr>
                       <td style={{ width: 140, color: 'var(--muted)' }}>담당</td>
-                      <td>SJ AUTOMATION 개인정보 보호 담당</td>
+                      <td>에스제이모션 개인정보 보호 담당</td>
                     </tr>
                     <tr>
                       <td style={{ color: 'var(--muted)' }}>전화</td>

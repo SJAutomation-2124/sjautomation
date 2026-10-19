@@ -74,7 +74,7 @@ export default async function HomePage() {
         <div className="container grid split-7-5" style={{ alignItems: 'start' }}>
           <div>
             <div className="eyebrow">
-              <span className="num mono">SJ AUTOMATION</span>
+              <span className="num mono">SJ MOTION</span>
               <span className="rule" />
               <span className="label mono">FACTORY AUTOMATION · ROBOTICS · PLC</span>
             </div>
@@ -105,7 +105,7 @@ export default async function HomePage() {
               }}
             >
               도면 한 장에서 출발해 가공, 조립, PLC 제어, 생산 데이터 연동까지. 외주를 여러 곳에
-              쪼개지 않고 SJ AUTOMATION 한 곳에서 턴키로 진행합니다.
+              쪼개지 않고 에스제이모션 한 곳에서 턴키로 진행합니다.
             </p>
 
             <div style={{ display: 'flex', gap: 12, marginBottom: 56, flexWrap: 'wrap' }}>
