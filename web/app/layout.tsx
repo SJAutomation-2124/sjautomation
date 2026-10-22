@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { IBM_Plex_Sans_KR, IBM_Plex_Mono, IBM_Plex_Serif } from 'next/font/google';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
-import { HOME_DESCRIPTION, HOME_TITLE, OG_IMAGE, ORGANIZATION_JSON_LD, SITE_NAME, SITE_URL } from '@/lib/seo';
+import { HOME_DESCRIPTION, HOME_TITLE, OG_IMAGE, ORGANIZATION_JSON_LD, SITE_KEYWORDS, SITE_NAME, SITE_URL } from '@/lib/seo';
 import './globals.css';
 
 const sans = IBM_Plex_Sans_KR({
@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     template: `%s · ${SITE_NAME}`,
   },
   description: HOME_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
   applicationName: SITE_NAME,
   // 검색엔진 소유 확인 (구글 서치 콘솔 · 네이버 서치어드바이저)
   verification: {

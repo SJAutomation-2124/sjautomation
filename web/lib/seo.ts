@@ -7,7 +7,36 @@ export const SITE_NAME = '에스제이모션';
 export const SITE_NAME_EN = 'SJ MOTION';
 export const HOME_TITLE = '에스제이모션 SJ MOTION — 자동화 기계 제작 · PLC 제어 · 스마트팩토리';
 export const HOME_DESCRIPTION =
-  '경기 화성 에스제이모션(SJ MOTION). 자동화 기계 턴키 제작, 2D · 3D 설계와 가공, PLC · 서보 모션 제어, ARM 임베디드 보드, 스마트팩토리 · ERP 전산 연동까지 한 곳에서 합니다.';
+  '경기 화성 에스제이모션(SJ MOTION). 자동화 기계 턴키 제작, 2D · 3D 설계와 오쿠마 프레나 대형 밀링 가공, PLC · 서보 모션 제어, ARM 임베디드 보드, 스마트팩토리 · ERP 전산 연동까지 한 곳에서 합니다.';
+// 검색 키워드. 구글은 이 목록을 보지 않고 네이버도 비중이 낮아, 같은 단어를 실제 페이지 제목 · 본문에도 넣어 둡니다.
+// 2026-10-22 추가: 프레나 · 뿌레나 · 오쿠마 가공 · 오쿠마 · 대형밀링 (사업분야 · 오쿠마 실적 · 회사소개 본문에 반영)
+export const SITE_KEYWORDS = [
+  '에스제이모션',
+  'SJ MOTION',
+  '산업자동화',
+  '자동화 기계 제작',
+  '자동화 설비',
+  'PLC 제어',
+  '서보 모션 제어',
+  'HMI 개발',
+  '임베디드',
+  '스마트팩토리',
+  'SCADA',
+  'ERP 연동',
+  '로보틱스',
+  'CNC 개조',
+  '리트로핏',
+  '절곡기',
+  '절단기',
+  '화성 자동화',
+  '프레나',
+  '뿌레나',
+  '오쿠마',
+  '오쿠마 가공',
+  '대형밀링',
+  '대형 밀링 가공',
+  '문형 머시닝센터',
+];
 export const OG_IMAGE = { url: '/og.png', width: 1200, height: 630, alt: '에스제이모션 SJ MOTION — 자동화 기계 제작 · PLC 제어 · 스마트팩토리' };
 
 // 페이지별 제목 · 설명 · 대표 주소(canonical) · 공유 카드. 페이지에서 openGraph를 따로 쓰면
@@ -65,5 +94,5 @@ export const ORGANIZATION_JSON_LD = {
     addressCountry: 'KR',
   },
   areaServed: 'KR',
-  knowsAbout: ['산업자동화', '자동화 기계 제작', 'PLC 제어', '서보 모션 제어', '임베디드 시스템', '스마트팩토리', 'SCADA', 'ERP 연동', '로보틱스'],
+  knowsAbout: ['산업자동화', '자동화 기계 제작', 'PLC 제어', '서보 모션 제어', '임베디드 시스템', '스마트팩토리', 'SCADA', 'ERP 연동', '로보틱스', '프레나(문형 머시닝센터) 가공', '오쿠마 가공', '대형 밀링 가공'],
 };
