@@ -112,6 +112,11 @@ export default async function WorksPage({
                   >
                     {work.summary}
                   </p>
+                  {work.client && (
+                    <p style={{ margin: '12px 0 0', fontSize: 13, color: 'var(--faint)' }}>
+                      납품처 <span style={{ color: 'var(--body)' }}>{work.client}</span>
+                    </p>
+                  )}
                 </div>
               </Link>
             ))}

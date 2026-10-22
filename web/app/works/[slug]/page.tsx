@@ -62,7 +62,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
             </div>
 
             <div style={{ border: '1px solid var(--line)', background: '#fff' }}>
-              {work.client && <InfoRow label="발주처">{work.client}</InfoRow>}
+              {work.client && <InfoRow label="납품처">{work.client}</InfoRow>}
               <InfoRow label="분류">{work.category}</InfoRow>
               <InfoRow label="적용 기술" last>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
