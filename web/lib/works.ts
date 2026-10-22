@@ -148,6 +148,28 @@ export const WORKS: Work[] = [
     result: '도면 치수대로 가공을 마치고 대학교에 납품했습니다.',
   },
   {
+    slug: 'multi-model-embedded-board',
+    category: '모션 · 제어',
+    title: '다기종 통합형 임베디드 기판 설계 · 제작 · 펌웨어 통합',
+    client: '선경오토',
+    img: '/images/works/integrated-board-pcb.jpg',
+    imgCaption: '직접 설계 · 제작한 통합형 임베디드 기판 (STM32 ARM 마이컴)',
+    imgContain: true,
+    tech: ['임베디드 기판 회로 설계', 'PCB 아트웍 · 기판 제작', 'STM32 ARM 펌웨어', '다기종 펌웨어 통합'],
+    summary:
+      '여러 기종의 컨트롤러를 기판 한 종류로 쓸 수 있도록 통합형 임베디드 기판의 회로를 설계 · 제작하고, 기종별로 나뉘어 있던 펌웨어까지 하나로 합쳐 납품했습니다.',
+    background:
+      '선경오토의 컨트롤러는 기종마다 들어가는 기판과 펌웨어가 따로 있었습니다. 기종이 늘수록 만들어 두고 관리해야 할 기판 종류와 펌웨어 버전도 함께 늘어났고, 기능 하나를 고치려 해도 기종별 펌웨어를 각각 손봐야 했습니다.',
+    approach:
+      '여러 기종에 필요한 입출력과 축 구성을 모두 담을 수 있도록 기판 회로를 새로 설계했습니다. STM32 ARM 마이컴을 중심으로 입출력, 축 제어 신호, 화면 · 키패드 연결 회로를 한 장에 배치하고, 기종은 기판 설정으로 구분하게 했습니다. 회로 설계와 PCB 아트웍부터 기판 제작까지 직접 진행했고, 기종별로 나뉘어 있던 펌웨어는 하나로 합쳐 같은 기판에서 기종에 맞는 동작을 하도록 만들었습니다.',
+    result:
+      '기종이 달라도 같은 기판과 같은 펌웨어를 쓰게 되어, 생산할 기판 종류와 관리할 펌웨어가 하나로 줄었습니다. 기능을 고치거나 더할 때도 한 번만 수정하면 모든 기종에 반영됩니다. 완성한 기판은 컨트롤러에 탑재되어 현장 장비에서 운전되고 있습니다.',
+    gallery: [
+      { src: '/images/works/integrated-board-artwork.jpg', caption: '직접 설계한 기판의 PCB 아트웍' },
+      { src: '/images/works/integrated-board-controller.jpg', caption: '통합 기판과 펌웨어를 탑재한 컨트롤러 운전 화면' },
+    ],
+  },
+  {
     slug: 'io-precision-measure',
     category: '모션 · 제어',
     title: 'IO 모듈 고속 정밀 측정 솔루션',
