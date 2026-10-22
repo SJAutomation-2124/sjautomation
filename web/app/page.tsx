@@ -26,7 +26,7 @@ const BUSINESS_AREAS = [
     desc: '2D/3D 설계와 정적 해석부터 실가공까지 자체 설비로 처리합니다.',
     img: '/images/works/okuma-mcv-machining.jpg',
     imgPosition: 'center 45%',
-    items: ['2D / 3D 설계, 정적 해석', '절곡 · 절단 · 오쿠마 대형 프레나', '선반 · 밀링 · NC 가공'],
+    items: ['2D / 3D 설계, 정적 해석', '절곡 · 절단 · 오쿠마 프레나(4m 이상)', '선반 · 밀링 · NC 가공'],
   },
   {
     num: '03',
