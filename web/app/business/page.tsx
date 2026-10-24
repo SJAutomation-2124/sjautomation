@@ -6,7 +6,7 @@ import { pageMeta } from '@/lib/seo';
 export const metadata: Metadata = pageMeta({
   title: '사업분야',
   description:
-    '자동화 기계 턴키 제작, 설계 · 가공(절곡 · 절단 · 오쿠마 프레나 4m 이상 대형 밀링 · 선반 · NC), 모션 · 제어(PLC · HMI · 서보 · ARM 임베디드), 스마트팩토리 고도화(ERP · 관제 · DB 연동). 문의부터 납품 · 사후관리까지 6단계로 진행합니다.',
+    '자동화 기계 턴키 제작, 설계 · 가공(절곡 · 절단 · 오쿠마 프레나 4m 이상 대형 밀링 · 선반 · NC), 모션 · 제어(PLC · HMI · 서보 · ACS · Elmo 모션 제어기 · ARM 임베디드), 스마트팩토리 고도화(ERP · 관제 · DB 연동). 문의부터 납품 · 사후관리까지 6단계로 진행합니다.',
   path: '/business',
 });
 
@@ -47,15 +47,17 @@ const AREAS = [
     num: '03',
     tag: 'MOTION & CONTROL',
     title: '모션 · 제어',
-    desc: '상용 PLC로 되는 일은 상용 PLC로, 안 되는 일은 보드를 직접 만들어 해결합니다. 고속 계측처럼 일반 PLC로 정밀도가 안 나오는 영역은 ARM 기반 커스텀 보드로 대응합니다.',
+    desc: '상용 PLC · 모션 제어기로 되는 일은 상용 제품으로, 안 되는 일은 보드를 직접 만들어 해결합니다. 고속 계측처럼 일반 PLC로 정밀도가 안 나오는 영역은 ARM 기반 커스텀 보드로 대응합니다. 아래 브랜드 제품은 판매하는 것이 아니라, 이 제어기들을 바탕으로 프로그램 · 튜닝 · 시운전까지 솔루션으로 제공합니다.',
     img: '/images/works/servo-tuner-render.png',
     imgPosition: 'center',
     imgAlt: '서보 게인을 조정하며 스텝 응답과 사인파 추종을 확인하는 튜닝 화면',
     fields: [
       ['PLC / HMI', '시퀀스 제어 · IO 솔루션'],
-      ['대응 브랜드', 'LS / MITSUBISHI / BECKHOFF / OMRON'],
       ['서보', '서보 제어 · 튜닝'],
+      ['PLC · 제어 브랜드', 'LS ELECTRIC / MITSUBISHI / BECKHOFF / OMRON'],
+      ['모션 제어기', 'ACS Motion Control / Elmo'],
       ['임베디드', 'ARM 기반 커스텀 보드'],
+      ['제공 방식', '제어기 판매가 아닌 적용 솔루션 — 선정 · 프로그램 · 튜닝 · 시운전'],
     ],
     imgFirst: true,
   },

@@ -32,10 +32,10 @@ const BUSINESS_AREAS = [
     num: '03',
     tag: 'CONTROL',
     title: '모션 · 제어',
-    desc: '상용 PLC부터 ARM 기반 커스텀 보드까지, 필요한 층위에서 제어합니다.',
+    desc: '상용 PLC · 모션 제어기부터 ARM 기반 커스텀 보드까지, 필요한 층위에서 제어합니다.',
     img: '/images/works/servo-tuner-render.png',
     imgPosition: 'center',
-    items: ['PLC / HMI · IO 솔루션', '서보 제어 · 튜닝', 'ARM 기반 임베디드 커스텀'],
+    items: ['PLC / HMI · IO 솔루션', '서보 튜닝 · 모션 제어 (ACS · Elmo)', 'ARM 기반 임베디드 커스텀'],
   },
   {
     num: '04',
@@ -127,7 +127,7 @@ export default async function HomePage() {
                 color: 'var(--faint)',
               }}
             >
-              KUKA · YASKAWA · HYUNDAI ROBOTICS　/　LS · MITSUBISHI · BECKHOFF · OMRON
+              KUKA · YASKAWA · HYUNDAI ROBOTICS　/　LS · MITSUBISHI · BECKHOFF · OMRON · ACS · ELMO
             </div>
           </div>
 
@@ -225,9 +225,10 @@ export default async function HomePage() {
               <br />
               직접 다룹니다
             </h2>
-            <p style={{ fontSize: 15, lineHeight: 1.85, color: 'var(--dark-body)' }}>
-              가공은 자체 설비로, 제어는 현장에서 쓰는 주요 브랜드를 그대로. 견적 단계에서 어떤
-              장비와 어떤 컨트롤러로 갈지 함께 정합니다.
+            <p style={{ fontSize: 15, lineHeight: 1.85, color: 'var(--dark-body)', wordBreak: 'keep-all' }}>
+              가공은 자체 설비로 합니다. 로봇 · PLC · 모션 제어기는 제품을 파는 것이 아니라, 현장에서
+              쓰는 주요 브랜드 제품을 바탕으로 프로그램 · 튜닝 · 시운전까지 솔루션으로 제공합니다. 어떤
+              장비와 컨트롤러로 갈지는 견적 단계에서 함께 정합니다.
             </p>
           </div>
 
@@ -235,7 +236,7 @@ export default async function HomePage() {
             {[
               { label: '가공 설비', items: ['절곡기', '절단기', '대형 프레나', '선반', '밀링', 'NC 가공'] },
               { label: '로봇', items: ['KUKA', 'YASKAWA', 'HYUNDAI'] },
-              { label: 'PLC / 제어', items: ['LS ELECTRIC', 'MITSUBISHI', 'BECKHOFF', 'OMRON'] },
+              { label: 'PLC / 제어', items: ['LS ELECTRIC', 'MITSUBISHI', 'BECKHOFF', 'OMRON', 'ACS MOTION', 'ELMO'] },
               { label: '임베디드', items: ['ARM 기반 커스텀 보드', '고속 IO 계측 모듈'] },
               { label: '소프트웨어 (HMI · 전산 · 관제)', items: ['C# / JAVA', '파이썬', '파워빌더', 'Oracle DB'] },
             ].map((row, i, all) => (
