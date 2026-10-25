@@ -1062,6 +1062,7 @@ h3 {
 .rec {
   position: relative;
   overflow: hidden;
+  font-family: var(--font-display), var(--font-sans), sans-serif;
   padding: 26px 26px 16px;
   color: #fff;
   background-color: var(--dark);
@@ -1107,9 +1108,9 @@ h3 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 18px;
-  font-family: var(--font-display), var(--font-mono), monospace;
+  font-family: var(--font-display), var(--font-sans), sans-serif;
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.16em;
   color: #6e9be0;
 }
@@ -1156,16 +1157,14 @@ h3 {
 .rec-num {
   display: flex;
   align-items: baseline;
-  font-family: var(--font-display), var(--font-mono), monospace;
-  font-size: 40px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+  font-size: 42px;
+  font-weight: 400;
   line-height: 1;
 }
 .rec-count {
   --rec-n: var(--to);
   display: inline-block;
-  min-width: calc(var(--w) * 1ch);
   counter-reset: rec-n var(--rec-n);
   animation: rec-count 1.6s cubic-bezier(0.16, 0.84, 0.3, 1) both;
   animation-delay: calc(0.35s + var(--i) * 0.12s);
@@ -1183,14 +1182,14 @@ h3 {
 }
 .rec-unit {
   margin-left: 5px;
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-display), var(--font-sans), sans-serif;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--dark-body);
 }
 .rec-label {
   margin-top: 10px;
-  font-size: 12.5px;
+  font-size: 13.5px;
   line-height: 1.55;
   color: var(--dark-body);
   white-space: pre-line;
@@ -1241,20 +1240,20 @@ h3 {
 }
 .rec-year {
   padding-top: 1px;
-  font-family: var(--font-display), var(--font-mono), monospace;
+  font-family: var(--font-display), var(--font-sans), sans-serif;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.06em;
   color: var(--dark-body);
 }
 .rec-title {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 400;
   word-break: keep-all;
 }
 .rec-desc {
   margin-top: 3px;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
   color: var(--dark-body);
   word-break: keep-all;
