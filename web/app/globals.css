@@ -1048,3 +1048,280 @@ h3 {
     font-size: 14px;
   }
 }
+
+/* ---------------- 메인 기술 이력 패널 (EngineeringRecord) ---------------- */
+/* 애니메이션은 '처음 상태'만 keyframes에 두고, 기본값을 최종 화면으로 둡니다.
+   움직임 줄이기 설정에서는 애니메이션 없이 최종 화면이 그대로 보입니다. */
+
+@property --rec-n {
+  syntax: '<integer>';
+  inherits: false;
+  initial-value: 0;
+}
+
+.rec {
+  position: relative;
+  overflow: hidden;
+  padding: 26px 26px 16px;
+  color: #fff;
+  background-color: var(--dark);
+  background-image: radial-gradient(rgba(110, 155, 224, 0.09) 1px, transparent 1px);
+  background-size: 16px 16px;
+  border: 1px solid var(--dark-edge);
+  animation: rec-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.rec::before,
+.rec::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+.rec::before {
+  top: 8px;
+  left: 8px;
+  border-top: 2px solid #6e9be0;
+  border-left: 2px solid #6e9be0;
+}
+.rec::after {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 2px solid #6e9be0;
+  border-right: 2px solid #6e9be0;
+}
+.rec-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -80px;
+  z-index: 2;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(110, 155, 224, 0), rgba(110, 155, 224, 0.1), rgba(110, 155, 224, 0));
+  pointer-events: none;
+  animation: rec-scan 7s linear 1.2s infinite;
+}
+
+.rec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  font-family: var(--font-display), var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: #6e9be0;
+}
+.rec-range {
+  color: var(--dark-body);
+}
+.rec-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 12px;
+  margin-left: 7px;
+  vertical-align: -1px;
+  background: #6e9be0;
+  animation: rec-blink 1s steps(1) infinite;
+}
+
+.rec-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-bottom: 16px;
+  background: var(--dark-edge);
+  border: 1px solid var(--dark-edge);
+}
+.rec-stat {
+  position: relative;
+  padding: 18px 16px 14px;
+  background: var(--dark);
+  animation: rec-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(0.25s + var(--i) * 0.12s);
+}
+.rec-stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #6e9be0, rgba(110, 155, 224, 0));
+  transform-origin: left;
+  animation: rec-bar 1.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(0.4s + var(--i) * 0.12s);
+}
+.rec-num {
+  display: flex;
+  align-items: baseline;
+  font-family: var(--font-display), var(--font-mono), monospace;
+  font-size: 40px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.rec-count {
+  --rec-n: var(--to);
+  display: inline-block;
+  min-width: calc(var(--w) * 1ch);
+  counter-reset: rec-n var(--rec-n);
+  animation: rec-count 1.6s cubic-bezier(0.16, 0.84, 0.3, 1) both;
+  animation-delay: calc(0.35s + var(--i) * 0.12s);
+}
+.rec-count::before {
+  content: counter(rec-n);
+}
+.rec-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.rec-unit {
+  margin-left: 5px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--dark-body);
+}
+.rec-label {
+  margin-top: 10px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--dark-body);
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+.rec-line {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rec-line::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 18px;
+  bottom: 22px;
+  width: 1px;
+  background: var(--dark-edge);
+  transform-origin: top;
+  animation: rec-axis 1.1s ease-out 0.6s both;
+}
+.rec-line li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 8px;
+  padding: 11px 0 11px 24px;
+  animation: rec-rise 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(0.7s + var(--i) * 0.14s);
+}
+.rec-line li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 9px;
+  height: 9px;
+  background: var(--dark);
+  border: 1px solid var(--dark-body);
+  transform: rotate(45deg);
+}
+.rec-line li.is-now::before {
+  background: #6e9be0;
+  border-color: #6e9be0;
+  animation: rec-pulse 2.4s ease-out 1.8s infinite;
+}
+.rec-year {
+  padding-top: 1px;
+  font-family: var(--font-display), var(--font-mono), monospace;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--dark-body);
+}
+.rec-title {
+  font-size: 14px;
+  font-weight: 600;
+  word-break: keep-all;
+}
+.rec-desc {
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--dark-body);
+  word-break: keep-all;
+}
+.is-now .rec-year,
+.is-now .rec-title {
+  color: #6e9be0;
+}
+
+@keyframes rec-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+@keyframes rec-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+@keyframes rec-bar {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes rec-axis {
+  from {
+    transform: scaleY(0);
+  }
+}
+@keyframes rec-count {
+  from {
+    --rec-n: 0;
+  }
+  to {
+    --rec-n: var(--to);
+  }
+}
+@keyframes rec-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes rec-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(110, 155, 224, 0.55);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 10px rgba(110, 155, 224, 0);
+  }
+}
+@keyframes rec-scan {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(900px);
+  }
+}
+
+@media (max-width: 640px) {
+  .rec {
+    padding: 22px 18px 12px;
+  }
+  .rec-num {
+    font-size: 34px;
+  }
+}

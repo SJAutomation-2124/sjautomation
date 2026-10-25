@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import EngineeringRecord from '@/components/EngineeringRecord';
 import { PHONE, PHONE_HREF } from '@/lib/contact';
 import type { Metadata } from 'next';
 import { HOME_DESCRIPTION, HOME_TITLE, pageMeta } from '@/lib/seo';
@@ -132,15 +133,7 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div>
-            <div className="photo-frame" style={{ position: 'relative', height: 456 }}>
-              <Image src="/images/line-cutting.jpg" alt="절단기 가공 라인시스템" fill sizes="480px" />
-            </div>
-            <div className="photo-cap">
-              <span>절단기 가공 라인시스템 · 화성 공장</span>
-              <span>FIG. 01</span>
-            </div>
-          </div>
+          <EngineeringRecord />
         </div>
       </section>
 
