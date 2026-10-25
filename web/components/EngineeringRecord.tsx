@@ -12,7 +12,7 @@ const display = Bagel_Fat_One({
 // 대표 엔지니어 개인 경력입니다. 회사(에스제이모션) 실적으로 표기하지 않습니다.
 const STATS = [
   { n: 15, unit: '년+', label: '현장 자동화 개발\n2011년부터' },
-  { n: 5, unit: '년', label: '산업기술 연구소\n제어 기술 개발' },
+  { n: 5, unit: '년', label: '부설 연구소\n제어 기술 개발' },
   { n: 9, unit: '건', label: '특허\n등록 7 · 출원 2' },
   { n: 7, unit: '편', label: 'SCI(E) 국제 논문\n제1저자 3편' },
 ];
