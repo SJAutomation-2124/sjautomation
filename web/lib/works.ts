@@ -148,6 +148,35 @@ export const WORKS: Work[] = [
     result: '도면 치수대로 가공을 마치고 대학교에 납품했습니다.',
   },
   {
+    slug: 'elmo-drive-control-platform',
+    category: '모션 · 제어',
+    title: 'Elmo 드라이버 기반 로봇 제어 플랫폼 · 한양대학교',
+    client: '한양대학교 로봇연구실',
+    img: '/images/works/elmo-platform-wearable.jpg',
+    imgCaption: '제어 플랫폼으로 착용형 로봇의 관절을 구동하는 시험',
+    tech: ['Elmo 서보 드라이브 연동', '제어 하드웨어 구성', '전용 API 클래스 제공', '다축 관절 제어'],
+    summary:
+      'Elmo 서보 드라이브로 로봇 관절을 바로 제어할 수 있도록, 제어 하드웨어와 Elmo 드라이브 전용 API 클래스를 묶은 제어 플랫폼을 한양대학교 로봇연구실에 제공했습니다.',
+    background:
+      '연구실에서는 여러 로봇 장치의 관절을 Elmo 서보 드라이브로 구동해야 했습니다. 드라이브와 통신하고 명령을 주고받는 부분부터 매번 새로 만들면, 정작 연구할 제어 알고리즘보다 하드웨어 연결과 통신 코드에 시간을 더 쓰게 됩니다.',
+    approach:
+      '먼저 Elmo 드라이브와 모터를 제어할 수 있도록 제어 하드웨어를 구성했습니다. 그 위에 Elmo 드라이브와의 통신과 명령을 감싼 전용 API 클래스를 만들어 함께 제공했습니다. 연구원은 드라이브 통신 규격을 하나하나 다루지 않고, 클래스의 함수를 불러 축을 구동하고 상태를 읽어 오면 됩니다.',
+    result:
+      '연구실은 제공한 하드웨어와 API 클래스 위에서 바로 제어 프로그램을 작성해, 아래 영상처럼 로봇 실험 장치와 착용형 로봇의 관절을 구동하고 있습니다.',
+    videos: [
+      {
+        src: '/videos/elmo-platform-wearable.mp4',
+        poster: '/videos/elmo-platform-wearable.jpg',
+        caption: '착용형 로봇 관절 구동 시험',
+      },
+      {
+        src: '/videos/elmo-platform-rig.mp4',
+        poster: '/videos/elmo-platform-rig.jpg',
+        caption: 'Elmo 드라이브로 구동하는 로봇 실험 장치',
+      },
+    ],
+  },
+  {
     slug: 'multi-model-embedded-board',
     category: '모션 · 제어',
     title: '다기종 통합형 임베디드 기판 설계 · 제작 · 펌웨어 통합',

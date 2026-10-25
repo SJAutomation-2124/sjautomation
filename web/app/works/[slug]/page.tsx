@@ -54,6 +54,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
                   fontWeight: 600,
                   letterSpacing: '-0.025em',
                   marginBottom: 20,
+                  wordBreak: 'keep-all',
                 }}
               >
                 {work.title}
@@ -227,7 +228,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
                   </div>
                   <div className="card-body">
                     <span className="tag mono">{w.category}</span>
-                    <h3 style={{ fontSize: 17, fontWeight: 600, lineHeight: 1.5 }}>{w.title}</h3>
+                    <h3 style={{ fontSize: 17, fontWeight: 600, lineHeight: 1.5, wordBreak: 'keep-all' }}>{w.title}</h3>
                   </div>
                 </Link>
               ))}
