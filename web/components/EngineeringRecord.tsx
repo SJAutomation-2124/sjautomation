@@ -1,8 +1,8 @@
-import { Do_Hyeon } from 'next/font/google';
+import { Bagel_Fat_One } from 'next/font/google';
 import type { CSSProperties } from 'react';
 
-// 메인 맨 위 '기술 이력' 패널 전체에 쓰는 만화 제목 느낌 글꼴(도현체)입니다. 굵기는 한 가지뿐입니다.
-const display = Do_Hyeon({
+// 메인 맨 위 '기술 이력' 패널 전체에 쓰는 통통한 카툰 느낌 글꼴(베이글체)입니다. 굵기는 한 가지뿐입니다.
+const display = Bagel_Fat_One({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-display',
