@@ -19,10 +19,9 @@ const STATS = [
 
 // 설명 뒤쪽 묶음은 줄바꿈 때 함께 넘어가도록 붙여 씁니다
 const TIMELINE = [
-  ['2011', '현장 자동화 개발 시작', 'PLC 연동 · HMI · 임베디드 · 자체 RTOS'],
+  ['2011', 'SJ MOTION · 현장 자동화 개발 시작', 'PLC 연동 · HMI · 임베디드 · 자체 RTOS'],
   ['2015', '로봇 · 메카트로닉스 박사과정 · 국책 R&D 6건', '무인 · 원격 유압 모바일 로봇, 보행 보조 로봇, 한미 공동연구'],
   ['2021', '대기업 기업연구소', '필드버스 기반 Advanced Control · 고성능\u00a0·\u00a0고정밀\u00a0솔루션\u00a0R&D\u00a0·\u00a0연구개발상'],
-  ['2026', 'SJ MOTION', '연구소에서 다듬은 모션 제어를 현장 장비로'],
 ];
 
 export default function EngineeringRecord() {
@@ -53,7 +52,7 @@ export default function EngineeringRecord() {
 
         <ol className="rec-line">
           {TIMELINE.map(([year, title, desc], i) => (
-            <li key={year} className={i === TIMELINE.length - 1 ? 'is-now' : undefined} style={{ '--i': i } as CSSProperties}>
+            <li key={year} className={title.startsWith('SJ MOTION') ? 'is-brand' : undefined} style={{ '--i': i } as CSSProperties}>
               <span className="rec-year">{year}</span>
               <div>
                 <div className="rec-title">{title}</div>

@@ -1234,7 +1234,7 @@ h3 {
   border: 1px solid var(--dark-body);
   transform: rotate(45deg);
 }
-.rec-line li.is-now::before {
+.rec-line li.is-brand::before {
   background: #6e9be0;
   border-color: #6e9be0;
   animation: rec-pulse 2.4s ease-out 1.8s infinite;
@@ -1259,8 +1259,8 @@ h3 {
   color: var(--dark-body);
   word-break: keep-all;
 }
-.is-now .rec-year,
-.is-now .rec-title {
+.is-brand .rec-year,
+.is-brand .rec-title {
   color: #6e9be0;
 }
 
