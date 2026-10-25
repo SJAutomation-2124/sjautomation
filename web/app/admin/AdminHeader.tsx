@@ -3,7 +3,7 @@ import { signOut } from './actions';
 
 const TABS = [
   { key: 'inquiries', href: '/admin', label: '견적 문의' },
-  { key: 'notices', href: '/admin/notices', label: '공지사항' },
+  { key: 'notices', href: '/admin/notices', label: '공지 · 칼럼' },
   { key: 'archive', href: '/admin/archive', label: '자료실' },
 ] as const;
 

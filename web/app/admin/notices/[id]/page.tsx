@@ -14,7 +14,7 @@ export default async function EditNoticePage({ params }: { params: Promise<{ id:
   if (!UUID.test(id)) notFound();
   const db = createAdminClient();
   const { data } = db
-    ? await db.from('notices').select('id, title, body, pinned, attachment_name, attachment_size').eq('id', id).maybeSingle()
+    ? await db.from('notices').select('id, category, topic, title, body, pinned, attachment_name, attachment_size').eq('id', id).maybeSingle()
     : { data: null };
   if (!data) notFound();
 
@@ -22,7 +22,7 @@ export default async function EditNoticePage({ params }: { params: Promise<{ id:
     <main className="bp-grid">
       <section className="section" style={{ paddingTop: 48 }}>
         <div className="container" style={{ maxWidth: 1040 }}>
-          <AdminHeader email={user.email} active="notices" title="공지 수정" />
+          <AdminHeader email={user.email} active="notices" title="글 수정" />
           <NoticeForm initial={data} />
         </div>
       </section>

@@ -3,6 +3,7 @@
 import { revalidatePath } from 'next/cache';
 import { adminDb, UUID } from '@/lib/admin-db';
 import type { ActionResult } from '@/lib/inquiry';
+import { COLUMN_TOPICS, MAX_POST_BODY, POST_IMAGE_BUCKET, postImagePaths, type PostType } from '@/lib/posts';
 import { ARCHIVE_CATEGORY_KEYS, MAX_SITE_FILE_BYTES, SITE_FILES_BUCKET } from '@/lib/site-files';
 
 const NEED_LOGIN = '로그인이 필요합니다. 다시 로그인해 주세요.';
@@ -26,6 +27,16 @@ export async function createSiteUpload(
   return { ok: true, path: data.path, token: data.token };
 }
 
+// 본문 중간 사진: 브라우저가 줄이고 사진 정보를 지운 파일을 공개 저장소(post-images)에 바로 올립니다.
+export async function createPostImageUpload(ext: 'webp' | 'jpg'): Promise<ActionResult<{ path: string; token: string }>> {
+  const db = await adminDb();
+  if (!db) return { ok: false, error: NEED_LOGIN };
+  const path = `${new Date().toISOString().slice(0, 7)}/${crypto.randomUUID().replace(/-/g, '').slice(0, 12)}.${ext === 'jpg' ? 'jpg' : 'webp'}`;
+  const { data, error } = await db.storage.from(POST_IMAGE_BUCKET).createSignedUploadUrl(path);
+  if (error || !data) return { ok: false, error: '사진을 올릴 준비를 하지 못했습니다. Supabase에 004_notice_column.sql을 실행했는지 확인해 주세요.' };
+  return { ok: true, path: data.path, token: data.token };
+}
+
 const cleanFile = (f: UploadedFile | null | undefined) =>
   f && FILE_PATH.test(f.path) ? { path: f.path, name: f.name.trim().slice(0, 200) || '첨부파일', size: Math.max(0, Math.round(f.size)) } : null;
 
@@ -38,6 +49,8 @@ function refreshNotices(id?: string) {
 
 export async function saveNotice(input: {
   id?: string;
+  category: PostType;
+  topic: string | null;
   title: string;
   body: string;
   pinned: boolean;
@@ -47,33 +60,40 @@ export async function saveNotice(input: {
   const db = await adminDb();
   if (!db) return { ok: false, error: NEED_LOGIN };
   const title = input.title.trim().slice(0, 200);
-  const body = input.body.trim().slice(0, 20000);
+  const body = input.body.trim().slice(0, MAX_POST_BODY);
   if (!title) return { ok: false, error: '제목을 입력해 주세요.' };
+  const category: PostType = input.category === 'column' ? 'column' : 'notice';
+  const topic = category === 'column' ? (COLUMN_TOPICS as readonly string[]).find((t) => t === input.topic) : null;
+  if (topic === undefined) return { ok: false, error: '칼럼 분류를 골라 주세요.' };
+  // 맨 위 고정은 공지에만 씁니다
+  const fields = { category, topic, title, body, pinned: category === 'notice' && input.pinned };
   const file = cleanFile(input.attachment);
 
   if (input.id) {
     if (!UUID.test(input.id)) return { ok: false, error: '잘못된 공지입니다.' };
-    const { data: prev } = await db.from('notices').select('attachment_path').eq('id', input.id).maybeSingle();
+    const { data: prev } = await db.from('notices').select('attachment_path, body').eq('id', input.id).maybeSingle();
     const replace = Boolean(file) || Boolean(input.removeAttachment);
     const { error } = await db
       .from('notices')
       .update({
-        title,
-        body,
-        pinned: input.pinned,
+        ...fields,
         updated_at: new Date().toISOString(),
         ...(replace ? { attachment_path: file?.path ?? null, attachment_name: file?.name ?? null, attachment_size: file?.size ?? null } : {}),
       })
       .eq('id', input.id);
     if (error) return { ok: false, error: '저장하지 못했습니다.' };
     if (replace && prev?.attachment_path) await db.storage.from(SITE_FILES_BUCKET).remove([prev.attachment_path]);
+    // 본문에서 뺀 사진은 저장소에서도 지웁니다
+    const kept = new Set(postImagePaths(body));
+    const dropped = postImagePaths(prev?.body ?? '').filter((p) => !kept.has(p));
+    if (dropped.length) await db.storage.from(POST_IMAGE_BUCKET).remove(dropped);
     refreshNotices(input.id);
     return { ok: true, id: input.id };
   }
 
   const { data, error } = await db
     .from('notices')
-    .insert({ title, body, pinned: input.pinned, attachment_path: file?.path ?? null, attachment_name: file?.name ?? null, attachment_size: file?.size ?? null })
+    .insert({ ...fields, attachment_path: file?.path ?? null, attachment_name: file?.name ?? null, attachment_size: file?.size ?? null })
     .select('id')
     .single();
   if (error || !data) return { ok: false, error: '저장하지 못했습니다.' };
@@ -84,10 +104,12 @@ export async function saveNotice(input: {
 export async function deleteNotice(id: string): Promise<ActionResult> {
   const db = await adminDb();
   if (!db || !UUID.test(id)) return { ok: false, error: NEED_LOGIN };
-  const { data } = await db.from('notices').select('attachment_path').eq('id', id).maybeSingle();
-  if (data?.attachment_path) await db.storage.from(SITE_FILES_BUCKET).remove([data.attachment_path]);
+  const { data } = await db.from('notices').select('attachment_path, body').eq('id', id).maybeSingle();
   const { error } = await db.from('notices').delete().eq('id', id);
   if (error) return { ok: false, error: '삭제하지 못했습니다.' };
+  if (data?.attachment_path) await db.storage.from(SITE_FILES_BUCKET).remove([data.attachment_path]);
+  const images = postImagePaths(data?.body ?? '');
+  if (images.length) await db.storage.from(POST_IMAGE_BUCKET).remove(images);
   refreshNotices(id);
   return { ok: true };
 }

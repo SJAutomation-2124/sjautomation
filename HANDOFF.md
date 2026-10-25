@@ -18,7 +18,7 @@
 | 서체 | IBM Plex Sans KR (본문) / IBM Plex Mono (라벨·숫자) |
 | 로고 | 인장형 — 작은 원 안에 금색 학사모 + SJ(IBM Plex Serif Bold), 두 원 사이 위쪽에 "SJ AUTOMATION · ROBOTICS · SMART FACTORY", 아래쪽에 기어가는 로봇 크레스티드 게코 (2026-10-10 확정, 7차 시안). 상호 변경 후에도 로고는 그대로 두기로 함(둘레 글씨 SJ AUTOMATION 유지). 파일: `web/public/brand/` (어두운 바탕용 · 흰 바탕용 SVG/PNG, 작은 마크). 글자는 외곽선이라 글꼴 없이도 똑같이 보임. 파비콘 `web/app/icon.svg` · `apple-icon.png` |
 | 스택 | Next.js 15 + Vercel(무료 배포) + Supabase(무료 DB) |
-| 구성 | 메인 / 회사소개 / 사업분야 / 실적사례(목록·상세) / 자료실 / 공지사항(목록·상세) / 문의(비공개 폼 + 공개 게시판) |
+| 구성 | 메인 / 회사소개 / 사업분야 / 실적사례(목록·상세) / 자료실 / 공지 · 칼럼(목록·상세) / 문의(비공개 폼 + 공개 게시판) |
 | 예상 비용 | 도메인만 연 1.3~1.8만원, 서버비 0원 |
 
 **도메인이 왜 sjautosolution.com인지**: sjautomation.com/.net/.co.kr/.kr, sj-automation.com,
@@ -79,7 +79,15 @@ sjrobotics.com이 전부 타사(경기 화성의 "삼정오토메이션" 등)가
   - 파일은 비공개 저장소 site-files, 내려받을 때 /archive/download/[id] · /notice/[id]/download 가 60초 링크로 보냄
   - 홈 공지 칸에 최신 3개 자동 표시. DB 구조: `web/supabase/003_notice_archive.sql`
   - 주의: supabase-js `createSignedUrl(..., { download: 이름 })`은 한글 파일명을 두 번 인코딩함 → `withDownloadName()`(lib/site-files.ts)로 직접 붙임
-  - 자료실은 다운로드 전용(사진도 "받기"로만 보임). 사진을 화면에 보이려면 공지 첨부(JPG · PNG · WEBP · GIF)
+  - 자료실은 다운로드 전용(사진도 "받기"로만 보임). 사진을 화면에 보이려면 공지 · 칼럼 본문의 '사진 넣기'
+- **공지사항 → 공지 · 칼럼** (2026-10-25, 사장님 요청: 잡다한 얘기 · 사설 · 이론 글을 올릴 곳)
+  - 게시판 하나(표 이름은 그대로 notices)에 분류 category(notice 공지 / column 칼럼) · 칼럼 소분류 topic(기술 이론 / 현장 이야기 / 생각) 추가.
+    DB 변경: `web/supabase/004_notice_column.sql` (2026-10-25 사장님이 실행함). 메뉴 · 관리자 탭 이름 "공지 · 칼럼", 주소는 /notice 그대로
+  - 공개 /notice: [전체 | 공지 | 칼럼] 탭(?type=notice|column), 칼럼 탭은 소분류(?topic=) + 가로 목록형(글 왼쪽 · 본문 첫 사진 오른쪽, 사진 없으면 어두운 판에 소분류). 시안 3개 중 2번을 고르심
+  - 칼럼 글쓴이 표기는 "대표 엔지니어"(이름 비공개, `lib/posts.ts` COLUMN_AUTHOR). 맨 위 고정은 공지만. 이전 · 다음 글은 같은 분류끼리
+  - 본문 표기(관리자 글쓰기 버튼이 넣어 줌): `## 소제목`, `**굵게**`, 사진 한 줄 `![설명](2026-10/0a1b2c3d4e5f.webp)`, https 주소는 자동 링크. 그리는 곳은 `components/PostBody.tsx`, 관리자 미리보기도 같은 것을 씀
+  - 본문 사진: 브라우저가 긴 변 1800px WEBP(안 되면 JPG)로 다시 저장해 촬영 위치 등 사진 정보를 지운 뒤 공개 저장소 post-images(장당 5MB)에 바로 올림(`app/admin/notices/postImage.ts`).
+    글을 고쳐 사진 줄을 빼거나 글을 지우면 저장소에서도 지움. 검색 공유 카드 이미지는 본문 첫 사진
 - 개인정보처리방침 `/privacy` (2026-10-09 시행, 위탁: Vercel · Supabase · Resend / 국외 이전: Vercel · Resend 미국). 수탁 업체나 보유 기간이 바뀌면 이 페이지도 고칠 것
 - 이용약관(`/terms`)은 만들지 않기로 함 (하단 링크도 뺐음)
 

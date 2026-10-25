@@ -53,14 +53,14 @@ const RECENT_WORKS = ['excavator-teleop', 'cnc-retrofit', 'press-brake-scada'].m
   (slug) => WORKS.find((w) => w.slug === slug)!,
 );
 
-// 최신 공지 · 자료 수를 보여주므로 5분마다 새로 만들고, 관리자 화면에서 글을 바꾸면 바로 갱신합니다.
+// 최신 공지 · 칼럼과 자료 수를 보여주므로 5분마다 새로 만들고, 관리자 화면에서 글을 바꾸면 바로 갱신합니다.
 export const revalidate = 300;
 
 async function getHomeBoards() {
   const db = createAdminClient();
   if (!db) return { notices: [], files: 0 };
   const [{ data }, { count }] = await Promise.all([
-    db.from('notices').select('id, title, created_at, pinned').order('pinned', { ascending: false }).order('created_at', { ascending: false }).limit(3),
+    db.from('notices').select('id, title, created_at, pinned, category').order('pinned', { ascending: false }).order('created_at', { ascending: false }).limit(3),
     db.from('archive_files').select('id', { count: 'exact', head: true }),
   ]);
   return { notices: data ?? [], files: count ?? 0 };
@@ -301,18 +301,18 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 공지사항 + 자료실 */}
+      {/* 공지 · 칼럼 + 자료실 */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container grid grid-2" style={{ alignItems: 'start' }}>
           <div className="card" style={{ padding: '36px 36px 30px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 24 }}>
-              <h3 style={{ fontSize: 20, fontWeight: 600 }}>공지사항</h3>
+              <h3 style={{ fontSize: 20, fontWeight: 600 }}>공지 · 칼럼</h3>
               <Link href="/notice" className="mono" style={{ fontSize: 11, letterSpacing: '0.1em', color: 'var(--faint)' }}>
                 MORE +
               </Link>
             </div>
             {notices.length === 0 ? (
-              <p style={{ fontSize: 14, color: 'var(--faint)' }}>등록된 공지가 아직 없습니다.</p>
+              <p style={{ fontSize: 14, color: 'var(--faint)' }}>등록된 글이 아직 없습니다.</p>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {notices.map((n) => (
@@ -323,6 +323,7 @@ export default async function HomePage() {
                   >
                     <span style={{ fontSize: 15, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontWeight: n.pinned ? 600 : 400 }}>
                       {n.pinned && <span style={{ color: 'var(--accent)' }}>[공지] </span>}
+                      {n.category === 'column' && <span style={{ color: 'var(--accent)' }}>[칼럼] </span>}
                       {n.title}
                     </span>
                     <span className="mono" style={{ fontSize: 12, color: 'var(--faint)', flexShrink: 0 }}>
