@@ -1,6 +1,5 @@
 'use server';
 
-import { EMAIL } from '@/lib/contact';
 import { revalidatePath } from 'next/cache';
 import {
   INQUIRY_BUCKET,
@@ -12,6 +11,7 @@ import {
 } from '@/lib/inquiry';
 import { hashPassword, verifyPassword } from '@/lib/password';
 import { createAdminClient } from '@/lib/supabase-admin';
+import { OWNER_EMAIL } from '@/lib/supabase-server';
 
 const UNAVAILABLE = '지금은 온라인 접수를 받을 수 없습니다. 전화나 이메일로 문의해 주세요.';
 const ATTACHMENT_PATH = /^\d{4}-\d{2}-\d{2}\/[0-9a-f-]{36}\.[a-z0-9]{1,10}$/;
@@ -153,7 +153,7 @@ async function notify(n: Notice) {
     headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       from: '에스제이모션 홈페이지 <onboarding@resend.dev>',
-      to: [EMAIL],
+      to: [OWNER_EMAIL],
       reply_to: n.email,
       subject: `[홈페이지 문의] ${n.title} — ${n.company} · ${n.name}`,
       html,
