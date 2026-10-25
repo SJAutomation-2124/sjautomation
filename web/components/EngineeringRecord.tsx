@@ -1,8 +1,8 @@
-import { Bagel_Fat_One } from 'next/font/google';
+import { Gugi } from 'next/font/google';
 import type { CSSProperties } from 'react';
 
-// 메인 맨 위 '기술 이력' 패널 전체에 쓰는 통통한 카툰 느낌 글꼴(베이글체)입니다. 굵기는 한 가지뿐입니다.
-const display = Bagel_Fat_One({
+// 메인 맨 위 '기술 이력' 패널 전체에 쓰는 애니 타이틀 느낌 글꼴(구기체)입니다. 굵기는 한 가지뿐입니다.
+const display = Gugi({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-display',
@@ -19,7 +19,7 @@ const STATS = [
 
 // 설명 뒤쪽 묶음은 줄바꿈 때 함께 넘어가도록 붙여 씁니다
 const TIMELINE = [
-  ['2011', 'SJ MOTION · 현장 자동화 개발 시작', 'PLC 연동 · HMI · 임베디드 · 자체 RTOS'],
+  ['2011', 'SJ MOTION · 현장\u00a0자동화\u00a0개발\u00a0시작', 'PLC 연동 · HMI · 임베디드\u00a0·\u00a0자체\u00a0RTOS'],
   ['2015', '로봇 · 메카트로닉스 박사과정 · 국책\u00a0R&D\u00a06건', '무인 · 원격 유압 모바일 로봇, 보행 보조 로봇, 한미 공동연구'],
   ['2021', '전문기술 · 산업기술 연구소', '필드버스 기반 Advanced Control · 고성능\u00a0·\u00a0고정밀\u00a0솔루션\u00a0R&D\u00a0·\u00a0연구개발상'],
 ];
