@@ -127,7 +127,8 @@ export default async function HomePage() {
                 color: 'var(--faint)',
               }}
             >
-              KUKA · YASKAWA · HYUNDAI ROBOTICS　/　LS · MITSUBISHI · BECKHOFF · OMRON · ACS · ELMO
+              {/* 뒤쪽 브랜드는 줄바꿈 때 함께 넘어가도록 붙여 씁니다 */}
+              {'KUKA · YASKAWA · HYUNDAI ROBOTICS　/　LS · MITSUBISHI · BECKHOFF · OMRON(DELTA TAU) · ACS · ELMO'}
             </div>
           </div>
 
@@ -236,7 +237,7 @@ export default async function HomePage() {
             {[
               { label: '가공 설비', items: ['절곡기', '절단기', '대형 프레나', '선반', '밀링', 'NC 가공'] },
               { label: '로봇', items: ['KUKA', 'YASKAWA', 'HYUNDAI'] },
-              { label: 'PLC / 제어', items: ['LS ELECTRIC', 'MITSUBISHI', 'BECKHOFF', 'OMRON', 'ACS MOTION', 'ELMO'] },
+              { label: 'PLC / 제어', items: ['LS ELECTRIC', 'MITSUBISHI', 'BECKHOFF', 'OMRON(델타타우, DELTA TAU 포함)', 'ACS MOTION', 'ELMO'] },
               { label: '임베디드', items: ['ARM 기반 커스텀 보드', '고속 IO 계측 모듈'] },
               { label: '소프트웨어 (HMI · 전산 · 관제)', items: ['C# / JAVA', '파이썬', '파워빌더', 'Oracle DB'] },
             ].map((row, i, all) => (

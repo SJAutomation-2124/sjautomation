@@ -54,7 +54,7 @@ const AREAS = [
     fields: [
       ['PLC / HMI', '시퀀스 제어 · IO 솔루션'],
       ['서보', '서보 제어 · 튜닝'],
-      ['PLC · 제어 브랜드', 'LS ELECTRIC / MITSUBISHI / BECKHOFF / OMRON'],
+      ['PLC · 제어 브랜드', 'LS ELECTRIC / MITSUBISHI / BECKHOFF / OMRON(델타타우, Delta Tau 포함)'],
       ['모션 제어기', 'ACS Motion Control / Elmo'],
       ['임베디드', 'ARM 기반 커스텀 보드'],
       ['제공 방식', '제어기 판매가 아닌 적용 솔루션 — 선정 · 프로그램 · 튜닝 · 시운전'],
