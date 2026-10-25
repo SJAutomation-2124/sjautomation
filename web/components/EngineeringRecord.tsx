@@ -1,8 +1,8 @@
-import { Gugi } from 'next/font/google';
+import { Jua } from 'next/font/google';
 import type { CSSProperties } from 'react';
 
-// 메인 맨 위 '기술 이력' 패널 전체에 쓰는 애니 타이틀 느낌 글꼴(구기체)입니다. 굵기는 한 가지뿐입니다.
-const display = Gugi({
+// 메인 맨 위 '기술 이력' 패널 전체에 쓰는 둥근 만화 느낌 글꼴(주아체)입니다. 굵기는 한 가지뿐입니다.
+const display = Jua({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-display',
