@@ -49,7 +49,7 @@ const BUSINESS_AREAS = [
   },
 ];
 
-const RECENT_WORKS = ['excavator-teleop', 'cnc-retrofit', 'press-brake-scada'].map(
+const RECENT_WORKS = ['cnc-milling-dnc-transmitter', 'cnc-retrofit', 'press-brake-scada'].map(
   (slug) => WORKS.find((w) => w.slug === slug)!,
 );
 
@@ -293,7 +293,7 @@ export default async function HomePage() {
                 </div>
                 <div className="card-body">
                   <span className="tag mono">{work.category}</span>
-                  <h3 style={{ fontSize: 20, fontWeight: 600, letterSpacing: '-0.01em' }}>{work.title}</h3>
+                  <h3 style={{ fontSize: 20, fontWeight: 600, letterSpacing: '-0.01em', wordBreak: 'keep-all' }}>{work.title}</h3>
                 </div>
               </Link>
             ))}
