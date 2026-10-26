@@ -216,6 +216,34 @@ export const WORKS: Work[] = [
     result: '응답 타이밍을 감이 아니라 측정 파형으로 확인한 뒤 납품했습니다.',
   },
   {
+    slug: 'cnc-milling-dnc-transmitter',
+    category: '모션 · 제어',
+    title: '1999년식 화천기계 CNC 밀링 DNC 전송기',
+    client: '선경오토',
+    img: '/images/works/dnc-transmitter-main.jpg',
+    imgCaption: 'DNC 전송기 메인 화면 — 불러온 프로그램, CNC 통신 설정, PC → 전송기 → FANUC CNC 연결',
+    tech: ['FANUC CNC 시리얼 통신', 'DNC 프로그램 전송', 'DC1 · DC3 흐름 제어', '임베디드 컨트롤러 · 전용 화면', '통신 진단 · 루프백 시험'],
+    summary:
+      '1999년식 화천기계 CNC 밀링의 FANUC 컨트롤러에 시리얼 통신으로 연결해, PC에서 받은 가공 프로그램을 저장해 두었다가 장비로 보내 주는 DNC 전송기를 만들어 선경오토에 납품했습니다.',
+    background:
+      '1999년식 화천기계 CNC 밀링은 요즘 장비처럼 USB나 네트워크로 가공 프로그램을 넣을 수 없어, 시리얼 포트로 프로그램을 주고받아야 합니다. 컨트롤러 메모리도 넉넉하지 않아, PC에서 만든 프로그램을 장비로 옮기려면 CNC의 통신 규격(속도, 데이터 형식, 흐름 제어)에 맞춰 보내 주는 장치가 필요했습니다.',
+    approach:
+      'PC와 CNC 사이에 두는 전용 DNC 전송기를 만들었습니다. PC에서 G코드 작업 프로그램이나 일반 터미널로 .nc 파일을 보내면 전송기가 115200 bps로 받아 자동으로 저장하고, 프로그램은 최대 16개(약 510 KB)까지 전송기 안에 보관됩니다. CNC로 보낼 때는 장비 I/O 채널 설정에 맞춘 속도와 데이터 형식(기본 9600 bps · 7E2)을 쓰고, CNC가 DC1 신호로 받을 준비가 됐다고 알리면 전송을 시작합니다. CNC 버퍼가 차서 DC3 신호가 오면 멈췄다가 다시 DC1이 오면 이어서 보내, CNC가 받는 속도에 맞춰 긴 프로그램도 흘려보낼 수 있습니다. 통신 속도 · 데이터 형식 · DC1 기다림 · CR 빼고 보내기는 설정 화면에서 바꾸고, 진단 화면에서는 주고받은 바이트 수와 오버런 · 프레이밍 · 패리티 오류, DC1~DC4 수신 횟수를 세어 보여 줍니다. 케이블 끝의 송신(TX) · 수신(RX) 선을 묶고 루프백 시험을 돌리면 케이블과 포트 상태도 바로 확인할 수 있고, 전원을 켤 때마다 작업 · 설정 · 프로그램 메모리를 스스로 점검합니다.',
+    result:
+      '작업자는 PC에서 프로그램을 보내 두고, 장비 앞에서 키패드로 골라 CNC로 보내기만 하면 됩니다. 통신이 안 될 때도 진단 화면에서 설정 문제인지 케이블 문제인지 바로 가릴 수 있어, 1999년식 장비를 바꾸지 않고도 PC에서 만든 가공 프로그램을 계속 넣어 쓸 수 있게 되었습니다. 아래 영상은 전송기를 켜고 받기 · 목록 · 설정 · 진단 화면을 차례로 둘러보는 모습입니다.',
+    gallery: [
+      { src: '/images/works/dnc-transmitter-receive.jpg', caption: 'PC에서 받기 화면 — PC(115200 bps · 8N1)에서 보낸 프로그램을 자동으로 받아 저장' },
+      { src: '/images/works/dnc-transmitter-diagnostics.jpg', caption: '진단 화면 — 통신 오류 · DC1~DC4 카운터와 케이블 루프백 시험' },
+    ],
+    videos: [
+      {
+        src: '/videos/dnc-transmitter-run.mp4',
+        poster: '/videos/dnc-transmitter-run.jpg',
+        caption: '전원 투입 · 자체 점검 → PC에서 받기 · 프로그램 목록 · 설정 · 진단 화면',
+      },
+    ],
+  },
+  {
     slug: 'servo-tuner-hmi',
     category: '모션 · 제어',
     title: '서보 튜닝기 HMI 솔루션',
